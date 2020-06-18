@@ -18,10 +18,10 @@
 
 ### Overview
 
-**aMDB**<br>
-https://unruffled-curran-775cfe.netlify.app/
+**Yummy Dish**<br>
+some link goes here
 
-**aMDB** is a TV and movie database single page application that allows users to search for a show and see its ratings, reviews, summary, and other details. It also offers lists for what is trending in certain categories and by specific time frames, and a suggestion feature for when you can't decide what to watch.
+**Yummy Dish** is a recipe app.
 
 <br>
 
@@ -64,7 +64,7 @@ aMDB will offer search functionality to find details about the requested movie o
 
 <br>
 
-#### Data
+#### Models
 
 |    API     | Quality Docs? | Website          | Sample Query                                       |
 | :--------: | :-----------: | :--------------- | :------------------------------------------------- |
@@ -72,46 +72,7 @@ aMDB will offer search functionality to find details about the requested movie o
 | theMovieDB |      yes      | _themoviedb.org_ | _https://api.themoviedb.org/3/trending/all/week_   |
 
 ```
-{
-    "Title": "Avatar",
-    "Year": "2009",
-    "Rated": "PG-13",
-    "Released": "18 Dec 2009",
-    "Runtime": "162 min",
-    "Genre": "Action, Adventure, Fantasy, Sci-Fi",
-    "Director": "James Cameron",
-    "Writer": "James Cameron",
-    "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
-    "Plot": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
-    "Language": "English, Spanish",
-    "Country": "USA",
-    "Awards": "Won 3 Oscars. Another 86 wins & 129 nominations.",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
-    "Ratings": [
-        {
-            "Source": "Internet Movie Database",
-            "Value": "7.8/10"
-        },
-        {
-            "Source": "Rotten Tomatoes",
-            "Value": "82%"
-        },
-        {
-            "Source": "Metacritic",
-            "Value": "83/100"
-        }
-    ],
-    "Metascore": "83",
-    "imdbRating": "7.8",
-    "imdbVotes": "1,091,877",
-    "imdbID": "tt0499549",
-    "Type": "movie",
-    "DVD": "N/A",
-    "BoxOffice": "N/A",
-    "Production": "N/A",
-    "Website": "N/A",
-    "Response": "True"
-}
+model info here
 ```
 
 <br>
