@@ -4,6 +4,7 @@ const cors = require('cors')
 const logger = require('morgan')
 const db = require('./db/connections')
 const usersRoutes = require('./routes/users')
+const recipesRoutes = require('./routes/recipes')
 
 const PORT = process.env.PORT || 5000
 
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/users', usersRoutes)
+app.use('/api/recipes', recipesRoutes)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
 app.listen(PORT)
