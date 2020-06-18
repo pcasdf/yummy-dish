@@ -28,11 +28,9 @@
   "devDependencies": {
     "nodemon": "^2.0.4"
   },
-
   "prettier": {
     "singleQuote": true,
     "semi": true,
     "trailingComma": "none"
   }
 }
-
