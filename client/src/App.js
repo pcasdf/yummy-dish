@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Homepage from './pages/homepage/homepage.component';
+import searchComponent from './pages/search/search.component';
 import Bookmarks from './pages/bookmarks/bookmarks.component';
 import Account from './pages/account/account.component';
 import RecipeDetail from './pages/recipe/recipe.component';
