@@ -4,14 +4,17 @@ import { Route, Switch } from 'react-router-dom';
 import Homepage from './pages/homepage/homepage.component';
 import Bookmarks from './pages/bookmarks/bookmarks.component';
 import Account from './pages/account/account.component';
+import RecipeDetail from './pages/recipe/recipe.component';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route path="/bookmarks" component={Bookmarks} />
-        <Route exact path="/" component={Account} />
+        <Route exact path="/login" component={Account} />
+        
+        <Route path='/recipe/:id' component={RecipeDetail} />
       </Switch>
     </div>
   );

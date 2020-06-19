@@ -1,12 +1,5 @@
-import React from 'react'
-import Account from '../account/account.component'
+import React from 'react';
 
-export default function Homepage() {
-  return (
-    <div>
-      <h1>hello</h1>
+const Homepage = () => <div>Homepage</div>;
 
-      <Account/>
-    </div>
-  )
-}
+export default Homepage;
