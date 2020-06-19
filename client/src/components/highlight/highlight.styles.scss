@@ -1,0 +1,35 @@
+.RecipeRender {
+  padding-bottom: 30px;
+  img {
+    width: 30em;
+    height: 20em;
+    padding: 54.7px 30px 8px;
+  }
+  span {
+    width: inherit;
+    overflow: hidden;
+    font-family: Raleway;
+    font-size: 30px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    color: #000000;
+  }
+}
+.RecipeRender:hover {
+  img {
+    // opacity: 0.5;
+  }
+}
+
+.RecipeRender {
+}
+.RecipeRender:hover {
+  img {
+    cursor: pointer;
+  transform: scale(1.05);
+  transition: transform .5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+  }
+}
