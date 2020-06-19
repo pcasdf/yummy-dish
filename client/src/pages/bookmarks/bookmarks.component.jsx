@@ -8,7 +8,7 @@ const Bookmarks = () => {
     <>
       <Header>My Recipes</Header>
       <Tabs>Snacks</Tabs>
-      <Tabs>Desserts</Tabs>
+      <Tabs>Dessert</Tabs>
       <Tabs>For Party</Tabs>
       <Tabs>Dinner Date</Tabs>
       <Footer />
