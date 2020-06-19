@@ -4,8 +4,8 @@
   background-color: #CBF3F0;
   // background-size: auto;
   position: absolute;
-  top: 8.063em;
-  bottom: 8.063em;
+  // top: 8.063em;
+  // bottom: 8.063em;
   
 }
 
@@ -74,9 +74,10 @@
   overflow: scroll;
   justify-content: space-between;
   align-content: flex-start;
+  text-align: center;
 }
-.image {
-  width: 18.5625em;
-  height: 18.5625em;
 
-}
+// .image {
+//   width: 18.5625em;
+//   height: 18.5625em;
+// }

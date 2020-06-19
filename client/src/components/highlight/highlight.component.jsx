@@ -1,5 +1,6 @@
 import React from 'react'
- 
+import '../highlight/highlight.styles.scss'
+
 function Highlight(props) {
   return (
     <div className="RecipeRender">
