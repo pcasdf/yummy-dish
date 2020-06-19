@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import { ReactComponent as Icon } from '../../assets/star.svg';
-import Clock from '../../components/clock/clock.component';
 import details from '../../data/details-1.json';
 import './recipe.styles.scss';
 
@@ -23,27 +22,28 @@ const RecipeDetail = () => {
 
   return (
     <div className='recipe-detail'>
-      <Clock hours='9' minutes='15' className='clock' />
       <div className='header' style={{ backgroundImage: `url(${image})` }} />
       <div className='body'>
         <div className='info'>
-          <div className='title label'>{title}</div>
+          <span className='title'>{title}</span>
           <div className='duration'>
-            Duration
+            <span>10 MIN</span>
+            <span>Easy</span>
             <Icon className='icon' />
+            <span>$$$</span>
           </div>
           <div className='instructions'>
-            <div className='ingredients'>
-              <span className='label'>YOU WILL NEED:</span>
+            <div>
+              <span>YOU WILL NEED:</span>
               <ul className='ingredient-list'>
                 {extendedIngredients.map(({ original }, idx) => (
                   <li key={idx}>{original}</li>
                 ))}
               </ul>
             </div>
-            <div className='directions'>
-              <span className='label'>DIRECTIONS:</span>
-              <ol className='direction-list'>
+            <div>
+              <span>DIRECTIONS:</span>
+              <ol>
                 {analyzedInstructions[0].steps.map(({ step }, idx) => (
                   <li key={idx}>{step}</li>
                 ))}
@@ -53,7 +53,10 @@ const RecipeDetail = () => {
         </div>
         <div className='story'>
           <span className='label'>STORY</span>
-          <span className='summary'>{summary}</span>
+          <div
+            className='summary'
+            dangerouslySetInnerHTML={{ __html: summary }}
+          />
         </div>
       </div>
       <div className='reviews'>
