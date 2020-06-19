@@ -10,6 +10,10 @@
     background-size: cover;
   }
 
+  .tabs {
+    display: none;
+  }
+
   span {
     font-family: Raleway;
     font-weight: bold;
@@ -114,6 +118,19 @@
       background-size: cover;
     }
 
+    .tabs {
+      display: flex;
+      justify-content: flex-start;
+      position: absolute;
+      top: 270px;
+
+      span {
+        width: 20vw;
+        background: #effbfa;
+        padding: 10px 20px;
+      }
+    }
+
     span {
       font-family: Raleway;
       font-weight: bold;
@@ -195,7 +212,7 @@
     }
 
     .reviews {
-      width: 90%;
+      width: 100%;
       background: #d8f2f0;
       height: 300px;
       display: flex;
