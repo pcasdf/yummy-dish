@@ -1,0 +1,82 @@
+.Background {
+  width: 100vw;
+  height: 100vh;
+  background-color: #CBF3F0;
+  // background-size: auto;
+  position: absolute;
+  top: 8.063em;
+  bottom: 8.063em;
+  
+}
+
+.Welcome-to-Yummy-Dish-Your-place-to-find-Quick-S {
+  padding-top: 1.4375em;
+  // padding-left: 2em;
+  // padding-right: 2.25em;
+  padding-bottom: 0;
+  width: 100%;
+  height: 6.75em;
+  align-content: center;
+
+  font-family: Karma;
+  font-size: 2.25em;
+ text-align: center;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.01875em;
+  color: #000000;
+}
+
+.snacks {
+  // width: 90em;
+  // height: 16.375em;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background-color: #effbfa;
+}
+.snacks {
+  // width: 90em;
+  // height: 26.6875em;
+  box-shadow: 0 0.25em 0.25em 0 rgba(0, 0, 0, 0.25);
+  background-color: #effbfa;
+}
+.Rectangle-110 {
+  margin: 0 auto;
+  width: 379px;
+  height: 75px;
+  border-radius: 5px;
+  padding-bottom: 25px;
+}
+.See-My-Recipe-Box {
+  background-color: #fec368;
+  padding: 0;
+  border-radius: 0.3125em;
+  border: none;
+  margin: 0;
+  box-shadow: 0 0.25em 0.25em 0 rgba(0, 0, 0, 0.25);
+  width: 379px;
+  height: 75px;
+  font-family: Raleway !important;
+  font-size: 1.75em;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.01875em;
+  color: #000000;
+}
+
+.snacksFlexbox {
+  display: flex;
+  width: 100vw;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+.image {
+  width: 18.5625em;
+  height: 18.5625em;
+
+}
