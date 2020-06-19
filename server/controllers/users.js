@@ -11,10 +11,9 @@ const createUser = async (req, res) => {
   }
 };
 
-
 const getUsers = async (req, res) => {
   try {
-    const users = await User.find()
+    const users = await User.find();
     res.status(201).json(users);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -23,45 +22,42 @@ const getUsers = async (req, res) => {
 
 const getUser = async (req, res) => {
   try {
-    const { id } = req.params
-    let user
+    const { id } = req.params;
+    let user;
     if (isValidObjectId(id)) {
-      user = await User.findById(id)
-      res.json(user)
-    } else
-    res.status(404).json({ message: 'Could not find user.' });
+      user = await User.findById(id);
+      res.json(user);
+    } else res.status(404).json({ message: 'Could not find user.' });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
 const updateUser = async (req, res) => {
-  const { id } = req.params
+  const { id } = req.params;
   await User.findByIdAndUpdate(id, req.body, { new: true }, (error, user) => {
     if (error) {
-      return res.status(500).json({ error: error.message })
+      return res.status(500).json({ error: error.message });
     }
     if (!user) {
-      return res.status(404).json({ message: "User not found" })
+      return res.status(404).json({ message: 'User not found' });
     }
-    res.status(200).json(user)
-  })
-}
+    res.status(200).json(user);
+  });
+};
 
 const deleteUser = async (req, res) => {
   try {
-    const { id } = req.params
-    const deleted = await User.findByIdAndDelete(id)
+    const { id } = req.params;
+    const deleted = await User.findByIdAndDelete(id);
     if (deleted) {
-      return res.status(200).send("User deleted!")
+      return res.status(200).send('User deleted!');
     }
-    res.status(404).json({ message: "Could not find user!" })
+    res.status(404).json({ message: 'Could not find user!' });
   } catch (error) {
-    res.status(500).json({ error: error.message })
+    res.status(500).json({ error: error.message });
   }
-}
-
-
+};
 
 module.exports = {
   createUser,
