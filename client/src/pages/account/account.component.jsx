@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { createUser } from '../../services/users'
-import { useHistory } from 'react-router-dom';
+import './account.styles.scss'
 
 
  
@@ -60,8 +60,11 @@ const Account = () => {
 
   return (
     
-    <div>
-          <button onClick={handleSignup}>Signup</button>
+    <div className="forms">
+      <div className="no-account">
+        <h4>No account?</h4>
+        </div>
+          <button onClick={handleSignup} className="signup-button">Signup</button>
 
       {signup &&  
       
@@ -69,7 +72,7 @@ const Account = () => {
         <input name="fullName" placeholder="Your name" type="text" value={input.fullName} onChange={handleNewChange} />
         <input name="signupEmail" placeholder="email" type="text" value={input.signupEmail} onChange={handleNewChange} />
         <input name="signupPassword" placeholder="password" type="password" value={input.signupPassword} onChange={handleNewChange} />
-        <button>Login</button>
+        <button className="login">Signup</button>
       </form>
    
     }
@@ -77,7 +80,7 @@ const Account = () => {
         <form onSubmit={handleSubmit}>
           <input name="email" placeholder="email" type="text" value={input.email} onChange={handleChange}/>
           <input name="password" placeholder="password" type="password" value={input.password} onChange={handleChange}/>
-          <button>Login</button>
+          <button className="login">Login</button>
         </form>
       </div>
     )

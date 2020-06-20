@@ -47,32 +47,3 @@ export const deleteUser = async id => {
   }
 }
 
-
-// export const signInUser = async (user, prevToken) => {
-//   try {
-//     if (user) {
-//       const auth = await api.post(`/auth`, user)
-//       const token = auth.data.token
-
-//       localStorage.setItem('jwt-token', JSON.stringify(token));
-
-//       const response = await api.get(`/auth`, {
-//         headers: {
-//           'jwt-token': token
-//         }
-//       })
-
-//       return response.data;
-//     } else {
-//       const response = await api.get(`/auth`, {
-//         headers: {
-//           'jwt-token': prevToken
-//         }
-//       })
-
-//       return response.data;
-//     }
-//   } catch (error) {
-//     throw error
-//   }
-// }

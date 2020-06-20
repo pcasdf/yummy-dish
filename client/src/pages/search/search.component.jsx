@@ -1,8 +1,8 @@
 
 
 import React, { useState, useEffect } from "react";
-import detailsJSON from "./data/details-1.json"
-import recipesJSON from "./data/recipes-1.json"
+import detailsJSON from "../../data/details-1.json"
+import recipesJSON from "../../data/recipes-1.json"
 import TagsInput from './TagsInput';
 
 
