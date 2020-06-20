@@ -1,49 +1,54 @@
-
-
 import api from './apiConfig';
 
 export const getUsers = async () => {
   try {
-    const response = await api.get('/users')
+    const response = await api.get('/users');
     return response.data;
-  } catch (error) {
-    
-  }
-}
+  } catch (error) {}
+};
 
-export const getUser = async id => {
+export const getUser = async (id) => {
   try {
-    const response = await api.get(`/users/${id}`)
+    const response = await api.get(`/users/${id}`);
     return response.data;
   } catch (error) {
-    throw error
+    throw error;
   }
-}
+};
 
-export const createUser = async user => {
+export const signinUser = async (user) => {
   try {
-    const response = await api.post('/users', user)
+    const response = await api.post('/users/signin', user);
+    console.log(response);
     return response.data;
   } catch (error) {
-    throw error
+    throw error;
   }
-}
+};
+
+export const createUser = async (user) => {
+  try {
+    const response = await api.post('/users', user);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const updateUser = async (id, user) => {
   try {
-    const response = await api.put(`/users/${id}`, user)
+    const response = await api.put(`/users/${id}`, user);
     return response.data;
   } catch (error) {
-    throw error
+    throw error;
   }
-}
+};
 
-export const deleteUser = async id => {
+export const deleteUser = async (id) => {
   try {
-    const response = await api.delete(`/users/${id}`)
-    return response.data
+    const response = await api.delete(`/users/${id}`);
+    return response.data;
   } catch (error) {
-    throw error
+    throw error;
   }
-}
-
+};

@@ -33,6 +33,24 @@ const getUser = async (req, res) => {
   }
 };
 
+const signinUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  let user;
+
+  try {
+    user = await User.findOne({ email: email });
+
+    if (user.password === password) {
+      res.status(202).json({ user });
+    }
+
+    res.status(404).json({ message: 'Could not login.' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 const updateUser = async (req, res) => {
   const { id } = req.params;
   await User.findByIdAndUpdate(id, req.body, { new: true }, (error, user) => {
@@ -64,5 +82,6 @@ module.exports = {
   getUsers,
   getUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  signinUser
 };
