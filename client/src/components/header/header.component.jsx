@@ -1,6 +1,7 @@
 import React from 'react';
 import './header.styles.scss';
 import { Search, Home, AccountBox, FavoriteBorder } from '@material-ui/icons';
+import { Link } from 'react-router-dom'
 
 const Header = ({ children }) => {
   return (
@@ -12,7 +13,9 @@ const Header = ({ children }) => {
       <span className='right'>
         <Home fontSize='large' />
         <FavoriteBorder fontSize='large' />
-        <AccountBox fontSize='large' />
+        <Link to="/login">
+          <AccountBox fontSize='large' />
+          </Link>
       </span>
     </header>
   );

@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fec368;
+  color: white;
+  min-height: 70vh;
+}
+
+.forms {
+  margin: 100px auto;
+  width: 50%;
+  height: 50%;
+}
+input {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  margin: 5px auto;
+}
+
+.signup-button{
+  margin: 5px auto;
+  display: flex;
+  align-items: center;
+  background-color: green;
+  color: white;
+}
+
+.no-account {
+  // display: flex;
+  // align-items: center;
+  margin: 2px auto;
+  width: 30%;
+
+}
