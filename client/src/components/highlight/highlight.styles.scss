@@ -29,7 +29,8 @@
 .RecipeRender:hover {
   img {
     cursor: pointer;
-  transform: scale(1.05);
-  transition: transform .5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    transform: scale(1.05);
+    transition: transform 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    overflow: hidden;
   }
 }
