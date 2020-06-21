@@ -11,9 +11,8 @@
   width: 100%;
   height: 100%;
   align-content: center;
-
   font-family: Karma;
-  font-size: 2.25em;
+  font-size: 2.5VW;
   text-align: center;
   font-weight: 600;
   font-stretch: normal;
@@ -21,26 +20,40 @@
   line-height: normal;
   letter-spacing: -0.01875em;
   color: #000000;
+  // @media all and (min-width: 1024px) and (max-width: 1280px) {
+  //   font-size: 5.078125VW;
+  // }
+  // @media all and (min-width: 768px) and (max-width: 1024px) {
+  //   font-size: 5.078125VW;
+  // }
+  // @media all and (min-width: 480px) and (max-width: 768px) {
+  //   font-size: 5.078125VW;
+  // }
+  // @media all and (max-width: 480px) {
+  //   font-size: 5.078125VW;
+  // }
 }
 
 .snacks {
-  // width: 90em;
-  // height: 16.375em;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   background-color: #effbfa;
 }
 .snacks {
-  // width: 90em;
-  // height: 26.6875em;
   box-shadow: 0 0.25em 0.25em 0 rgba(0, 0, 0, 0.25);
   background-color: #effbfa;
 }
 .Rectangle-110 {
   margin: 0 auto;
-  width: 28.220402084884586vw;
-  height: 11.415525114155251vh;
+  width: 26.319444444444446VW;
+  height: 5.208333333333334VW;
   border-radius: 5px;
   padding-bottom: 25px;
+  &:hover {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em);
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em rgba(#fff, 0);
+  }
 }
 .See-My-Recipe-Button {
   background-color: #fec368;
@@ -49,16 +62,19 @@
   border: none;
   margin: 0;
   box-shadow: 0 0.25em 0.25em 0 rgba(0, 0, 0, 0.25);
-  width: 379px;
-  height: 75px;
+  width: 26.319444444444446VW;
+  height: 5.208333333333334VW;
   font-family: Raleway !important;
-  font-size: 1.75em;
+  font-size: 1.9444444444444444VW;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.01875em;
   color: #000000;
+  &:hover {
+    color: white;
+  }
 }
 
 .snacksFlexbox {
@@ -70,8 +86,3 @@
   align-content: flex-start;
   text-align: center;
 }
-
-// .image {
-//   width: 18.5625em;
-//   height: 18.5625em;
-// }
