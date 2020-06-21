@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './header.styles.scss';
 import { Search, Home, AccountBox, FavoriteBorder } from '@material-ui/icons';
-import { Link } from 'react-router-dom'
 import Account from '../../pages/account/account.component';
 
 
@@ -15,7 +14,7 @@ const Header = ({ children }) => {
 
   return (
     <>
-      {showModal && <Account />}
+      {showModal && <Account {...{ setShowModal, showModal }} />}
     <header className='header-wrapper'>
       <span className='left'>
         <Search fontSize='large' style={{ paddingRight: '1rem' }} />
