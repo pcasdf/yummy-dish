@@ -1,13 +1,18 @@
 .header-wrapper {
   background-color: #fec368;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 2.7777777777777777VW;
   font-weight: 700;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  padding: 30px 9px;
+  padding: 2.083333333333333VW 0.625VW;
   .search {
-    padding-right: 16px;
+    padding-right: 1.1111111111111112VW;
   }
+}
+
+.MuiSvgIcon-root{
+  width: 3.8194444444444446VW !important;
+  height: 3.8194444444444446VW !important;
 }
