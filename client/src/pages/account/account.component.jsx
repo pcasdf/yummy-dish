@@ -36,7 +36,8 @@ const Account = () => {
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = await createUser({ newInput });
+      console.log(newInput);
+      const user = await createUser(newInput);
       console.log(user);
     } catch (error) {
       console.log(error);
@@ -49,7 +50,6 @@ const Account = () => {
       const user = await signinUser(input);
       console.log(user);
       setUser(user);
-      console.log(UserContext);
     } catch (error) {
       console.log(error);
     }
