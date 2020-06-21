@@ -47,8 +47,8 @@ const Account = () => {
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      const user = await signinUser(input);
-      console.log(user);
+      const response = await signinUser(input);
+      console.log(response);
       setUser(user);
     } catch (error) {
       console.log(error);
