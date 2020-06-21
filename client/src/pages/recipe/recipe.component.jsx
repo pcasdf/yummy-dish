@@ -65,9 +65,11 @@ const RecipeDetail = () => {
         <div>
           <span>DIRECTIONS:</span>
           <ol>
-            {analyzedInstructions[0].steps.map(({ step }, idx) => (
-              <li key={idx}>{step}</li>
-            ))}
+            {analyzedInstructions[0] &&
+              analyzedInstructions[0].steps &&
+              analyzedInstructions[0].steps.map(({ step }, idx) => (
+                <li key={idx}>{step}</li>
+              ))}
           </ol>
         </div>
       </div>
@@ -101,17 +103,32 @@ const RecipeDetail = () => {
       </>
     );
   } else if (tab === 1) {
-    body = <Recipe />;
+    body = (
+      <div className='body'>
+        <Recipe />
+      </div>
+    );
   } else if (tab === 2) {
-    body = <Story />;
+    body = (
+      <div className='body'>
+        <Story />
+      </div>
+    );
   } else {
-    body = <Reviews />;
+    body = (
+      <div className='body'>
+        <Reviews />
+      </div>
+    );
   }
 
   return (
     <>
       {modal && <BookmarkModal setModal={setModal} id={id} />}
       <Header>Recipe</Header>
+      <div className='cook-mode'>
+        <span>COOK MODE</span>
+      </div>
       <div className='recipe-detail'>
         <div
           className='header'
