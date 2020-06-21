@@ -3,7 +3,7 @@ import { createUser, signinUser } from '../../services/users';
 import './account.styles.scss';
 import { UserContext } from '../../contexts/user.context';
 
-const Account = () => {
+const Account = ({setShowModal, showModal}) => {
   const { user, setUser } = useContext(UserContext);
 
   const [input, setInput] = useState({
@@ -39,6 +39,7 @@ const Account = () => {
       console.log(newInput);
       const user = await createUser(newInput);
       console.log(user);
+      setShowModal(!showModal)
     } catch (error) {
       console.log(error);
     }
@@ -50,6 +51,7 @@ const Account = () => {
       const response = await signinUser(input);
       console.log(response);
       setUser(user);
+      setShowModal(!showModal)
     } catch (error) {
       console.log(error);
     }
@@ -58,7 +60,7 @@ const Account = () => {
   return (
     <div className='forms'>
       <div className='no-account'>
-        <h4>No account?</h4>
+        <p>No account?</p>
       </div>
       <button onClick={handleSignup} className='signup-button'>
         Signup
