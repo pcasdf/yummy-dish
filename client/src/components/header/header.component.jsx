@@ -29,17 +29,19 @@ const Header = ({ children }) => {
   return (
     <>
       {showModal && <Account {...{ setShowModal, showModal }} />}
-    <header className='header-wrapper'>
-      <span className='left'>
-        <Search fontSize='large' style={{ paddingRight: '1rem' }} />
-        {children}
-      </span>
-      <span className='right'>
-        <Home fontSize='large' />
-        <FavoriteBorder fontSize='large' />
-        {/* <Link to="/login"> */}
+      <header className='header-wrapper'>
+        <span className='left'>
+          <Search fontSize='large' style={{ paddingRight: '1rem' }} />
+          {children}
+        </span>
+        <span className='right'>
+          <Link to='/'>
+            <Home fontSize='large' />
+          </Link>
+          <Link to='/bookmarks'>
+            <FavoriteBorder fontSize='large' />
+          </Link>
           <AccountBox fontSize='large' onClick={toggleModal} />
-          {/* </Link> */}
         </span>
       </header>
     </>

@@ -1,3 +1,21 @@
+.cook-mode {
+  background: #2ec4b6;
+  color: white;
+  border-radius: 50%;
+  width: 70px;
+  position: absolute;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  top: 120%;
+  right: 29%;
+
+  span {
+    font-family: Nunito;
+  }
+}
+
 .recipe-detail {
   width: 100%;
   display: flex;
@@ -21,8 +39,27 @@
     }
   }
 
+  @media (min-width: 480px) {
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .tabs {
     display: none;
+
+    @media (max-width: 480px) {
+      display: flex;
+      justify-content: flex-start;
+      position: absolute;
+      top: 300px;
+
+      span {
+        width: 20vw;
+        background: #effbfa;
+        padding: 10px 20px;
+      }
+    }
   }
 
   span {
@@ -74,6 +111,7 @@
       .instructions {
         width: 100%;
         display: flex;
+        padding: 10px;
 
         span {
           font-size: 24px;
@@ -84,7 +122,12 @@
           width: 50%;
           display: flex;
           flex-direction: column;
+          margin: 10px;
         }
+      }
+
+      @media (max-width: 480px) {
+        width: 90%;
       }
     }
 
@@ -98,6 +141,10 @@
       span {
         font-size: 36px;
         margin: 10px auto;
+      }
+
+      @media (max-width: 480px) {
+        width: 90%;
       }
     }
   }
@@ -114,112 +161,9 @@
       font-size: 36px;
       margin: 0 auto;
     }
+
+    @media (max-width: 480px) {
+      width: 90%;
+    }
   }
 }
-
-//     .header {
-//       width: 100%;
-//       background-size: cover;
-//     }
-
-//     .tabs {
-//       display: flex;
-//       justify-content: flex-start;
-//       position: absolute;
-//       top: 262px;
-
-//       span {
-//         width: 20vw;
-//         background: #effbfa;
-//         padding: 10px 20px;
-//       }
-//     }
-
-//     span {
-//       font-family: Raleway;
-//       font-weight: bold;
-//       font-stretch: normal;
-//       font-style: normal;
-//       line-height: normal;
-//       letter-spacing: -0.3px;
-//       color: #8e8e8e;
-//     }
-
-//     .info {
-//       display: flex;
-//       flex-direction: column;
-//       width: 90%;
-//       background: #effbfa;
-//       padding: 10px 20px 200px 20px;
-
-//       .title {
-//         width: 100%;
-//         font-size: 48px;
-//         text-align: center;
-//       }
-
-//       .duration {
-//         width: 100%;
-//         height: 150px;
-//         display: flex;
-//         justify-content: space-evenly;
-//         align-items: center;
-
-//         span {
-//           font-family: 'Nunito', sans-serif;
-//           font-size: 16px;
-//           font-weight: 400;
-//         }
-
-//         .icon {
-//           width: 30px;
-//           height: 30px;
-//           fill: gold;
-//         }
-//       }
-
-//       .instructions {
-//         width: 100%;
-//         display: flex;
-
-//         span {
-//           font-size: 24px;
-//           margin: 0 auto;
-//         }
-
-//         div {
-//           width: 100%;
-//           display: flex;
-//           flex-direction: column;
-//         }
-//       }
-//     }
-
-//     .story {
-//       width: 90%;
-//       background: #effbfa;
-//       display: flex;
-//       flex-direction: column;
-//       padding: 10px 20px 200px 20px;
-
-//       span {
-//         font-size: 36px;
-//         margin: 10px auto;
-//       }
-//     }
-
-//     .reviews {
-//       width: 90%;
-//       background: #effbfa;
-//       height: 300px;
-//       display: flex;
-//       flex-direction: column;
-//       padding: 20px;
-
-//       .label {
-//         font-size: 36px;
-//         margin: 0 auto;
-//       }
-//     }
-//   }
-// }
