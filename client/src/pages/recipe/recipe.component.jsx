@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { ReactComponent as Icon } from '../../assets/star.svg';
@@ -8,6 +8,27 @@ import './recipe.styles.scss';
 const RecipeDetail = () => {
   const { id } = useParams();
   const [tab, setTab] = useState(0);
+
+  useEffect(() => {
+    if (window.innerWidth < 500) {
+      setTab(1);
+    }
+  }, []);
+
+  let tab1, tab2, tab3;
+  if (tab === 1) {
+    tab1 = '#effbfa';
+    tab2 = '#deeaea';
+    tab3 = '#deeaea';
+  } else if (tab === 2) {
+    tab1 = '#deeaea';
+    tab2 = '#effbfa';
+    tab3 = '#deeaea';
+  } else {
+    tab1 = '#deeaea';
+    tab2 = '#deeaea';
+    tab3 = '#effbfa';
+  }
 
   const recipe = details.find((item) => item.id === +id);
 
@@ -72,6 +93,7 @@ const RecipeDetail = () => {
           <Recipe />
           <Story />
         </div>
+        <Reviews />
       </>
     );
   } else if (tab === 1) {
@@ -86,11 +108,17 @@ const RecipeDetail = () => {
     <div className='recipe-detail'>
       <div className='header' style={{ backgroundImage: `url(${image})` }} />
       <div className='tabs'>
-        <span onClick={() => setTab(1)}>RECIPE</span>
-        <span onClick={() => setTab(2)}>STORY</span>
-        <span onClick={() => setTab(3)}>REVIEW</span>
+        <span style={{ backgroundColor: tab1 }} onClick={() => setTab(1)}>
+          RECIPE
+        </span>
+        <span style={{ backgroundColor: tab2 }} onClick={() => setTab(2)}>
+          STORY
+        </span>
+        <span style={{ backgroundColor: tab3 }} onClick={() => setTab(3)}>
+          REVIEW
+        </span>
       </div>
-      <div>{body}</div>
+      {body}
     </div>
   );
 };
