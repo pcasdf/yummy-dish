@@ -16,15 +16,6 @@ export const getUser = async (id) => {
   }
 };
 
-// export const signinUser = async (user) => {
-//   try {
-//     const response = await api.post('/users/signin', user);
-//     return response.data;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
-
 export const signinUser = async (user, prevToken) => {
   try {
     if (user) {

@@ -50,7 +50,7 @@ const Account = ({ setShowModal, showModal }) => {
     try {
       const response = await signinUser(input);
       console.log(response);
-      setUser(user);
+      setUser(response);
       setShowModal(!showModal);
     } catch (error) {
       console.log(error);
