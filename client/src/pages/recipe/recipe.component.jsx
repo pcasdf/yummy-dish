@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { FavoriteBorder } from '@material-ui/icons';
 
+import './recipe.styles.scss';
+import Header from '../../components/header/header.component';
 import { ReactComponent as Icon } from '../../assets/star.svg';
 import details from '../../data/details-1.json';
-import './recipe.styles.scss';
+import BookmarkModal from '../../components/bookmark-modal/bookmark-modal.component';
 
 const RecipeDetail = () => {
   const { id } = useParams();
   const [tab, setTab] = useState(0);
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     if (window.innerWidth < 500) {
@@ -105,21 +109,31 @@ const RecipeDetail = () => {
   }
 
   return (
-    <div className='recipe-detail'>
-      <div className='header' style={{ backgroundImage: `url(${image})` }} />
-      <div className='tabs'>
-        <span style={{ backgroundColor: tab1 }} onClick={() => setTab(1)}>
-          RECIPE
-        </span>
-        <span style={{ backgroundColor: tab2 }} onClick={() => setTab(2)}>
-          STORY
-        </span>
-        <span style={{ backgroundColor: tab3 }} onClick={() => setTab(3)}>
-          REVIEW
-        </span>
+    <>
+      {modal && <BookmarkModal setModal={setModal} id={id} />}
+      <Header>Recipe</Header>
+      <div className='recipe-detail'>
+        <div
+          className='header'
+          style={{ backgroundImage: `url(${image})` }}
+          onClick={() => setModal(!modal)}
+        >
+          <FavoriteBorder fontSize='large' className='favorite' />
+        </div>
+        <div className='tabs'>
+          <span style={{ backgroundColor: tab1 }} onClick={() => setTab(1)}>
+            RECIPE
+          </span>
+          <span style={{ backgroundColor: tab2 }} onClick={() => setTab(2)}>
+            STORY
+          </span>
+          <span style={{ backgroundColor: tab3 }} onClick={() => setTab(3)}>
+            REVIEW
+          </span>
+        </div>
+        {body}
       </div>
-      {body}
-    </div>
+    </>
   );
 };
 

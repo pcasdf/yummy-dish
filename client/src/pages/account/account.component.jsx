@@ -36,6 +36,7 @@ const Account = ({setShowModal, showModal}) => {
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log(newInput);
       const user = await createUser(newInput);
       console.log(user);
       setShowModal(!showModal)
@@ -47,8 +48,8 @@ const Account = ({setShowModal, showModal}) => {
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      const user = await signinUser(input);
-      console.log(user);
+      const response = await signinUser(input);
+      console.log(response);
       setUser(user);
       setShowModal(!showModal)
     } catch (error) {

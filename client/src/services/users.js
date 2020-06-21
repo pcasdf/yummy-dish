@@ -16,11 +16,39 @@ export const getUser = async (id) => {
   }
 };
 
-export const signinUser = async (user) => {
+// export const signinUser = async (user) => {
+//   try {
+//     const response = await api.post('/users/signin', user);
+//     return response.data;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
+
+export const signinUser = async (user, prevToken) => {
   try {
-    const response = await api.post('/users/signin', user);
-    console.log(response);
-    return response.data;
+    if (user) {
+      const auth = await api.post(`/auth`, user);
+      const token = auth.data.token;
+
+      localStorage.setItem('jwt-token', JSON.stringify(token));
+
+      const response = await api.get(`/auth`, {
+        headers: {
+          'jwt-token': token
+        }
+      });
+
+      return response.data;
+    } else {
+      const response = await api.get(`/auth`, {
+        headers: {
+          'jwt-token': prevToken
+        }
+      });
+
+      return response.data;
+    }
   } catch (error) {
     throw error;
   }
@@ -29,6 +57,7 @@ export const signinUser = async (user) => {
 export const createUser = async (user) => {
   try {
     const response = await api.post('/users', user);
+    await signinUser(user);
     return response.data;
   } catch (error) {
     throw error;
