@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './header.styles.scss';
 import { Search, Home, AccountBox, FavoriteBorder } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import Account from '../../pages/account/account.component';
+import { UserContext } from '../../contexts/user.context';
+import { signinUser } from '../../services/users';
 
 const Header = ({ children }) => {
+  const { setUser } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
     setShowModal(!showModal);
   };
+
+  const checkLoggedIn = async () => {
+    const token = JSON.parse(localStorage.getItem('jwt-token'));
+    if (token) {
+      const user = await signinUser(null, token);
+      setUser(user);
+    }
+  };
+
+  useEffect(() => {
+    checkLoggedIn();
+  }, []);
 
   return (
     <>
