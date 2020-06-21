@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './bookmarks.styles.scss';
 import Tabs from '../../components/tabs/tabs.component';
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 import { Search } from '@material-ui/icons';
 import { InputBase, Paper } from '@material-ui/core/';
+import { UserContext } from '../../contexts/user.context';
 
 const Bookmarks = () => {
+  const { user } = useContext(UserContext);
   return (
-    <>
-      <Header>
+    <div className='bookmark-page'>
+      <Header style={{ backgroundColor: '#fec368' }}>
         My Recipes
         <div className='search-bar'>
           <Paper component='form' className='search-wrapper'>
@@ -30,12 +32,10 @@ const Bookmarks = () => {
           </Paper>
         </div>
       </Header>
+      {user && user.categories.map((category) => <Tabs>{category}</Tabs>)}
       <Tabs>Favorites</Tabs>
-      <Tabs>Breakfast</Tabs>
-      <Tabs>Lunch</Tabs>
-      <Tabs>Dinner</Tabs>
       <Footer />
-    </>
+    </div>
   );
 };
 
