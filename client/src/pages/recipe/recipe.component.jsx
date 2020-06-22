@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { FavoriteBorder } from '@material-ui/icons';
 
 import './recipe.styles.scss';
@@ -163,7 +163,9 @@ const RecipeDetail = () => {
         <Header>Recipe</Header>
       </div>
       <div className='cook-mode'>
-        <span>COOK MODE</span>
+        <Link to={`/cookmode/${id}`}>
+          <span>COOK MODE</span>
+        </Link>
       </div>
       <div className='recipe-detail'>
         <div
