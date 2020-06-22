@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Homepage from './pages/homepage/homepage.component';
-import searchComponent from './pages/search/search.component';
 import Bookmarks from './pages/bookmarks/bookmarks.component';
 import Account from './pages/account/account.component';
 import RecipeDetail from './pages/recipe/recipe.component';
+import Search from './pages/search/search.component';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route exact path='/' component={Homepage} />
         <Route path='/bookmarks' component={Bookmarks} />
         <Route exact path='/login' component={Account} />
-
+        <Route path='/search' component={Search} />
         <Route path='/recipes/:id' component={RecipeDetail} />
       </Switch>
     </div>
