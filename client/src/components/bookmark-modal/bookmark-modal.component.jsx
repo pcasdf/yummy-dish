@@ -11,6 +11,7 @@ const BookmarkModal = ({ setModal, id }) => {
   const [category, setCategory] = useState('');
   const { user, setUser } = useContext(UserContext);
   const [open, setOpen] = useState(false);
+  
 
   const handleChange = (event) => {
     setCategory(event.target.value);

@@ -18,7 +18,9 @@ const Account = ({ setShowModal, showModal }) => {
     categories: ['Favorites']
   });
 
-  const [signup, setSignup] = useState(false);
+  const [signup, setSignup] = useState(false)
+
+  const [gray, setGray] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,6 +34,7 @@ const Account = ({ setShowModal, showModal }) => {
 
   const handleSignup = () => {
     setSignup(!signup);
+    setGray(!gray)
   };
 
   const handleSignupSubmit = async (e) => {
@@ -58,8 +61,20 @@ const Account = ({ setShowModal, showModal }) => {
     }
   };
 
+  const closeModal = (e) => {
+    if (e.target.className === 'mod-container') {
+      setShowModal(false);
+    }
+  }
+
+  const close = () => {
+    setShowModal(false);
+  }
+
   return (
-    <div className='forms'>
+    <div className='mod-container' onClick={closeModal}>
+      <div className='forms'>
+        <button className="cancel" onClick={close}>X</button>
       <div className='no-account'>
         <p>No account?</p>
       </div>
@@ -94,7 +109,8 @@ const Account = ({ setShowModal, showModal }) => {
         </form>
       )}
 
-      <form onSubmit={handleSignin}>
+        {gray && (<div className='signing-grayout'></div>)}
+      <form onSubmit={handleSignin} >
         <input
           name='email'
           placeholder='email'
@@ -108,9 +124,11 @@ const Account = ({ setShowModal, showModal }) => {
           type='password'
           value={input.password}
           onChange={handleChange}
-        />
+            />
         <button className='login'>Login</button>
       </form>
+      
+    </div>
     </div>
   );
 };
