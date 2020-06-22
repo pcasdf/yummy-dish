@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import Button from '@material-ui/core/Button';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Popover from '@material-ui/core/Popover';
-
+import { Search as SearchIcon } from '@material-ui/icons';
 import detailsJSON from '../../data/details-1.json';
 import TagsInput from './TagsInput';
 import Pricing from './Pricing';
@@ -98,6 +99,7 @@ function Search() {
     }
   }, [tags]);
 
+  let location = useLocation();
   return (
     <div className='Search'>
       <TagsInput tags={tags} setTags={setTags}></TagsInput>
@@ -142,12 +144,13 @@ function Search() {
         <button onClick={handleApply}>Apply</button>
       </Popover>
 
-      {searchResults.map((item) => (
-        <>
-          <div>{item.title}</div>
-          <img src={item.image} />
-        </>
-      ))}
+      {location.pathname === '/search' &&
+        searchResults.map((item) => (
+          <>
+            <div>{item.title}</div>
+            <img src={item.image} />
+          </>
+        ))}
     </div>
   );
 }
