@@ -6,12 +6,10 @@ footer {
   justify-content: space-around;
   bottom: 0;
   padding: 0 0 0 0;
-  position: absolute;
+  position: relative;
   left: 0;
-    width: 100vw;
-    overflow: hidden;
-
-
+  width: 100vw;
+  overflow: hidden;
 
   span:hover {
     cursor: pointer;

@@ -7,21 +7,56 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0;
+    position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  // position: relative;
 
-  padding: 2.083333333333333vw 0.625vw;
+  padding: 0 0.625vw;
   .search {
     padding-right: 1.1111111111111112vw;
   }
 
-  .left  {
+  .left {
     display: flex;
     align-items: center;
-
-
   }
+}
+.SearchIcon {
+  width: 8.8194444444444446vw;
+  height: 8.8194444444444446vw;
 }
 
 .MuiSvgIcon-root {
   width: 8.8194444444444446vw !important;
   height: 8.8194444444444446vw !important;
+}
+
+.SearchBarBox {
+  background-color: #fec368;
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  position: relative;
+min-width: 100vw;
+
+  // top:20vw;
+  // height: 100%;
+  // width:100%;
+
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  // width: 100vw
+}
+
+div.Search{
+  margin: 0 auto;
+  display: inline-block;
 }

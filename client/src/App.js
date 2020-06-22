@@ -15,7 +15,7 @@ function App() {
         <Route exact path='/' component={Homepage} />
         <Route path='/bookmarks' component={Bookmarks} />
         <Route exact path='/login' component={Account} />
-        <Route path='/cookmode' component={CookModePage} />
+        <Route path='/cookmode/:id' component={CookModePage} />
         <Route path='/search' component={Search} />
         <Route path='/recipes/:id' component={RecipeDetail} />
       </Switch>

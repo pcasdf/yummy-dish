@@ -1,6 +1,9 @@
 html {
   min-height: 100%;
   position: relative;
+  top: 12vw;
+
+
 
 }
 
@@ -13,3 +16,4 @@ a {
   color: #fff;
   text-decoration: none;
 }
+

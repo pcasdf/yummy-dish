@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './TagsInput.scss'
+import { Search as SearchIcon } from '@material-ui/icons';
+
 
 const TagsInput = ({tags, setTags }) => {
     
@@ -31,7 +33,7 @@ const TagsInput = ({tags, setTags }) => {
                         </span>
                     </li>
                 ))}
-            </ul>
+        </ul>
             <input
                 type="text"
                 onKeyUp={event => event.key === "Enter" ? addTags(event) : null}
