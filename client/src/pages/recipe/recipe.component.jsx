@@ -44,7 +44,6 @@ const RecipeDetail = () => {
     image,
     extendedIngredients
   } = recipe;
-
   const Recipe = () => (
     <div className='info'>
       <span className='title'>{title}</span>
