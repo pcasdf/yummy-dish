@@ -12,8 +12,6 @@ import {
 
 const Tabs = ({ children }) => {
   const { user } = useContext(UserContext);
-  console.log(children === user.bookmarks[0].category);
-  console.log(user.bookmarks);
   return (
     <div className='outerContainer'>
       <ExpansionPanel style={{ backgroundColor: 'transparent' }}>
@@ -36,7 +34,6 @@ const Tabs = ({ children }) => {
               .filter((bookmark) => bookmark.category === children)
               .map((item) => {
                 const data = Data.find((each) => each.id === +item.recipe);
-                console.log(item);
                 return (
                   data && (
                     <div className='image-container'>

@@ -91,7 +91,6 @@ const RecipeDetail = () => {
   );
 
   let body;
-
   if (tab === 0) {
     body = (
       <>
