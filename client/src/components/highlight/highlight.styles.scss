@@ -4,6 +4,10 @@
     width: 33.33333333333333vw;
     height: 22.22222222222222vw;
     padding: 3.7986111111111116vw 2.083333333333333vw 0.5555555555555556vw;
+    @media all and (max-width: 480px) {
+     width: 72.083333333333336VW;
+    height: 46.45833333333333VW;
+    }
   }
   span {
     width: inherit;
@@ -16,16 +20,13 @@
     line-height: normal;
     letter-spacing: -0.3px;
     color: #000000;
-  }
-}
-.RecipeRender:hover {
-  img {
-    // opacity: 0.5;
+    @media all and (max-width: 480px) {
+      font-size: 4.8vw;
+
+     }
   }
 }
 
-.RecipeRender {
-}
 .RecipeRender:hover {
   img {
     cursor: pointer;
@@ -36,7 +37,7 @@
 }
 
 .outerContainer .image {
-  width: 33.33333333333333vw !important;
-  height: 22.22222222222222vw !important;
+  width: 23.33333333333333vw !important;
+  height: 12.22222222222222vw !important;
   padding: 3.7986111111111116vw 2.083333333333333vw 0.5555555555555556vw !important;
 }

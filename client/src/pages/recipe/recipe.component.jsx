@@ -35,6 +35,7 @@ const RecipeDetail = () => {
   }
 
   const recipe = details.find((item) => item.id === +id);
+  console.log(recipe);
 
   const {
     title,
@@ -49,7 +50,7 @@ const RecipeDetail = () => {
       <span className='title'>{title}</span>
       <div className='duration'>
         <span>10 MIN</span>
-        <span>Easy</span>
+        <span>{extendedIngredients.length > 3}</span>
         <Icon className='icon' />
         <span>$$$</span>
       </div>
@@ -91,7 +92,6 @@ const RecipeDetail = () => {
   );
 
   let body;
-
   if (tab === 0) {
     body = (
       <>
