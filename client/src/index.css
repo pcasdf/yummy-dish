@@ -1,6 +1,9 @@
 body {
   margin: 0;
-  font-family: 'Karma', serif;
   font-family: 'Martel', serif;
-  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
 }

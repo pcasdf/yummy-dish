@@ -1,23 +1,58 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './tabs.styles.scss';
 import Data from '../../data/details-1.json';
+import { UserContext } from '../../contexts/user.context';
 
-const Tabs = ({ children }) => {
+import {
+  ExpansionPanel,
+  ExpansionPanelSummary,
+  ExpansionPanelDetails
+} from '@material-ui/core/';
+
+const Tabs = ({ children, bookmarks }) => {
+  const { user } = useContext(UserContext);
+  const stuff = [];
+  if (bookmarks) {
+    bookmarks.forEach((bookmark) => {
+      const filtered = user.bookmarks.filter(
+        (each) => each.category === children
+      );
+      filtered.forEach((item) => {
+        if (+item.recipe === bookmark.id) stuff.push(bookmark);
+      });
+    });
+  }
+
   return (
     <div className='outerContainer'>
-      <span className='category'>{children}</span>
-      <div className='snacks'>
-        {Data.map((item) => {
-          return (
+      <ExpansionPanel style={{ backgroundColor: 'transparent' }}>
+        <ExpansionPanelSummary
+          style={{
+            backgroundColor: '#ff9f1c',
+            color: '#fff',
+            width: '20vw',
+            borderRadius: '5px'
+          }}
+        >
+          <div className='category'> {children}</div>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails
+          className='scroll-panel'
+          style={{ backgroundColor: '#ff9f1c' }}
+        >
+          {stuff.map((data) => (
             <div className='image-container'>
-              <div
-                style={{ backgroundImage: `url(${item.image})` }}
-                className='image'
-              />
+              <Link key={data.id} to={`recipes/${data.id}`}>
+                <div
+                  style={{ backgroundImage: `url(${data.image})` }}
+                  className='image'
+                />
+              </Link>
             </div>
-          );
-        })}
-      </div>
+          ))}
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
     </div>
   );
 };

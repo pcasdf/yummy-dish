@@ -1,13 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { createUser } from '../../services/users'
-import { useHistory } from 'react-router-dom';
+import { createUser, signinUser } from '../../services/users';
+import './account.styles.scss';
+import { UserContext } from '../../contexts/user.context';
 
-
- 
-
-const Account = () => {
-
-  
+const Account = ({ setShowModal, showModal }) => {
+  const { user, setUser } = useContext(UserContext);
 
   const [input, setInput] = useState({
     email: '',
@@ -16,72 +13,106 @@ const Account = () => {
 
   const [newInput, setNewInput] = useState({
     fullName: '',
-    signupEmail: '',
-    signupPassword: ''
+    email: '',
+    password: '',
+    categories: ['Favorites']
   });
 
-  const [signup, setSignup] = useState(false)
-  
-   const handleChange = (e) => {
-     const { name, value } = e.target
-     setInput({ ...input, [name]: value })
-   }
-  
-   const handleNewChange = (e) => {
-    const { name, value } = e.target
-     setNewInput({ ...newInput, [name]: value })
- }
+  const [signup, setSignup] = useState(false);
 
-    
-  
-  
-  
-  const handleSignup =  () => {
-    setSignup(!signup)
-  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInput({ ...input, [name]: value });
+  };
 
+  const handleNewChange = (e) => {
+    const { name, value } = e.target;
+    setNewInput({ ...newInput, [name]: value });
+  };
+
+  const handleSignup = () => {
+    setSignup(!signup);
+  };
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(newInput)
-      const user = await createUser({ fullName: newInput.fullName, email: newInput.signupEmail, password: newInput.signupPassword })
-    
+      console.log(newInput);
+      const user = await createUser(newInput);
+      console.log(user);
+      setShowModal(!showModal);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
- 
-  const handleSubmit = (e) => {
+  };
 
- }
- 
-  
+  const handleSignin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await signinUser(input);
+      console.log(response);
+      setUser(response);
+      setShowModal(!showModal);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    
-    <div>
-          <button onClick={handleSignup}>Signup</button>
-
-      {signup &&  
-      
-      <form onSubmit={handleSignupSubmit}>
-        <input name="fullName" placeholder="Your name" type="text" value={input.fullName} onChange={handleNewChange} />
-        <input name="signupEmail" placeholder="email" type="text" value={input.signupEmail} onChange={handleNewChange} />
-        <input name="signupPassword" placeholder="password" type="password" value={input.signupPassword} onChange={handleNewChange} />
-        <button>Login</button>
-      </form>
-   
-    }
-        
-        <form onSubmit={handleSubmit}>
-          <input name="email" placeholder="email" type="text" value={input.email} onChange={handleChange}/>
-          <input name="password" placeholder="password" type="password" value={input.password} onChange={handleChange}/>
-          <button>Login</button>
-        </form>
+    <div className='forms'>
+      <div className='no-account'>
+        <p>No account?</p>
       </div>
-    )
-  }
+      <button onClick={handleSignup} className='signup-button'>
+        Signup
+      </button>
 
+      {signup && (
+        <form onSubmit={handleSignupSubmit}>
+          <input
+            name='fullName'
+            placeholder='Your name'
+            type='text'
+            value={newInput.fullName}
+            onChange={handleNewChange}
+          />
+          <input
+            name='email'
+            placeholder='email'
+            type='text'
+            value={newInput.email}
+            onChange={handleNewChange}
+          />
+          <input
+            name='password'
+            placeholder='password'
+            type='password'
+            value={newInput.password}
+            onChange={handleNewChange}
+          />
+          <button className='login'>Signup</button>
+        </form>
+      )}
 
-export default Account
+      <form onSubmit={handleSignin}>
+        <input
+          name='email'
+          placeholder='email'
+          type='text'
+          value={input.email}
+          onChange={handleChange}
+        />
+        <input
+          name='password'
+          placeholder='password'
+          type='password'
+          value={input.password}
+          onChange={handleChange}
+        />
+        <button className='login'>Login</button>
+      </form>
+    </div>
+  );
+};
+
+export default Account;

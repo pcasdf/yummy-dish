@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.forms {
+  margin: 100px auto;
+  width: 15%;
+  height: 265px;
+  position: absolute;
+  border-radius:  0.45em;
+  z-index: 2;
+  background: #fec368;
+  top: 80px;
+  left: 83%;
+  opacity: .9;
+}
+input {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  border-radius:  0.3125em;
+  border: solid #CBF3F0;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  margin: 5px auto;
+  border-radius:  0.3125em;
+  border: solid #CBF3F0;
+}
+
+.signup-button{
+  margin: 5px auto;
+  display: flex;
+  align-items: center;
+  background-color: #CBF3F0;
+  border: solid #CBF3F0;
+  border-radius:  0.3125em;
+  color: black;
+}
+
+.no-account {
+  
+  margin: 2px auto;
+  width: 30%;
+
+}
+
+
+//iphone X
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+    .forms {
+      margin: 100px auto;
+      width: 80%;
+      height: 265px;
+      position: absolute;
+      border-radius:  0.45em;
+      z-index: 2;
+      background: #fec368;
+      top: 18px;
+      left: 10%;
+      opacity: .9;
+    }
+    input {
+      display: flex;
+      margin: 0 auto;
+      margin-bottom: 5px;
+      border-radius:  0.3125em;
+      border: solid #CBF3F0;
+    }
+    
+    .login {
+      display: flex;
+      align-items: center;
+      margin: 5px auto;
+      border-radius:  0.3125em;
+      border: solid #CBF3F0;
+    }
+    
+    .signup-button{
+      margin: 5px auto;
+      display: flex;
+      align-items: center;
+      background-color: #CBF3F0;
+      border: solid #CBF3F0;
+      border-radius:  0.3125em;
+      color: black;
+    }
+    
+    .no-account {
+      
+      margin: 2px auto;
+      width: 30%;
+    
+    }
+
+}
+
+//ipad
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+  
+    .forms {
+      margin: 100px auto;
+      width: 25%;
+      height: 265px;
+      position: absolute;
+      border-radius:  0.45em;
+      z-index: 2;
+      background: #fec368;
+      top: 18px;
+      left: 70%;
+      opacity: .9;
+    }
+    input {
+      display: flex;
+      margin: 0 auto;
+      margin-bottom: 5px;
+      border-radius:  0.3125em;
+      border: solid #CBF3F0;
+    }
+    
+    .login {
+      display: flex;
+      align-items: center;
+      margin: 5px auto;
+      border-radius:  0.3125em;
+      border: solid #CBF3F0;
+    }
+    
+    .signup-button{
+      margin: 5px auto;
+      display: flex;
+      align-items: center;
+      background-color: #CBF3F0;
+      border: solid #CBF3F0;
+      border-radius:  0.3125em;
+      color: black;
+    }
+    
+    .no-account {
+      
+      margin: 2px auto;
+      width: 30%;
+    
+    }
+  
+  }

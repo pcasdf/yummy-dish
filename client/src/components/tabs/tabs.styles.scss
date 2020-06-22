@@ -1,20 +1,18 @@
 .outerContainer {
-  background-color: #ff9f1c;
   color: #fff;
-  .snacks {
+  .scroll-panel {
     display: flex;
-    width: auto;
-    overflow-x: scroll;
+    overflow: scroll;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    padding: 1rem 3rem;
+    padding: 10vw 5vw;
   }
   .category {
-    font-size: 18px;
-    padding: 1rem;
+    font-size: 3vw;
+    padding: 2vw;
   }
   .image {
-    height: 165px;
-    width: 165px;
+    height: 50vh;
+    width: 50vw;
     background-size: cover;
     margin: 1rem;
   }

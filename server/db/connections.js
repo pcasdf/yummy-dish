@@ -4,7 +4,7 @@ const MONGO_URI =
 mongoose
   .connect(MONGO_URI, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => console.log('MongoDB connected.'))
-  .catch(err => console.error(err.message));
+  .catch((err) => console.error(err.message));
 module.exports = mongoose.connection;
 
 // mongodb+srv://pwoke:project@cluster0-elcuu.mongodb.net/yummydatabase?retryWrites=true&w=majority
