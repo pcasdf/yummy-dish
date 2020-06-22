@@ -1,0 +1,18 @@
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  .textfield {
+    margin: 0 auto;
+    width: 60vw;
+    border-radius: 8px;
+  }
+  button {
+    width: 60vw;
+    margin: 2vh auto;
+    border-radius: 8px;
+  }
+  .favorite-icon {
+    font-size: 2px;
+  }
+}

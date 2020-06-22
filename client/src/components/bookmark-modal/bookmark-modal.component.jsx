@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
 
 import './bookmark-modal.styles.scss';
 import { UserContext } from '../../contexts/user.context';
@@ -24,10 +23,12 @@ const BookmarkModal = ({ setModal, id }) => {
 
   const handleAddCategory = async (event) => {
     event.preventDefault();
-    const updated = { ...user, categories: [...user.categories, category] };
-    await updateUser(user._id, updated);
-    setUser(updated);
-    setCategory('');
+    if (category.length > 3) {
+      const updated = { ...user, categories: [...user.categories, category] };
+      await updateUser(user._id, updated);
+      setUser(updated);
+      setCategory('');
+    }
   };
 
   const handleSave = async (each) => {
@@ -67,15 +68,17 @@ const BookmarkModal = ({ setModal, id }) => {
                   aria-label='close'
                   color='inherit'
                   onClick={() => setOpen(!open)}
-                >
-                  <CloseIcon fontSize='small' />
-                </IconButton>
+                />
               </React.Fragment>
             }
           />
           <span>ADD TO MY RECIPE BOX</span>
           <form onSubmit={handleAddCategory}>
-            <input value={category} onChange={handleChange} />
+            <input
+              value={category}
+              placeholder='Add a category'
+              onChange={handleChange}
+            />
             <button>ADD CATEGORY</button>
           </form>
           <div className='categories'>
