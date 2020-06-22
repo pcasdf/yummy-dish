@@ -14,7 +14,8 @@ const Account = ({ setShowModal, showModal }) => {
   const [newInput, setNewInput] = useState({
     fullName: '',
     email: '',
-    password: ''
+    password: '',
+    categories: ['Favorites']
   });
 
   const [signup, setSignup] = useState(false);
