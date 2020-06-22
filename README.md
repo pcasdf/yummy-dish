@@ -45,35 +45,15 @@ aMDB will offer search functionality to find details about the requested movie o
 
 #### Goals
 
-- _Search for movies or tv series_
-- _Show trending or popular titles_
-- _Search by title or actor_
-
 <br>
 
 #### Libraries
 
-|        Library        | Description                                                               |
-| :-------------------: | :------------------------------------------------------------------------ |
-|     React Router      | _Allow for routing to different pages of the app without page reload_     |
-|      Material UI      | _Nice UI component library for more stremalined interface_                |
-|         Axios         | _Nice library for making HTTP requests_                                   |
-| React Infinite Scroll | _Nice library for incrementally rendering large amounts of data_          |
-| React Loader Spinner  | _Nice library for rendering a loading spinner when loading state is true_ |
-|   React View Slider   | _Nice library for implementing a sliding carousel_                        |
-
-<br>
-
-#### Models
-
-|    API     | Quality Docs? | Website          | Sample Query                                       |
-| :--------: | :-----------: | :--------------- | :------------------------------------------------- |
-|    OMDB    |      yes      | _omdbapi.com_    | _http://www.omdbapi.com/?apikeyfdbaa0a9&s=&y=2020_ |
-| theMovieDB |      yes      | _themoviedb.org_ | _https://api.themoviedb.org/3/trending/all/week_   |
-
-```
-model info here
-```
+|   Library    | Description                                                           |
+| :----------: | :-------------------------------------------------------------------- |
+| React Router | _Allow for routing to different pages of the app without page reload_ |
+| Material UI  | _Nice UI component library for more stremalined interface_            |
+|    Axios     | _Nice library for making HTTP requests_                               |
 
 <br>
 
@@ -82,28 +62,48 @@ model info here
 ```
 src
 |__ assets/
-      |__ data-tests
-      |__ mockups
-|__ components/
-      |__ header/
-            |__ header.component.jsx
-            |__ header.styles.css
-      |__ footer/
-            |__ footer.component.jsx
-            |__ footer.styles.css
-      |__ search/
-            |__ search.component.jsx
-            |__ search.styles.css
-|__ pages/
-      |__ main/
-            |__ main.component.jsx
-            |__ main.styles.css
-      |__ trending/
-            |__ trending.component.jsx
-            |__ trending.styles.css
-      |__ detail/
-            |__ detail.component.jsx
-            |__ detail.styles.css
+      |__ icons
+|__ client/
+      |__ assets/
+      |__ data/
+            |__ details.json
+      |__ contexts/
+            |__ user.context.js
+      |__ components/
+            |__ bookmark-modal
+            |__ cook-mode-components
+            |__ footer
+            |__ header
+            |__ highlight
+            |__ results
+            |__ reviews
+            |__ search-bar
+            |__ tabs
+      |__ pages/
+            |__ account
+            |__ bookmarks
+            |__ cook-mode
+            |__ homepage
+            |__ recipe
+            |__ search
+      |__ services/
+            |__ apiConfig
+            |__ users
+|__ server/
+      |__ controllers/
+            |__ auth.js
+            |__ reviews.js
+            |__ users.js
+      |__ db/
+            |__ connection.js
+      |__ middleware/
+            |__ auth.js
+      |__ models/
+            |__ review.js
+            |__ user.js
+      |__ routes/
+            |__ review.js
+            |__ user.js
 ```
 
 <br>
@@ -118,19 +118,6 @@ src
 |  Search   | functional |   n   |   y   | _Search will be in the header component and will fetch data_               |
 |  Detail   | functional |   n   |   y   | _Detail will render specific detail about the selected series_             |
 |  Footer   | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._           |
-
-<br>
-
-#### Component Estimates
-
-| Task         | Priority | Estimated Time | Time Invested | Actual Time |
-| ------------ | :------: | :------------: | :-----------: | :---------: |
-| CSS          |    H     |     10 hrs     |    10 hrs     |   10 hrs    |
-| UI Interface |    H     |     10 hrs     |    14 hrs     |   14 hrs    |
-| Search       |    H     |     7 hrs      |     2 hrs     |    2 hrs    |
-| Routing      |    H     |     2 hrs      |     3 hrs     |    3 hrs    |
-| HTML         |    H     |      1 hr      |     1 hr      |    1 hr     |
-| TOTAL        |          |     30 hrs     |    30 hrs     |   30 hrs    |
 
 <br>
 
