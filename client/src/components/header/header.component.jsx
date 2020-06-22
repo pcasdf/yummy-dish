@@ -1,6 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './header.styles.scss';
-import { Search, Home, AccountBox, FavoriteBorder } from '@material-ui/icons';
+import {
+  Search,
+  Home,
+  AccountBox,
+  FavoriteBorder,
+  Favorite
+} from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import Account from '../../pages/account/account.component';
 import { UserContext } from '../../contexts/user.context';
@@ -25,6 +31,7 @@ const Header = ({ children }) => {
   useEffect(() => {
     checkLoggedIn();
   }, []);
+  console.log(children);
 
   return (
     <>
@@ -39,7 +46,11 @@ const Header = ({ children }) => {
             <Home fontSize='large' />
           </Link>
           <Link to='/bookmarks'>
-            <FavoriteBorder fontSize='large' />
+            {children[0] === 'My Recipes' ? (
+              <Favorite fontSize='large' style={{ color: '#fc8b56' }} />
+            ) : (
+              <FavoriteBorder fontSize='large' />
+            )}
           </Link>
           <AccountBox fontSize='large' onClick={toggleModal} />
         </span>
