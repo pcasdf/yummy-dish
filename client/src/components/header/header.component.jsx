@@ -1,7 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './header.styles.scss';
+import Search from '../../pages/search/search.component';
+
 import {
-  Search,
+  Search as SearchIcon,
   Home,
   AccountBox,
   FavoriteBorder,
@@ -34,13 +36,16 @@ const Header = ({ children }) => {
   console.log(children);
 
   return (
-    <>
+    <div>
       {showModal && <Account {...{ setShowModal, showModal }} />}
       <header className='header-wrapper'>
         <span className='left'>
-          <Search fontSize='large' style={{ paddingRight: '1rem' }} />
-          <span className="PageTitle">{children}</span>
-
+          <SearchIcon
+            className='SearchIcon'
+            fontSize='large'
+            style={{ paddingRight: '1rem' }}
+          />
+          <span className='PageTitle'>{children}</span>
         </span>
         <span className='right'>
           <Link to='/'>
@@ -55,8 +60,12 @@ const Header = ({ children }) => {
           </Link>
           <AccountBox fontSize='large' onClick={toggleModal} />
         </span>
+        <br />
       </header>
-    </>
+      {/* <div className='SearchBarBox'>
+          <Search />
+        </div> */}
+    </div>
   );
 };
 
