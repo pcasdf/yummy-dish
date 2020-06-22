@@ -39,7 +39,8 @@ const Header = ({ children }) => {
       <header className='header-wrapper'>
         <span className='left'>
           <Search fontSize='large' style={{ paddingRight: '1rem' }} />
-          {children}
+          <span className="PageTitle">{children}</span>
+
         </span>
         <span className='right'>
           <Link to='/'>

@@ -5,9 +5,13 @@ footer {
   display: flex;
   justify-content: space-around;
   bottom: 0;
-  width: 100vw;
-  position: fixed;
-  padding: 1.3888888888888888vw 0.6944444444444444vw;
+  padding: 0 0 0 0;
+  position: absolute;
+  left: 0;
+    width: 100vw;
+    overflow: hidden;
+
+
 
   span:hover {
     cursor: pointer;
