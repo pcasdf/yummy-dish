@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import { Route, Switch, Link } from 'react-router-dom';
+
 import Button from '@material-ui/core/Button';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Popover from '@material-ui/core/Popover';
-import { Search as SearchIcon } from '@material-ui/icons';
+import { withStyles } from '@material-ui/core/styles';
+
 import detailsJSON from '../../data/details-1.json';
 import TagsInput from './TagsInput';
 import Pricing from './Pricing';
 import PrepTime from './PrepTime';
 import Skill from './Skill';
 
-function Search() {
+
+import "./search.styles.scss"
+import Header from '../../components/header/header.component';
+
+function Search(props) {
   const [tags, setTags] = useState([]);
 
   const [searchResults, setSearchResults] = useState([]);
@@ -102,16 +109,30 @@ function Search() {
   let location = useLocation();
   return (
     <div className='Search'>
-      <TagsInput tags={tags} setTags={setTags}></TagsInput>
-
-      <Button
+      <div className='searchHeader'>
+        
+        <Header> </Header>
+        <div className="searchBarWithButton">
+        <TagsInput tags={tags} setTags={setTags}>
+          
+       
+      
+            </TagsInput>
+            
+           
+          <Button 
+            
         aria-describedby={id}
-        variant='contained'
-        color='primary'
+            variant='contained'
+            color='primary' 
+           
+        
         onClick={handleClick}
       >
-        Refine ^
+        Refine
       </Button>
+      </div>
+      
 
       <Popover
         id={id}
@@ -127,8 +148,8 @@ function Search() {
           horizontal: 'center'
         }}
       >
+       <PrepTime setPrepTime={setPrepTime} />
         <Pricing setpriceInputValue={setpriceInputValue} />
-        <PrepTime setPrepTime={setPrepTime} />
         <Skill setSkillLevel={setSkillLevel} />
 
         <Box component='fieldset' mb={3} borderColor='transparent'>
@@ -140,17 +161,22 @@ function Search() {
               setValue(newValue);
             }}
           />
-        </Box>
-        <button onClick={handleApply}>Apply</button>
+          </Box>
+          
+            <button className="applyButton" onClick={handleApply}>Apply</button>
+            
       </Popover>
-
-      {location.pathname === '/search' &&
-        searchResults.map((item) => (
-          <>
-            <div>{item.title}</div>
-            <img src={item.image} />
-          </>
-        ))}
+      </div>
+      {searchResults.map((item) => (
+        <>
+          
+          <div className="rectangle">{item.title}</div>
+          <Link to={`/recipes/${item.id}`}>
+            <img className="searchImage" src={item.image} />
+            </Link>
+        </>
+        
+      ))}
     </div>
   );
 }

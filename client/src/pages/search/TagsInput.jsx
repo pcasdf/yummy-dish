@@ -37,7 +37,7 @@ const TagsInput = ({tags, setTags }) => {
             <input
                 type="text"
                 onKeyUp={event => event.key === "Enter" ? addTags(event) : null}
-          placeholder="Press enter to add tags"
+          placeholder=""
           value={searchTerm}
         onChange={handleChange}
             />
