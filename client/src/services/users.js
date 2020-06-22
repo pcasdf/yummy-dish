@@ -16,15 +16,6 @@ export const getUser = async (id) => {
   }
 };
 
-// export const signinUser = async (user) => {
-//   try {
-//     const response = await api.post('/users/signin', user);
-//     return response.data;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
-
 export const signinUser = async (user, prevToken) => {
   try {
     if (user) {
@@ -56,9 +47,10 @@ export const signinUser = async (user, prevToken) => {
 
 export const createUser = async (user) => {
   try {
-    const response = await api.post('/users', user);
-    await signinUser(user);
-    return response.data;
+    await api.post('/users', user);
+    const response = await signinUser(user);
+    console.log(response);
+    return response;
   } catch (error) {
     throw error;
   }

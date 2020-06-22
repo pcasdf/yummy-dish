@@ -1,6 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './header.styles.scss';
-import { Search, Home, AccountBox, FavoriteBorder } from '@material-ui/icons';
+import {
+  Search,
+  Home,
+  AccountBox,
+  FavoriteBorder,
+  Favorite
+} from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import Account from '../../pages/account/account.component';
 import { UserContext } from '../../contexts/user.context';
@@ -25,21 +31,29 @@ const Header = ({ children }) => {
   useEffect(() => {
     checkLoggedIn();
   }, []);
+  console.log(children);
 
   return (
     <>
       {showModal && <Account {...{ setShowModal, showModal }} />}
-    <header className='header-wrapper'>
-      <span className='left'>
-        <Search fontSize='large' style={{ paddingRight: '1rem' }} />
-        <span className="PageTitle">{children}</span>
-      </span>
-      <span className='right'>
-        <Home fontSize='large' />
-        <FavoriteBorder fontSize='large' />
-        {/* <Link to="/login"> */}
+      <header className='header-wrapper'>
+        <span className='left'>
+          <Search fontSize='large' style={{ paddingRight: '1rem' }} />
+          <span className="PageTitle">{children}</span>
+
+        </span>
+        <span className='right'>
+          <Link to='/'>
+            <Home fontSize='large' />
+          </Link>
+          <Link to='/bookmarks'>
+            {children[0] === 'My Recipes' ? (
+              <Favorite fontSize='large' style={{ color: '#fc8b56' }} />
+            ) : (
+              <FavoriteBorder fontSize='large' />
+            )}
+          </Link>
           <AccountBox fontSize='large' onClick={toggleModal} />
-          {/* </Link> */}
         </span>
       </header>
     </>

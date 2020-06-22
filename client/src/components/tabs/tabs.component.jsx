@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './tabs.styles.scss';
 import Data from '../../data/details-1.json';
+import { UserContext } from '../../contexts/user.context';
 
 import {
   ExpansionPanel,
@@ -8,7 +10,20 @@ import {
   ExpansionPanelDetails
 } from '@material-ui/core/';
 
-const Tabs = ({ children }) => {
+const Tabs = ({ children, bookmarks }) => {
+  const { user } = useContext(UserContext);
+  const stuff = [];
+  if (bookmarks) {
+    bookmarks.forEach((bookmark) => {
+      const filtered = user.bookmarks.filter(
+        (each) => each.category === children
+      );
+      filtered.forEach((item) => {
+        if (+item.recipe === bookmark.id) stuff.push(bookmark);
+      });
+    });
+  }
+
   return (
     <div className='outerContainer'>
       <ExpansionPanel style={{ backgroundColor: 'transparent' }}>
@@ -26,16 +41,16 @@ const Tabs = ({ children }) => {
           className='scroll-panel'
           style={{ backgroundColor: '#ff9f1c' }}
         >
-          {Data.map((item) => {
-            return (
-              <div className='image-container'>
+          {stuff.map((data) => (
+            <div className='image-container'>
+              <Link key={data.id} to={`recipes/${data.id}`}>
                 <div
-                  style={{ backgroundImage: `url(${item.image})` }}
+                  style={{ backgroundImage: `url(${data.image})` }}
                   className='image'
                 />
-              </div>
-            );
-          })}
+              </Link>
+            </div>
+          ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
