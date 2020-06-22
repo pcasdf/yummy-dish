@@ -5,6 +5,8 @@ import { FavoriteBorder } from '@material-ui/icons';
 import './recipe.styles.scss';
 import Header from '../../components/header/header.component';
 import { ReactComponent as Icon } from '../../assets/star.svg';
+import { ReactComponent as Chef } from '../../assets/chef.svg';
+import { ReactComponent as Clock } from '../../assets/clock.svg';
 import details from '../../data/details-1.json';
 import BookmarkModal from '../../components/bookmark-modal/bookmark-modal.component';
 
@@ -42,16 +44,49 @@ const RecipeDetail = () => {
     summary,
     analyzedInstructions,
     image,
-    extendedIngredients
+    extendedIngredients,
+    readyInMinutes,
+    pricePerServing,
+    spoonacularScore
   } = recipe;
+
+  let difficulty;
+  if (extendedIngredients.length > 10) {
+    difficulty = 'HARD';
+  } else if (extendedIngredients.length > 5) {
+    difficulty = 'MEDIUM';
+  } else {
+    difficulty = 'EASY';
+  }
+
+  let price;
+  if (pricePerServing > 300) {
+    price = '$$$';
+  } else if (pricePerServing > 100) {
+    price = '$$';
+  } else {
+    price = '$';
+  }
+
+  const score = spoonacularScore / 20;
+
   const Recipe = () => (
     <div className='info'>
       <span className='title'>{title}</span>
       <div className='duration'>
-        <span>10 MIN</span>
-        <span>{extendedIngredients.length > 3}</span>
-        <Icon className='icon' />
-        <span>$$$</span>
+        <span>
+          <Clock className='icon' />
+          {readyInMinutes}
+        </span>
+        <span>
+          <Chef className='icon' />
+          {difficulty}
+        </span>
+        <span>
+          <Icon className='icon' />
+          {score} / 5
+        </span>
+        <span>{price}</span>
       </div>
       <div className='instructions'>
         <div>
@@ -124,7 +159,9 @@ const RecipeDetail = () => {
   return (
     <>
       {modal && <BookmarkModal setModal={setModal} id={id} />}
-      <Header>Recipe</Header>
+      <div className='header'>
+        <Header>Recipe</Header>
+      </div>
       <div className='cook-mode'>
         <Link to={`/cookmode/${id}`}>
           <span>COOK MODE</span>
