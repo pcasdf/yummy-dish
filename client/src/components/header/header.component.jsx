@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './header.styles.scss';
-import Search from '../../pages/search/search.component';
 
 import {
   Search as SearchIcon,
@@ -60,11 +59,7 @@ const Header = ({ children }) => {
           </Link>
           <AccountBox fontSize='large' onClick={toggleModal} />
         </span>
-        <br />
       </header>
-      {/* <div className='SearchBarBox'>
-          <Search />
-        </div> */}
     </div>
   );
 };
