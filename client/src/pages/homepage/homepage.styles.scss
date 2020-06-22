@@ -3,7 +3,6 @@
   height: 100vh;
   background-color: #cbf3f0;
   position: absolute;
-
 }
 
 .Welcome-to-Yummy-Dish-Your-place-to-find-Quick-S {
@@ -47,7 +46,6 @@
   @media all and (max-width: 480px) {
     width: 60.319444444444446vw;
     height: 15.208333333333334vw;
-
   }
   border-radius: 5px;
   padding-bottom: 25px;
@@ -71,9 +69,8 @@
     width: 60.319444444444446vw;
     height: 16.208333333333334vw;
     font-size: 5.5444444444444444vw;
-
   }
-  font-family: Raleway !important;
+  font-family: Raleway;
   font-size: 1.9444444444444444vw;
   font-weight: bold;
   font-stretch: normal;
@@ -97,5 +94,4 @@
   box-shadow: 0 0.25em 0.25em 0 rgba(0, 0, 0, 0.25);
   background-color: #effbfa;
   margin-bottom: 2.2222222222222223vw;
-  
 }

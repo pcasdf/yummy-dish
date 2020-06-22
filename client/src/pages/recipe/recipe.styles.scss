@@ -1,3 +1,9 @@
+.header {
+  .favorite {
+    fill: white;
+  }
+}
+
 .cook-mode {
   background: #2ec4b6;
   color: white;
@@ -8,7 +14,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  top: 120%;
+  top: 70%;
   right: 29%;
 
   span {
@@ -24,13 +30,9 @@
 
   .header {
     width: 100%;
-    height: 300px;
-
-    .favorite {
-      position: relative;
-      top: 20px;
-      right: 20px;
-    }
+    height: 320px;
+    display: flex;
+    justify-content: flex-end;
 
     @media (min-width: 480px) {
       background-size: cover;
@@ -52,7 +54,7 @@
       display: flex;
       justify-content: flex-start;
       position: absolute;
-      top: 300px;
+      top: 342px;
 
       span {
         width: 20vw;
@@ -99,11 +101,15 @@
           font-family: 'Nunito', sans-serif;
           font-size: 16px;
           font-weight: 400;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 18%;
         }
 
         .icon {
-          width: 30px;
-          height: 30px;
+          width: 45px;
+          height: 45px;
           fill: gold;
         }
       }
