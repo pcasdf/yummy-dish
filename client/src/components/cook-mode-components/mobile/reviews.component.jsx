@@ -1,6 +1,7 @@
 import React from 'react';
 import { Rating } from '@material-ui/lab/';
-import { StarBorder, Favorite } from '@material-ui/icons';
+import { Star } from '@material-ui/icons';
+import { ReactComponent as Heart } from '../../../assets/heart.svg';
 import { TextField } from '@material-ui/core';
 import Data from '../../../data/details-1.json';
 import './reviews.styles.scss';
@@ -17,24 +18,15 @@ const MobileReviews = ({ id }) => {
           name='half-rating'
           defaultValue={0}
           precision={0.5}
-          emptyIcon={<StarBorder />}
+          emptyIcon={<Star style={{ color: '#fff' }} />}
         />
       </div>
-      <TextField
-        id='outlined-multiline-static'
-        className='textfield'
-        label='Write a Review...'
-        multiline
-        rows={2}
-        variant='outlined'
-      />
+      <textarea placeholder='Write A Review...' rows='2' />
       <button className='add-recipe-button'>
         ADD TO MY RECIPES
-        <span className='favorite-icon'>
-          <Favorite fontSize='inherit' style={{ color: '#fff' }} />
-        </span>
+        <Heart className='heart-icon' />
       </button>
-      <h3>OR </h3>
+      <h2>OR</h2>
       <button className='share-button'>SHARE</button>
     </div>
   );
