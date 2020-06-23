@@ -18,7 +18,7 @@ export const getReview = async (id) => {
 
 export const createReview = async (review) => {
   try {
-    await api.post('/reviews', review);
+    const response = await api.post('/reviews', review);
     return response;
   } catch (error) {
     throw error;
