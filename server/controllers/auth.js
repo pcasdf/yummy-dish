@@ -1,5 +1,6 @@
 const db = require('../db/connections');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const User = require('../models/user');
 
@@ -22,8 +23,14 @@ const signInUser = async (req, res) => {
   try {
     let user = await User.findOne({ email });
 
-    if (password !== user.password) {
-      return res.status(401).json({ error: 'something went wrong.' });
+    if (!user) {
+      res.status(400).json({ error: 'invalid email' });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      res.status(400).json({ error: 'something went wrong.' });
     }
 
     const payload = {

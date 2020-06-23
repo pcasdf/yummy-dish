@@ -1,9 +1,15 @@
+const bcrypt = require('bcrypt');
 const User = require('../models/user');
 const { isValidObjectId } = require('mongoose');
 
 const createUser = async (req, res) => {
   try {
     const user = new User(req.body);
+
+    const salt = await bcrypt.genSalt(10);
+
+    user.password = await bcrypt.hash(req.body.password, salt);
+
     await user.save();
     res.status(201).json(user);
   } catch (error) {
