@@ -1,4 +1,6 @@
 .bookmark-page {
+  position: relative;
+  top: 10vw;
   background-color: #fec368;
   height: 100vh;
   overflow: auto;
@@ -70,3 +72,7 @@ top: 10vw;
     }
   }
 }
+
+// .backgroundDiv {
+//   background-color: white;
+// }

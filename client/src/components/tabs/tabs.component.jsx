@@ -10,7 +10,7 @@ import {
   ExpansionPanelDetails
 } from '@material-ui/core/';
 
-const Tabs = ({ children, bookmarks }) => {
+const Tabs = ({ children, bookmarks, index }) => {
   const { user } = useContext(UserContext);
   const stuff = [];
   if (bookmarks) {
@@ -23,13 +23,38 @@ const Tabs = ({ children, bookmarks }) => {
       });
     });
   }
+  // const oFormula = `${1+(index*(20/100)/-1)}`
+  // let opacity, gValue;
+  // if (index === 0) {
+  //   opacity = 1;
+  // } else {
+  //   opacity = oFormula;
+  //   gValue = index*7;
+  // }
+  // console.log(opacity)
+
+
+
+  // const tabColor = `rgba(255, ${gValue +159}, 28, 1)`;
+  let tabColor;
+  if (index===0) {tabColor = '#ff9f1c'}
+  else if (index===1) {tabColor = '#ffb44e'}
+  else if (index===2) {tabColor = '#fec373'}
+  else if (index===3) {tabColor = '#fdd196'}
+  else if (index===4) {tabColor = '#FDE0BF'}
+  else if (index===5) {tabColor = '#fdd196'}
+
+  else if (index===6) {tabColor = '#fdd196'}
+
+
 
   return (
     <div className='outerContainer'>
       <ExpansionPanel style={{ backgroundColor: 'transparent' }}>
         <ExpansionPanelSummary
+          className='tabs'
           style={{
-            backgroundColor: '#ff9f1c',
+            backgroundColor: tabColor,
             color: '#fff',
             width: '20vw',
             borderRadius: '5px'
@@ -39,7 +64,7 @@ const Tabs = ({ children, bookmarks }) => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails
           className='scroll-panel'
-          style={{ backgroundColor: '#ff9f1c' }}
+          style={{ backgroundColor: tabColor }}
         >
           {stuff.map((data) => (
             <div className='image-container'>

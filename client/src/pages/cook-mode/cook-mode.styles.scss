@@ -41,4 +41,19 @@
       }
     }
   }
+
+  .desktop-view {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    .desktop-prep {
+      flex-grow: 1;
+    }
+    .desktop-cook {
+      flex-grow: 3;
+    }
+    .desktop-review {
+      flex-grow: 4;
+    }
+  }
 }

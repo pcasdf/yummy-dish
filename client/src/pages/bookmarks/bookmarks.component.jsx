@@ -64,10 +64,11 @@ const Bookmarks = () => {
           </Paper>
         </div>
       </Header>
-      {user &&
-        user.categories.map((category) => (
-          <Tabs bookmarks={localBookmarks}>{category}</Tabs>
+      <div className="backgroundDiv">{user &&
+        user.categories.map((category, index) => (
+          <Tabs index={index} bookmarks={localBookmarks}>{category}</Tabs>
         ))}
+        </div>
       <Footer />
     </div>
   );

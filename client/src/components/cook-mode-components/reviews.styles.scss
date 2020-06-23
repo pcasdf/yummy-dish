@@ -1,5 +1,6 @@
 .reviews-container {
   height: 100%;
+  width: 100%;
   background-color: #fec368;
   color: #fff;
 
@@ -23,6 +24,7 @@
       height: 64px;
       border-radius: 20px;
       border: none;
+      padding: 10px;
     }
     textarea::placeholder {
       padding: 20px;
