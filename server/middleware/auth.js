@@ -9,6 +9,7 @@ const auth = (req, res, next) => {
 
   try {
     const verified = jwt.verify(token, 'asecrettoken');
+    console.log(verified);
     req.user = verified.user;
     next();
   } catch (err) {
