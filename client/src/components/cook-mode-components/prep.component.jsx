@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Data from '../../../data/details-1.json';
+import Data from '../../data/details-1.json';
 import './prep.styles.scss';
 
-const MobilePrep = ({ id }) => {
+const Prep = ({ id }) => {
   // const [ingredients, setIngredients] = useState({});
   const recipe = Data.find((each) => each.id === +id);
 
@@ -18,7 +18,7 @@ const MobilePrep = ({ id }) => {
     <div className='prep-container'>
       <div className='content-container'>
         <h1>Prep</h1>
-        <h3>Preparation Steps:</h3>
+        <h3>Ingredients:</h3>
         {recipe.extendedIngredients.map((each, idx) => (
           <div key={idx} className='ingredients'>
             <div className='input-label'>
@@ -31,7 +31,8 @@ const MobilePrep = ({ id }) => {
                 // value={ingredients[idx]}
               />
               <label className='prep-steps-label' htmlFor={each.name}>
-                {idx + 1}. {each.original}
+                <span className='number'>{idx + 1}. </span>{' '}
+                <span> {each.original}</span>
               </label>
             </div>
           </div>
@@ -41,4 +42,4 @@ const MobilePrep = ({ id }) => {
   );
 };
 
-export default MobilePrep;
+export default Prep;

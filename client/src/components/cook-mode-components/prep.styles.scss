@@ -1,18 +1,31 @@
 .prep-container {
+  height: 100%;
   background-color: #cbf3f0;
   .content-container {
     width: 80vw;
     text-align: center;
-    margin: 0 auto;
-
+    margin: 5px auto;
+    h3 {
+      text-align: left;
+    }
     .ingredients {
+      margin-top: 10px;
       display: flex;
       flex-flow: column wrap;
+
       .input-label {
         display: flex;
         text-align: left;
+
         .prep-steps-checkbox {
           margin: 5px 15px 5px 0;
+        }
+        .prep-steps-label {
+          font-size: 22px;
+          .number {
+            font-size: 18px;
+            font-weight: 500;
+          }
         }
       }
     }

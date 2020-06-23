@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import MobilePrep from '../../components/cook-mode-components/mobile/prep.component';
-import MobileCook from '../../components/cook-mode-components/mobile/cook.component';
-import MobileReviews from '../../components/cook-mode-components/mobile/reviews.component';
+import React, { useState, useEffect } from 'react';
+import Prep from '../../components/cook-mode-components/prep.component';
+import Cook from '../../components/cook-mode-components//cook.component';
+import Reviews from '../../components/cook-mode-components/reviews.component';
 import './cook-mode.styles.scss';
 import Data from '../../data/details-1.json';
 import { useParams, Link } from 'react-router-dom';
@@ -13,18 +13,28 @@ const CookModePage = () => {
   const recipe = Data.find((each) => each.id === +id);
   const [steps, setSteps] = useState({
     prep: true,
-    cook: false,
-    review: false
+    cook: true,
+    review: true
   });
-  const handlePreviousClick = (e) => {
-    e.preventDefault();
-    if (steps.cook === true) {
+
+  useEffect(() => {
+    if (window.innerWidth < 500) {
       setSteps({
         prep: true,
         cook: false,
         review: false
       });
-    } else if (steps.review === true) {
+    }
+  }, []);
+  const handlePreviousClick = (e) => {
+    e.preventDefault();
+    if (steps.cook) {
+      setSteps({
+        prep: true,
+        cook: false,
+        review: false
+      });
+    } else if (steps.review) {
       setSteps({
         prep: false,
         cook: true,
@@ -35,13 +45,13 @@ const CookModePage = () => {
 
   const handleNextClick = (e) => {
     e.preventDefault();
-    if (steps.prep === true) {
+    if (steps.prep) {
       setSteps({
         prep: false,
         cook: true,
         review: false
       });
-    } else if (steps.cook === true) {
+    } else if (steps.cook) {
       setSteps({
         prep: false,
         cook: false,
@@ -52,33 +62,47 @@ const CookModePage = () => {
   let body;
   let previous;
   let next;
-  if (steps.prep === true) {
-    body = <MobilePrep id={id} />;
+  let footerColor;
+  if (steps.review && steps.prep && steps.cook) {
+    body = (
+      <>
+        <Prep id={id} />
+        <Cook id={id} />
+        <Reviews id={id} />
+      </>
+    );
+  } else if (steps.cook) {
+    footerColor = '#709f7c';
+    body = <Cook id={id} />;
+    previous = <p>Prep</p>;
+    next = <p>Skip to Review</p>;
+  } else if (steps.review) {
+    footerColor = '#ff9f1c';
+    body = <Reviews id={id} />;
+    previous = <p>Back to Cook</p>;
+    next = (
+      <p>
+        <Link to='/'>Return Home</Link>
+      </p>
+    );
+  } else if (steps.prep) {
+    body = <Prep id={id} />;
     previous = (
       <p>
         <Link to={`/recipes/${id}`}>Recipe</Link>
       </p>
     );
     next = <p>Skip to Cook</p>;
-  } else if (steps.cook === true) {
-    body = <MobileCook id={id} />;
-    previous = <p>Prep</p>;
-    next = <p>Skip to Review</p>;
-  } else if (steps.review === true) {
-    body = <MobileReviews id={id} />;
-    previous = <p>Back to Cook</p>;
-    next = <Link to='/'>Return Home</Link>;
+    footerColor = '#2ec4b6';
   }
-
   return (
     <div className='cookmode-container'>
       <div
         className='header-image'
         style={{ backgroundImage: `url(${recipe.image})` }}
       />
-
-      {body}
-      <div className='footer'>
+      <div className='body'>{body}</div>
+      <div className='footer' style={{ backgroundColor: `${footerColor}` }}>
         <div className='left' onClick={handlePreviousClick}>
           <Previous className='previous' />
           {previous}

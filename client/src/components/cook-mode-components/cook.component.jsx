@@ -1,9 +1,9 @@
 import React from 'react';
-import { ReactComponent as Edit } from '../../../assets/edit.svg';
-import Data from '../../../data/details-1.json';
+import { ReactComponent as Edit } from '../../assets/edit.svg';
+import Data from '../../data/details-1.json';
 import './cook.styles.scss';
 
-const MobileCook = ({ id }) => {
+const Cook = ({ id }) => {
   const recipe = Data.find((each) => each.id === +id);
   console.log(recipe.analyzedInstructions[0].steps);
   return (
@@ -19,7 +19,9 @@ const MobileCook = ({ id }) => {
             <div className='input-label'>
               <input type='checkbox' className='cook-steps-checkbox' />
               <label htmlFor='' className='cook-steps-label'>
-                {each.number}. {each.step}
+                <span>
+                  {each.number}. {each.step}
+                </span>
               </label>
             </div>
           </div>
@@ -29,4 +31,4 @@ const MobileCook = ({ id }) => {
   );
 };
 
-export default MobileCook;
+export default Cook;
