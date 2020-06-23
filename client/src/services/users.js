@@ -30,6 +30,8 @@ export const signinUser = async (user, prevToken) => {
         }
       });
 
+      console.log(response);
+
       return response.data;
     } else {
       const response = await api.get(`/auth`, {
