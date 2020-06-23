@@ -12,6 +12,7 @@ const Bookmarks = () => {
   const { user } = useContext(UserContext);
   const [localBookmarks, setLocalBookmarks] = useState([]);
   const [input, setInput] = useState('');
+
   useEffect(() => {
     const stuff = [];
     if (user) {
@@ -36,10 +37,11 @@ const Bookmarks = () => {
       filteredData.filter((data) => data.title.toLowerCase().includes(value))
     );
   };
+
   return (
     <div className='bookmark-page'>
       <Header style={{ backgroundColor: '#fec368' }}>
-        My Recipes
+        <span className='title'>My Recipes</span>
         <div className='search-bar'>
           <Paper component='form' className='search-wrapper'>
             <Search
@@ -54,7 +56,8 @@ const Bookmarks = () => {
               value={input}
               placeholder='Search in your recipes'
               style={{
-                padding: '5px',
+                width: '30%',
+                marginBottom: 0,
                 backgroundColor: '#fff'
               }}
             />

@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import Snackbar from '@material-ui/core/Snackbar';
 import './header.styles.scss';
 
 import {
@@ -16,6 +17,8 @@ import { signinUser } from '../../services/users';
 const Header = ({ children }) => {
   const { setUser } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
+  const [signedUp, setSignedUp] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -36,28 +39,47 @@ const Header = ({ children }) => {
 
   return (
     <div>
-      {showModal && <Account {...{ setShowModal, showModal }} />}
+      {showModal && (
+        <Account {...{ setShowModal, showModal, setLoggedIn, setSignedUp }} />
+      )}
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left'
+        }}
+        open={loggedIn}
+        autoHideDuration={3000}
+        onClose={() => setLoggedIn(!loggedIn)}
+        message='Logged in!'
+      />
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left'
+        }}
+        open={signedUp}
+        autoHideDuration={3000}
+        onClose={() => setSignedUp(!signedUp)}
+        message='Registered!'
+      />
       <header className='header-wrapper'>
         <span className='left'>
-          <SearchIcon
-            className='SearchIcon'
-            fontSize='large'
-            style={{ paddingRight: '1rem' }}
-          />
+          <SearchIcon className='SearchIcon' style={{ paddingRight: '1rem' }} />
           <span className='PageTitle'>{children}</span>
         </span>
         <span className='right'>
           <Link to='/'>
-            <Home fontSize='large' />
+            <Home />
           </Link>
           <Link to='/bookmarks'>
-            {children[0] === 'My Recipes' ? (
-              <Favorite fontSize='large' style={{ color: '#fc8b56' }} />
+            {children[0].props &&
+            children[0].props.children === 'My Recipes' ? (
+              <Favorite style={{ color: '#fc8b56' }} />
             ) : (
-              <FavoriteBorder fontSize='large' />
+              <FavoriteBorder />
             )}
           </Link>
-          <AccountBox fontSize='large' onClick={toggleModal} />
+          <AccountBox onClick={toggleModal} />
         </span>
       </header>
     </div>
