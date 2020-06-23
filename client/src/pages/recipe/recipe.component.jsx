@@ -124,7 +124,7 @@ const RecipeDetail = () => {
   }
 
   return (
-    <>
+    <div className='recipe-component'>
       {modal && <BookmarkModal setModal={setModal} id={id} />}
       <Header>Recipe</Header>
       <div className='cook-mode'>
@@ -153,7 +153,7 @@ const RecipeDetail = () => {
         </div>
         {body}
       </div>
-    </>
+    </div>
   );
 };
 
