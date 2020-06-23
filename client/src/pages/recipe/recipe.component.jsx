@@ -127,7 +127,7 @@ const RecipeDetail = () => {
       {modal && <BookmarkModal setModal={setModal} id={id} />}
       <Header>Recipe</Header>
       <div className='cook-mode'>
-        <Link to={`cookmode/${id}`}>
+        <Link to={`/cookmode/${id}`}>
           <span>COOK MODE</span>
         </Link>
       </div>
