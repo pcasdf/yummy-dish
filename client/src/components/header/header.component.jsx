@@ -1,15 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
-import Snackbar from '@material-ui/core/Snackbar';
-import './header.styles.scss';
+import { Link } from 'react-router-dom';
 
+import Snackbar from '@material-ui/core/Snackbar';
 import {
-  Search as SearchIcon,
+  Search,
   Home,
   AccountBox,
   FavoriteBorder,
   Favorite
 } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
+
+import './header.styles.scss';
 import Account from '../../pages/account/account.component';
 import { UserContext } from '../../contexts/user.context';
 import { signinUser } from '../../services/users';
@@ -37,7 +38,6 @@ const Header = ({ children }) => {
   useEffect(() => {
     checkLoggedIn();
   }, []);
-  console.log(children);
 
   return (
     <div>
@@ -84,7 +84,7 @@ const Header = ({ children }) => {
       />
       <header className='header-wrapper'>
         <span className='left'>
-          <SearchIcon className='SearchIcon' style={{ paddingRight: '1rem' }} />
+          <Search className='SearchIcon' style={{ paddingRight: '1rem' }} />
           <span className='PageTitle'>{children}</span>
         </span>
         <span className='right'>
