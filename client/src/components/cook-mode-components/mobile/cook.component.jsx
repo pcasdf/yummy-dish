@@ -1,25 +1,31 @@
 import React from 'react';
-import { Edit } from '@material-ui/icons';
+import { ReactComponent as Edit } from '../../../assets/edit.svg';
 import Data from '../../../data/details-1.json';
+import './cook.styles.scss';
 
 const MobileCook = ({ id }) => {
   const recipe = Data.find((each) => each.id === +id);
   console.log(recipe.analyzedInstructions[0].steps);
   return (
-    <>
-      <h1>Cook</h1>
-      <h3>MAKE IT YOUR OWN!</h3>
-      <Edit style={{ width: '10px' }} />
-      <h2>DIRECTIONS:</h2>
-      {recipe.analyzedInstructions[0].steps.map((each) => (
-        <>
-          <input type='checkbox' className='cook-steps-checkbox' />
-          <label htmlFor='' className='cook-steps-label'>
-            {each.number}. {each.step}
-          </label>
-        </>
-      ))}
-    </>
+    <div className='cook-container'>
+      <div className='content-container'>
+        <h1>Cook</h1>
+        <h3>
+          MAKE IT YOUR OWN! <Edit className='edit-icon' />
+        </h3>
+        <h2>DIRECTIONS:</h2>
+        {recipe.analyzedInstructions[0].steps.map((each) => (
+          <div className='directions'>
+            <div className='input-label'>
+              <input type='checkbox' className='cook-steps-checkbox' />
+              <label htmlFor='' className='cook-steps-label'>
+                {each.number}. {each.step}
+              </label>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
