@@ -1,3 +1,6 @@
+$breakpoint-ipad: 768px;
+$breakpoint-desktop: 1024px;
+
 .reviews-container {
   height: 100%;
   width: 100%;
@@ -20,21 +23,24 @@
     textarea {
       background-color: #f8f5f5;
       margin: 8px auto;
-      width: 340px;
+      width: 85%;
       height: 64px;
       border-radius: 20px;
       border: none;
       padding: 10px;
-    }
-    textarea::placeholder {
-      padding: 20px;
-      color: rgba(0, 0, 0, 0.32);
-      font-family: Roboto;
+      font-family: Karma;
       font-size: 18px;
-      font-weight: bold;
+      &::placeholder {
+        padding: 15px;
+        color: rgba(0, 0, 0, 0.32);
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: bold;
+      }
     }
+
     button {
-      width: 340px;
+      width: 90%;
       margin: 16px auto;
       border: none;
       border-radius: 20px;
@@ -49,6 +55,22 @@
       margin: 0 0 0 20px;
       width: 24px;
       fill: #fff;
+    }
+    @media (min-width: $breakpoint-ipad) {
+      textarea {
+        width: 46%;
+      }
+      button {
+        width: 50%;
+      }
+    }
+    @media (min-width: $breakpoint-desktop) {
+      textarea {
+        width: 38%;
+      }
+      button {
+        width: 40%;
+      }
     }
   }
 }
