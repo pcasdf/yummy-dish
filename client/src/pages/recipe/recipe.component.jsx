@@ -12,6 +12,7 @@ const RecipeDetail = () => {
   const { id } = useParams();
   const [tab, setTab] = useState(0);
   const [modal, setModal] = useState(false);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     if (window.innerWidth < 500) {
@@ -127,7 +128,7 @@ const RecipeDetail = () => {
       {modal && <BookmarkModal setModal={setModal} id={id} />}
       <Header>Recipe</Header>
       <div className='cook-mode'>
-        <Link to={`cookmode/${id}`}>
+        <Link to={`/cookmode/${id}`}>
           <span>COOK MODE</span>
         </Link>
       </div>

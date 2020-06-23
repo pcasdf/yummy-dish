@@ -19,6 +19,7 @@ const Header = ({ children }) => {
   const [showModal, setShowModal] = useState(false);
   const [signedUp, setSignedUp] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedOut, setLoggedOut] = useState(false);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -28,6 +29,7 @@ const Header = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('jwt-token'));
     if (token) {
       const user = await signinUser(null, token);
+      setLoggedOut(false);
       setUser(user);
     }
   };
@@ -40,8 +42,26 @@ const Header = ({ children }) => {
   return (
     <div>
       {showModal && (
-        <Account {...{ setShowModal, showModal, setLoggedIn, setSignedUp }} />
+        <Account
+          {...{
+            setShowModal,
+            showModal,
+            setLoggedIn,
+            setSignedUp,
+            setLoggedOut
+          }}
+        />
       )}
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left'
+        }}
+        open={loggedOut}
+        autoHideDuration={3000}
+        onClose={() => setLoggedOut(!loggedOut)}
+        message='Logged out!'
+      />
       <Snackbar
         anchorOrigin={{
           vertical: 'bottom',

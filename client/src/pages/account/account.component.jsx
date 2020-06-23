@@ -1,11 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
-import Snackbar from '@material-ui/core/Snackbar';
 
 import './account.styles.scss';
 import { createUser, signinUser } from '../../services/users';
 import { UserContext } from '../../contexts/user.context';
 
-const Account = ({ setShowModal, showModal, setLoggedIn, setSignedUp }) => {
+const Account = ({
+  setShowModal,
+  showModal,
+  setLoggedIn,
+  setSignedUp,
+  setLoggedOut
+}) => {
   const { user, setUser } = useContext(UserContext);
   const [signingUp, setSigningUp] = useState(false);
 
@@ -74,85 +79,84 @@ const Account = ({ setShowModal, showModal, setLoggedIn, setSignedUp }) => {
     setShowModal(false);
   };
 
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.setItem('jwt-token', null);
+    setLoggedOut(true);
+    setShowModal(!showModal);
+  };
+
   return (
     <div className='mod-container' onClick={closeModal}>
-      {/* <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left'
-        }}
-        open={loggedIn}
-        autoHideDuration={3000}
-        onClose={() => setLoggedIn(!loggedIn)}
-        message='Logged in!'
-      />
-      <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left'
-        }}
-        open={signedUp}
-        autoHideDuration={3000}
-        onClose={() => setSignedUp(!signedUp)}
-        message='Registered!'
-      /> */}
-      <div className='forms'>
-        <div className='no-account'>
-          <p>No account?</p>
-        </div>
-        <button onClick={handleSignup} className='signup-button'>
-          SIGNUP
-        </button>
+      {!user && (
+        <>
+          <div className='forms'>
+            <div className='no-account'>
+              <p>No account?</p>
+            </div>
+            <button onClick={handleSignup} className='signup-button'>
+              SIGNUP
+            </button>
 
-        {signup && (
-          <form onSubmit={handleSignupSubmit}>
-            <input
-              name='fullName'
-              placeholder='Your name'
-              type='text'
-              value={newInput.fullName}
-              onChange={handleNewChange}
-            />
-            <input
-              name='email'
-              placeholder='email'
-              type='text'
-              value={newInput.email}
-              onChange={handleNewChange}
-            />
-            <input
-              name='password'
-              placeholder='password'
-              type='password'
-              value={newInput.password}
-              onChange={handleNewChange}
-            />
-            <button className='login'>SIGNUP</button>
-          </form>
-        )}
+            {signup && (
+              <form onSubmit={handleSignupSubmit}>
+                <input
+                  name='fullName'
+                  placeholder='Your name'
+                  type='text'
+                  value={newInput.fullName}
+                  onChange={handleNewChange}
+                />
+                <input
+                  name='email'
+                  placeholder='email'
+                  type='text'
+                  value={newInput.email}
+                  onChange={handleNewChange}
+                />
+                <input
+                  name='password'
+                  placeholder='password'
+                  type='password'
+                  value={newInput.password}
+                  onChange={handleNewChange}
+                />
+                <button className='login'>SIGNUP</button>
+              </form>
+            )}
 
-        <form onSubmit={handleSignin}>
-          <input
-            name='email'
-            placeholder='email'
-            type='text'
-            disabled={signingUp}
-            value={input.email}
-            onChange={handleChange}
-          />
-          <input
-            name='password'
-            placeholder='password'
-            type='password'
-            disabled={signingUp}
-            value={input.password}
-            onChange={handleChange}
-          />
-          <button disabled={signingUp} className='login'>
-            LOGIN
+            <form onSubmit={handleSignin}>
+              <input
+                name='email'
+                placeholder='email'
+                type='text'
+                disabled={signingUp}
+                value={input.email}
+                onChange={handleChange}
+              />
+              <input
+                name='password'
+                placeholder='password'
+                type='password'
+                disabled={signingUp}
+                value={input.password}
+                onChange={handleChange}
+              />
+
+              <button disabled={signingUp} className='login'>
+                LOGIN
+              </button>
+            </form>
+          </div>
+        </>
+      )}
+      {user && (
+        <div className='forms'>
+          <button className='logout' onClick={handleLogout}>
+            LOGOUT
           </button>
-        </form>
-      </div>
+        </div>
+      )}
     </div>
   );
 };

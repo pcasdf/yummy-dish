@@ -4,11 +4,14 @@ import '../highlight/highlight.styles.scss';
 
 function Highlight(props) {
   return (
-    <Link to={`/recipes/${props.id}`}>
+    <Link className='link-container' to={`/recipes/${props.id}`}>
       <div className='RecipeRender'>
-        <img className='Image' src={props.img} />
-        <span>{props.title}</span>
+        <div
+          className='bgImage'
+          style={{ backgroundImage: `url(${props.img})` }}
+        />
       </div>
+      <span>{props.title}</span>
     </Link>
   );
 }
