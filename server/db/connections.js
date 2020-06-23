@@ -6,5 +6,3 @@ mongoose
   .then(() => console.log('MongoDB connected.'))
   .catch((err) => console.error(err.message));
 module.exports = mongoose.connection;
-
-// mongodb+srv://pwoke:project@cluster0-elcuu.mongodb.net/yummydatabase?retryWrites=true&w=majority
