@@ -1,0 +1,25 @@
+.cook-container {
+  margin: 0 auto;
+  background-color: #add6b7;
+  .content-container {
+    width: 80vw;
+    text-align: center;
+    margin: 0 auto;
+
+    .directions {
+      display: flex;
+      flex-flow: column wrap;
+      .input-label {
+        display: flex;
+        text-align: left;
+        .cook-steps-checkbox {
+          margin: 5px 15px 5px 0;
+        }
+      }
+    }
+    .edit-icon {
+      width: 8vw;
+      height: 8vw;
+    }
+  }
+}

@@ -1,8 +1,34 @@
 .cookmode-container {
+  top: 0;
+  margin-top: 0;
+  font-family: Raleway;
   .header-image {
     width: 100vw;
     height: 20vh;
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: center;
+  }
+  .footer {
+    position: relative;
+    bottom: 0;
+    height: 10vh;
+    background-color: #ff9f1c;
+    display: flex;
+    justify-content: space-between;
+    .previous {
+      width: 7.5vw;
+      fill: #fff;
+    }
+
+    .right {
+      text-align: right;
+      position: relative;
+      .next {
+        color: #fff;
+        width: 8vw;
+        height: 8vw;
+        fill: #fff;
+      }
+    }
   }
 }
