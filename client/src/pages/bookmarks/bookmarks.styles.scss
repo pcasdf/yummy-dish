@@ -5,6 +5,11 @@
   height: 100vh;
   overflow: auto;
 
+  Footer {
+    bottom: 0;
+    position: relative;
+  }
+
   .title {
     position: absolute;
     top: 2vw;

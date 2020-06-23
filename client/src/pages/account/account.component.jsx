@@ -121,7 +121,7 @@ const Account = ({
                   value={newInput.password}
                   onChange={handleNewChange}
                 />
-                <button className='login'>SIGNUP</button>
+                <button className='login'>REGISTER</button>
               </form>
             )}
 
