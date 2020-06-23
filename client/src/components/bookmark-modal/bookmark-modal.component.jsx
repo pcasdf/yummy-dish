@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
 
 import './bookmark-modal.styles.scss';
 import { UserContext } from '../../contexts/user.context';
@@ -10,7 +9,6 @@ const BookmarkModal = ({ setModal, id }) => {
   const [category, setCategory] = useState('');
   const { user, setUser } = useContext(UserContext);
   const [open, setOpen] = useState(false);
-  
 
   const handleChange = (event) => {
     setCategory(event.target.value);
@@ -62,16 +60,6 @@ const BookmarkModal = ({ setModal, id }) => {
             autoHideDuration={3000}
             onClose={() => setOpen(!open)}
             message='Added to recipe box!'
-            action={
-              <React.Fragment>
-                <IconButton
-                  size='small'
-                  aria-label='close'
-                  color='inherit'
-                  onClick={() => setOpen(!open)}
-                />
-              </React.Fragment>
-            }
           />
           <span>ADD TO MY RECIPE BOX</span>
           <form onSubmit={handleAddCategory}>

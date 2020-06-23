@@ -11,8 +11,12 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  height: 12vw;
+  height: 14vw;
   z-index: 10;
+
+  @media (max-width: 450px) {
+    height: 18vw;
+  }
 
   .left {
     display: flex;

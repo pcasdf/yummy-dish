@@ -3,47 +3,70 @@
   padding: 0;
 }
 
-.mod-container{
+.mod-container {
   display: block;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-
-.forms {
-  margin: 100px auto;
-  width: 15%;
-  height: 355px;
-  position: absolute;
-  border-radius:  0.45em;
-  z-index: 2;
-  background: #fec368;
-  top: 80px;
-  left: 83%;
-  opacity: .9;
-}
-
-.signing-grayout {
-  position: absolute;
-  z-index: 999;
-  height: 30%;
-  width: 80%;
-  margin: -3px 23px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.cancel{
+.forms {
+  margin: 100px auto;
+  width: 25%;
+  height: auto;
+  padding: 3vw 3vw 6vw 3vw;
+  position: absolute;
+  border-radius: 4px;
+  z-index: 2;
+  background: #fec368;
+  top: 80px;
+  left: 60%;
+  opacity: 0.9;
+
+  input {
+    width: 75%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: none;
+    margin: 10px auto;
+    font-size: 16px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    color: #fff;
+    font-weight: 600;
+    width: 80%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ff9f1c;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  form {
+    margin: 30px 0;
+  }
+}
+
+.cancel {
   background-color: #fec368;
   border: solid #fec368;
-  border-radius:  0.3125em;
+  border-radius: 0.3125em;
   margin-left: 220px;
   padding: 0 2px;
 }
@@ -52,8 +75,8 @@ input {
   margin: 0 auto;
   display: flex;
   margin-bottom: 5px;
-  border-radius:  0.3125em;
-  border: solid #CBF3F0;
+  border-radius: 0.3125em;
+  border: solid #cbf3f0;
   padding: 5px;
   position: relative;
 }
@@ -62,191 +85,172 @@ input {
   display: flex;
   align-items: center;
   margin: 5px auto;
-  border-radius:  0.3125em;
-  border: solid #CBF3F0;
+  border-radius: 0.3125em;
+  border: solid #cbf3f0;
 }
 
-.signup-button{
+.signup-button {
   margin: 5px auto;
   display: flex;
   align-items: center;
-  background-color: #CBF3F0;
-  border: solid #CBF3F0;
-  border-radius:  0.3125em;
+  background-color: #cbf3f0;
+  border: solid #cbf3f0;
+  border-radius: 0.3125em;
   color: black;
 }
 
 .no-account {
-  
   margin: 2px auto;
-  width: 30%;
-
+  width: 80%;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  font-size: 24px;
+  color: white;
 }
-
 
 //iphone X
 
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3) { 
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  .forms {
+    margin: 100px auto;
+    width: 80%;
+    height: auto;
+    position: absolute;
+    border-radius: 0.45em;
+    z-index: 2;
+    background: #fec368;
+    top: 18px;
+    left: 8%;
+    opacity: 0.9;
+  }
 
-    .forms {
-      margin: 100px auto;
-      width: 80%;
-      height: 355px;
-      position: absolute;
-      border-radius:  0.45em;
-      z-index: 2;
-      background: #fec368;
-      top: 18px;
-      left: 10%;
-      opacity: .9;
-    }
+  .cancel {
+    background-color: #fec368;
+    border: solid #fec368;
+    border-radius: 0.3125em;
+    margin-left: 275px;
+    padding: 0 2px;
+  }
 
-    .cancel{
-      background-color: #fec368;
-      border: solid #fec368;
-      border-radius:  0.3125em;
-      margin-left: 275px;
-      padding: 0 2px;
-    }
+  input {
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 0.3125em;
+    border: solid #cbf3f0;
+  }
 
-    input {
-      display: flex;
-      margin: 0 auto;
-      margin-bottom: 5px;
-      border-radius:  0.3125em;
-      border: solid #CBF3F0;
-    }
-    
-    .login {
-      display: flex;
-      align-items: center;
-      margin: 5px auto;
-      border-radius:  0.3125em;
-      border: solid #CBF3F0;
-    }
-    
-    .signup-button{
-      margin: 5px auto;
-      display: flex;
-      align-items: center;
-      background-color: #CBF3F0;
-      border: solid #CBF3F0;
-      border-radius:  0.3125em;
-      color: black;
-    }
-    
-    .no-account {
-      
-      margin: 2px auto;
-      width: 30%;
-    
-    }
+  .login {
+    display: flex;
+    align-items: center;
+    margin: 5px auto;
+    border-radius: 0.3125em;
+    border: solid #cbf3f0;
+  }
 
+  .signup-button {
+    margin: 5px auto;
+    display: flex;
+    align-items: center;
+    background-color: #cbf3f0;
+    border: solid #cbf3f0;
+    border-radius: 0.3125em;
+    color: black;
+  }
+
+  .no-account {
+    margin: 2px auto;
+    width: 50%;
+    margin-bottom: 30px;
+  }
 }
 
 //ipad Portrait
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: portrait) 
-  and (-webkit-min-device-pixel-ratio: 1) {
-  
-    .forms {
-      margin: 100px auto;
-      width: 35%;
-      height: 355px;
-      position: absolute;
-      border-radius:  0.45em;
-      z-index: 2;
-      background: #fec368;
-      top: 18px;
-      left: 60%;
-      opacity: .9;
-      }
-
-      .cancel{
-        background-color: #fec368;
-        border: solid #fec368;
-        border-radius:  0.3125em;
-        margin-left: 245px;
-        padding: 0 2px;
-      }
-
-    input {
-      display: flex;
-      margin: 0 auto;
-      margin-bottom: 5px;
-      border-radius:  0.3125em;
-      border: solid #CBF3F0;
-    }
-    
-    .login {
-      display: flex;
-      align-items: center;
-      margin: 5px auto;
-      border-radius:  0.3125em;
-      border: solid #CBF3F0;
-    }
-    
-    .signup-button{
-      margin: 5px auto;
-      display: flex;
-      align-items: center;
-      background-color: #CBF3F0;
-      border: solid #CBF3F0;
-      border-radius:  0.3125em;
-      color: black;
-    }
-    
-    .no-account {
-      
-      margin: 2px auto;
-      width: 30%;
-    
-    }
-  
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  .forms {
+    margin: 100px auto;
+    width: 35%;
+    height: 355px;
+    position: absolute;
+    border-radius: 0.45em;
+    z-index: 2;
+    background: #fec368;
+    top: 18px;
+    left: 60%;
+    opacity: 0.9;
   }
 
-  //ipad landscape
-  @media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 1) {
+  .cancel {
+    background-color: #fec368;
+    border: solid #fec368;
+    border-radius: 0.3125em;
+    margin-left: 245px;
+    padding: 0 2px;
+  }
 
+  input {
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 0.3125em;
+    border: solid #cbf3f0;
+  }
 
-    .forms {
-      margin: 100px auto;
-      width: 25%;
-      height: 355px;
-      position: absolute;
-      border-radius:  0.45em;
-      z-index: 2;
-      background: #fec368;
-      top: 18px;
-      left: 70%;
-      opacity: .9;
-      }
+  .login {
+    display: flex;
+    align-items: center;
+    margin: 5px auto;
+    border-radius: 0.3125em;
+    border: solid #cbf3f0;
+  }
 
-    .cancel{
-      background-color: #fec368;
-      border: solid #fec368;
-      border-radius:  0.3125em;
-      margin-left: 235px;
-      padding: 0 2px;
-    }
+  .signup-button {
+    margin: 5px auto;
+    display: flex;
+    align-items: center;
+    background-color: #cbf3f0;
+    border: solid #cbf3f0;
+    border-radius: 0.3125em;
+    color: black;
+  }
 
-    .signing-grayout {
-      position: absolute;
-      z-index: 999;
-      height: 30%;
-      width: 80%;
-      margin: -3px 25px;
-      background-color: rgb(0, 0, 0);
-      background-color: rgba(0, 0, 0, 0.4);
-    }
-    
+  .no-account {
+    margin: 2px auto;
+    width: 30%;
+  }
+}
+
+//ipad landscape
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  .forms {
+    margin: 100px auto;
+    width: 25%;
+    height: 355px;
+    position: absolute;
+    border-radius: 0.45em;
+    z-index: 2;
+    background: #fec368;
+    top: 18px;
+    left: 70%;
+    opacity: 0.9;
+  }
+
+  .cancel {
+    background-color: #fec368;
+    border: solid #fec368;
+    border-radius: 0.3125em;
+    margin-left: 235px;
+    padding: 0 2px;
+  }
+
+  .signing-grayout {
+    position: absolute;
+    z-index: 999;
+    height: 30%;
+    width: 80%;
+    margin: -3px 25px;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
 }

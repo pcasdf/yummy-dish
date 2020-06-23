@@ -1,10 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { createUser, signinUser } from '../../services/users';
+import Snackbar from '@material-ui/core/Snackbar';
+
 import './account.styles.scss';
+import { createUser, signinUser } from '../../services/users';
 import { UserContext } from '../../contexts/user.context';
 
-const Account = ({ setShowModal, showModal }) => {
+const Account = ({ setShowModal, showModal, setLoggedIn, setSignedUp }) => {
   const { user, setUser } = useContext(UserContext);
+  const [signingUp, setSigningUp] = useState(false);
 
   const [input, setInput] = useState({
     email: '',
@@ -18,9 +21,7 @@ const Account = ({ setShowModal, showModal }) => {
     categories: ['Favorites']
   });
 
-  const [signup, setSignup] = useState(false)
-
-  const [gray, setGray] = useState(false)
+  const [signup, setSignup] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +35,7 @@ const Account = ({ setShowModal, showModal }) => {
 
   const handleSignup = () => {
     setSignup(!signup);
-    setGray(!gray)
+    setSigningUp(!signingUp);
   };
 
   const handleSignupSubmit = async (e) => {
@@ -43,6 +44,7 @@ const Account = ({ setShowModal, showModal }) => {
       console.log(newInput);
       const user = await createUser(newInput);
       console.log(user);
+      setSignedUp(true);
       setShowModal(!showModal);
     } catch (error) {
       console.log(error);
@@ -55,6 +57,7 @@ const Account = ({ setShowModal, showModal }) => {
       const response = await signinUser(input);
       console.log(response);
       setUser(response);
+      setLoggedIn(true);
       setShowModal(!showModal);
     } catch (error) {
       console.log(error);
@@ -65,70 +68,91 @@ const Account = ({ setShowModal, showModal }) => {
     if (e.target.className === 'mod-container') {
       setShowModal(false);
     }
-  }
+  };
 
   const close = () => {
     setShowModal(false);
-  }
+  };
 
   return (
     <div className='mod-container' onClick={closeModal}>
+      {/* <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left'
+        }}
+        open={loggedIn}
+        autoHideDuration={3000}
+        onClose={() => setLoggedIn(!loggedIn)}
+        message='Logged in!'
+      />
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left'
+        }}
+        open={signedUp}
+        autoHideDuration={3000}
+        onClose={() => setSignedUp(!signedUp)}
+        message='Registered!'
+      /> */}
       <div className='forms'>
-        <button className="cancel" onClick={close}>X</button>
-      <div className='no-account'>
-        <p>No account?</p>
-      </div>
-      <button onClick={handleSignup} className='signup-button'>
-        Signup
-      </button>
+        <div className='no-account'>
+          <p>No account?</p>
+        </div>
+        <button onClick={handleSignup} className='signup-button'>
+          SIGNUP
+        </button>
 
-      {signup && (
-        <form onSubmit={handleSignupSubmit}>
-          <input
-            name='fullName'
-            placeholder='Your name'
-            type='text'
-            value={newInput.fullName}
-            onChange={handleNewChange}
-          />
+        {signup && (
+          <form onSubmit={handleSignupSubmit}>
+            <input
+              name='fullName'
+              placeholder='Your name'
+              type='text'
+              value={newInput.fullName}
+              onChange={handleNewChange}
+            />
+            <input
+              name='email'
+              placeholder='email'
+              type='text'
+              value={newInput.email}
+              onChange={handleNewChange}
+            />
+            <input
+              name='password'
+              placeholder='password'
+              type='password'
+              value={newInput.password}
+              onChange={handleNewChange}
+            />
+            <button className='login'>SIGNUP</button>
+          </form>
+        )}
+
+        <form onSubmit={handleSignin}>
           <input
             name='email'
             placeholder='email'
             type='text'
-            value={newInput.email}
-            onChange={handleNewChange}
+            disabled={signingUp}
+            value={input.email}
+            onChange={handleChange}
           />
           <input
             name='password'
             placeholder='password'
             type='password'
-            value={newInput.password}
-            onChange={handleNewChange}
+            disabled={signingUp}
+            value={input.password}
+            onChange={handleChange}
           />
-          <button className='login'>Signup</button>
+          <button disabled={signingUp} className='login'>
+            LOGIN
+          </button>
         </form>
-      )}
-
-        {gray && (<div className='signing-grayout'></div>)}
-      <form onSubmit={handleSignin} >
-        <input
-          name='email'
-          placeholder='email'
-          type='text'
-          value={input.email}
-          onChange={handleChange}
-        />
-        <input
-          name='password'
-          placeholder='password'
-          type='password'
-          value={input.password}
-          onChange={handleChange}
-            />
-        <button className='login'>Login</button>
-      </form>
-      
-    </div>
+      </div>
     </div>
   );
 };
