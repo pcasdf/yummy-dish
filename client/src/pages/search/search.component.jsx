@@ -16,8 +16,7 @@ import Pricing from './Pricing';
 import PrepTime from './PrepTime';
 import Skill from './Skill';
 
-
-import "./search.styles.scss"
+import './search.styles.scss';
 import Header from '../../components/header/header.component';
 
 function Search(props) {
@@ -110,72 +109,61 @@ function Search(props) {
   return (
     <div className='Search'>
       <div className='searchHeader'>
-        
         <Header> </Header>
-        <div className="searchBarWithButton">
-        <TagsInput tags={tags} setTags={setTags}>
-          
-       
-      
-            </TagsInput>
-            
-           
-          <Button 
-            
-        aria-describedby={id}
+        <div className='searchBarWithButton'>
+          <TagsInput tags={tags} setTags={setTags}></TagsInput>
+
+          <Button
+            aria-describedby={id}
             variant='contained'
-            color='primary' 
-           
-        
-        onClick={handleClick}
-      >
-        Refine
-      </Button>
-      </div>
-      
+            color='primary'
+            onClick={handleClick}
+          >
+            Refine
+          </Button>
+        </div>
 
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center'
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center'
-        }}
-      >
-       <PrepTime setPrepTime={setPrepTime} />
-        <Pricing setpriceInputValue={setpriceInputValue} />
-        <Skill setSkillLevel={setSkillLevel} />
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center'
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'center'
+          }}
+        >
+          <PrepTime setPrepTime={setPrepTime} />
+          <Pricing setpriceInputValue={setpriceInputValue} />
+          <Skill setSkillLevel={setSkillLevel} />
 
-        <Box component='fieldset' mb={3} borderColor='transparent'>
-          <Typography component='legend'>Reviews</Typography>
-          <Rating
-            name='simple-controlled'
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-          />
+          <Box component='fieldset' mb={3} borderColor='transparent'>
+            <Typography component='legend'>Reviews</Typography>
+            <Rating
+              name='simple-controlled'
+              value={value}
+              onChange={(event, newValue) => {
+                setValue(newValue);
+              }}
+            />
           </Box>
-          
-            <button className="applyButton" onClick={handleApply}>Apply</button>
-            
-      </Popover>
+
+          <button className='applyButton' onClick={handleApply}>
+            Apply
+          </button>
+        </Popover>
       </div>
-      {searchResults.map((item) => (
+      {location.pathname === '/search' && searchResults.map((item) => (
         <>
-          
-          <div className="rectangle">{item.title}</div>
+          <div className='rectangle'>{item.title}</div>
           <Link to={`/recipes/${item.id}`}>
-            <img className="searchImage" src={item.image} />
-            </Link>
+            <img className='searchImage' src={item.image} />
+          </Link>
         </>
-        
       ))}
     </div>
   );
