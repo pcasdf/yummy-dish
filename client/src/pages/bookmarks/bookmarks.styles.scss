@@ -1,9 +1,9 @@
 .bookmark-page {
+  position: relative;
+  top: 10vw;
   background-color: #fec368;
   height: 100vh;
   overflow: auto;
-  margin-top: 20px;
-  padding-top: 10px;
 
   .title {
     position: absolute;
