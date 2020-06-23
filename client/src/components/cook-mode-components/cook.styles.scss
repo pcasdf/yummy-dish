@@ -1,5 +1,5 @@
 .cook-container {
-  height: 100%;
+  height: 70vh;
   margin: 0 auto;
   background-color: #add6b7;
   padding: 8px 0;
@@ -14,6 +14,7 @@
     .directions {
       display: flex;
       flex-flow: column wrap;
+      font-family: Karma;
       .input-label {
         display: flex;
         text-align: left;
