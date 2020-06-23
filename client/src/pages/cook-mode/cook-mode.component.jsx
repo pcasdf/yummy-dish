@@ -18,7 +18,7 @@ const CookModePage = () => {
   });
 
   useEffect(() => {
-    if (window.innerWidth < 500) {
+    if (window.innerWidth < 650) {
       setSteps({
         prep: true,
         cook: false,

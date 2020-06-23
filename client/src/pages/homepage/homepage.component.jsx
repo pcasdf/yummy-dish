@@ -25,11 +25,13 @@ function Homepage() {
       </div>
       <Header>Yummy Dish</Header>
       <div className='snacks'>
-        <p className='Welcome-to-Yummy-Dish-Your-place-to-find-Quick-S'>
-          Welcome to Yummy Dish
-          <br />
-          Your place to find Quick & Simple Vege-Friendly Recipes.
-        </p>
+        <div className='paragraph'>
+          <p className='Welcome-to-Yummy-Dish-Your-place-to-find-Quick-S'>
+            Welcome to Yummy Dish
+            <br />
+            Your place to find Quick & Simple Vege-Friendly Recipes.
+          </p>
+        </div>
         <div className='Rectangle-110'>
           <Link to='/bookmarks'>
             <button type='button' className='See-My-Recipe-Button'>

@@ -1,4 +1,8 @@
 .link-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   .RecipeRender {
     width: 32vw;
     height: 24vw;

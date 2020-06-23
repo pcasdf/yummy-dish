@@ -48,6 +48,11 @@ const RecipeDetail = () => {
 
   const Recipe = () => (
     <div className='info'>
+      <div className='cook-mode'>
+        <Link to={`/cookmode/${id}`}>
+          <span>COOK MODE</span>
+        </Link>
+      </div>
       <span className='title'>{title}</span>
       <div className='duration'>
         <span>10 MIN</span>
@@ -124,14 +129,9 @@ const RecipeDetail = () => {
   }
 
   return (
-    <>
+    <div className='recipe-component'>
       {modal && <BookmarkModal setModal={setModal} id={id} />}
       <Header>Recipe</Header>
-      <div className='cook-mode'>
-        <Link to={`/cookmode/${id}`}>
-          <span>COOK MODE</span>
-        </Link>
-      </div>
       <div className='recipe-detail'>
         <div
           className='header'
@@ -153,7 +153,7 @@ const RecipeDetail = () => {
         </div>
         {body}
       </div>
-    </>
+    </div>
   );
 };
 
