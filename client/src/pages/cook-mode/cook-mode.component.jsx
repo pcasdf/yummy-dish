@@ -25,7 +25,7 @@ const CookModePage = () => {
         review: false
       });
     }
-  }, []);
+  }, [window.innerWidth]);
   const handlePreviousClick = (e) => {
     e.preventDefault();
     if (steps.cook) {
@@ -65,11 +65,27 @@ const CookModePage = () => {
   let footerColor;
   if (steps.review && steps.prep && steps.cook) {
     body = (
-      <>
-        <Prep id={id} />
-        <Cook id={id} />
-        <Reviews id={id} />
-      </>
+      <div className='desktop-view'>
+        <div className='desktop-prep'>
+          <Prep id={id} />
+        </div>
+        <div className='desktop-cook'>
+          <Cook id={id} />
+        </div>
+        <div className='desktop-review'>
+          <Reviews id={id} />
+        </div>
+      </div>
+    );
+    previous = (
+      <p>
+        <Link to={`/recipes/${id}`}>Recipe</Link>
+      </p>
+    );
+    next = (
+      <p>
+        <Link to='/'>Return Home</Link>
+      </p>
     );
   } else if (steps.cook) {
     footerColor = '#709f7c';
