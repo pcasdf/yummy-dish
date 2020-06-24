@@ -58,18 +58,18 @@ class PrepTime extends React.Component {
 
   render() {
     return (
-      <div className="slider">
+      <div className='sslider'>
         <span>Time</span>
         
         <input 
-          className="slidercolor"
+          className='sslidercolor'
           type='range'
           ref={this.slider}
           defaultValue={this.state.priceInputValue}
           onChange={this.handlePricingSlide}
         />
 
-        <div ref={this.sliderValue} className='pricing-slider-value'></div>
+        <div ref={this.sliderValue} className='spricing-slider-value'></div>
         {this.getPricingData(this.state.priceInput)}
 
         {this.getPricingData(this.state.priceOutput.plan1, 0)}

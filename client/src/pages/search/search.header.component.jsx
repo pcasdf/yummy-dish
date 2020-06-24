@@ -31,18 +31,18 @@ const SearchHeader = ({ children }) => {
   return (
     <div>
       {showModal && <Account {...{ setShowModal, showModal }} />}
-      <div className='header-wrapper-search'>
-        <div className='topHeader'>
+      <div className='sheader-wrapper-search'>
+        <div className='stopHeader'>
           <Link to='/'>
             <img
-              className='imgleft'
+              className='simgleft'
               src='https://i.ibb.co/sWjCRGH/Screen-Shot-2020-06-23-at-2-53-04-PM.png'
               alt='Screen-Shot-2020-06-23-at-2-53-04-PM'
               border='0'
             />
           </Link>
 
-          <div className='icons-right'>
+          <div className='sicons-right'>
             <Link to='/bookmarks'>
               {children[0] === 'My Recipes' ? (
                 <Favorite fontSize='large' style={{ color: '#fc8b56' }} />
@@ -51,7 +51,7 @@ const SearchHeader = ({ children }) => {
               )}
             </Link>
             <AccountBox
-              className='account-icon-search'
+              className='saccount-icon-search'
               style={{
                 color: 'white'
               }}
@@ -59,7 +59,7 @@ const SearchHeader = ({ children }) => {
             />
           </div>
         </div>
-        <div className='headersearchbar'>{children}</div>
+        <div className='sheadersearchbar'>{children}</div>
       </div>
     </div>
   );

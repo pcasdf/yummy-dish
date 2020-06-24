@@ -58,10 +58,10 @@ class Pricing extends React.Component {
 
   render() {
     return (
-      <div className="slider">
+      <div className='sslider'>
         <span>Price</span>
         
-        <input className="slidercolor"
+        <input className='sslidercolor'
           type='range'
           ref={this.slider}
           defaultValue={this.state.priceInputValue}
