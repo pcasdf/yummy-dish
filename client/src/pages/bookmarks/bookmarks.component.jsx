@@ -66,8 +66,8 @@ const Bookmarks = () => {
       </div>
       <div className='labels'>
         {user &&
-          user.categories.map((category) => (
-            <Tabs bookmarks={localBookmarks}>{category}</Tabs>
+          user.categories.map((category, index) => (
+            <Tabs index={index} bookmarks={localBookmarks}>{category}</Tabs>
           ))}
       </div>
       <div className='footer'>
