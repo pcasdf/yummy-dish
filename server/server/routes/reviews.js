@@ -3,7 +3,7 @@ const reviewsController = require('../controllers/reviews');
 
 const router = Router();
 
-router.get('/', reviewsController.getReviews);
+router.get('/recipe/:id', reviewsController.getReviews);
 router.get('/:id', reviewsController.getReview);
 router.post('/', reviewsController.createReview);
 router.delete('/:id', reviewsController.deleteReview);

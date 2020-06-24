@@ -1,23 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { FavoriteBorder } from '@material-ui/icons';
 
 import './recipe.styles.scss';
-import Header from '../../components/header/header.component';
-import { ReactComponent as Icon } from '../../assets/star.svg';
+import { UserContext } from '../../contexts/user.context';
 import details from '../../data/details-1.json';
+import Header from '../../components/header/header.component';
 import BookmarkModal from '../../components/bookmark-modal/bookmark-modal.component';
+import Review from '../../components/review/review.component';
+import { getReviews } from '../../services/reviews';
+import { ReactComponent as Icon } from '../../assets/star.svg';
 
 const RecipeDetail = () => {
   const { id } = useParams();
   const [tab, setTab] = useState(0);
   const [modal, setModal] = useState(false);
   const [reviews, setReviews] = useState([]);
+  const { user } = useContext(UserContext);
+
+  const fetchReviews = async (id) => {
+    const response = await getReviews(id);
+    console.log(response);
+    setReviews(response);
+  };
 
   useEffect(() => {
     if (window.innerWidth < 600) {
       setTab(1);
     }
+    fetchReviews(id);
   }, []);
 
   let tab1, tab2, tab3;
@@ -93,7 +104,11 @@ const RecipeDetail = () => {
   const Reviews = () => (
     <div className='reviews'>
       <span className='label'>REVIEWS</span>
-      <div className='ratings'></div>
+      <div className='ratings'>
+        {reviews.map((each, idx) => (
+          <Review key={idx} {...each} />
+        ))}
+      </div>
     </div>
   );
 
@@ -128,6 +143,14 @@ const RecipeDetail = () => {
     );
   }
 
+  const toggleBookmarkModal = () => {
+    if (user) {
+      setModal(!modal);
+    } else {
+      console.log('log in');
+    }
+  };
+
   return (
     <div className='recipe-component'>
       {modal && <BookmarkModal setModal={setModal} id={id} />}
@@ -135,7 +158,7 @@ const RecipeDetail = () => {
       <div className='recipe-detail'>
         <div className='header' style={{ backgroundImage: `url(${image})` }}>
           <FavoriteBorder
-            onClick={() => setModal(!modal)}
+            onClick={toggleBookmarkModal}
             fontSize='large'
             className='favorite'
           />

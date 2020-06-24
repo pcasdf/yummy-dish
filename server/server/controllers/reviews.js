@@ -13,7 +13,9 @@ const createReview = async (req, res) => {
 
 const getReviews = async (req, res) => {
   try {
-    const reviews = await Review.find();
+    const { id } = req.params;
+    console.log(id);
+    const reviews = await Review.find({ recipe: id });
     res.status(201).json(reviews);
   } catch (error) {
     res.status(500).json({ error: error.message });
