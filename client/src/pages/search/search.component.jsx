@@ -16,7 +16,7 @@ import Skill from './Skill';
 
 import './search.styles.scss';
 import SearchHeader from './search.header.component';
-import Header from '../../components/header/header.component';
+
 
 function Search(props) {
   const [tags, setTags] = useState([]);
@@ -107,19 +107,19 @@ function Search(props) {
   let location = useLocation();
   return (
     <>
-      <div className='searchHeader'>
+      <div className='ssearchHeader'>
         <SearchHeader>
-          <div className='searchBarWithButton'>
+          <div className='ssearchBarWithButton'>
             <TagsInput tags={tags} setTags={setTags}></TagsInput>
 
-            <button className='refineButton' onClick={handleClick}>
+            <button className='srefineButton' onClick={handleClick}>
               Refine ^
             </button>
           </div>
         </SearchHeader>
       </div>
 
-      <div className='all-Search-Results'>
+      <div className='sall-Search-Results'>
         <Popover
           id={id}
           open={open}
@@ -140,7 +140,7 @@ function Search(props) {
           <Skill setSkillLevel={setSkillLevel} />
 
           <Box component='fieldset' mb={3} borderColor='transparent'>
-            <div className='slider'>
+            <div className='sslider'>
               <Typography component='legend'>Rating</Typography>
             </div>
             <Rating
@@ -152,17 +152,17 @@ function Search(props) {
             />
           </Box>
 
-          <button className='applyButton' onClick={handleApply}>
+          <button className='sapplyButton' onClick={handleApply}>
             Apply
           </button>
         </Popover>
 
         {searchResults.map((item) => (
           <>
-            <div className='searchResults'>
-              <div className='rectangle'>{item.title}</div>
+            <div className='ssearchResults'>
+              <div className='srectangle'>{item.title}</div>
               <Link to={`/recipes/${item.id}`}>
-                <img className='searchImage' src={item.image} />
+                <img className='ssearchImage' src={item.image} />
               </Link>
             </div>
           </>
