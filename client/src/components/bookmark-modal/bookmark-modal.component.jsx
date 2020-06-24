@@ -66,11 +66,11 @@ const BookmarkModal = ({ setModal, id }) => {
               message='Added to recipe box!'
             />
           </Snackbar>
-          <span>SAVE TO RECIPE BOX</span>
+          <span>My Recipe Box</span>
           <form onSubmit={handleAddCategory}>
             <input
               value={category}
-              placeholder='Add a category'
+              placeholder='...category'
               onChange={handleChange}
             />
             <button>ADD CATEGORY</button>
@@ -78,7 +78,9 @@ const BookmarkModal = ({ setModal, id }) => {
           <div className='categories'>
             {user &&
               user.categories.map((each) => (
-                <div onClick={() => handleSave(each)}>{each}</div>
+                <div className='category' onClick={() => handleSave(each)}>
+                  {each}
+                </div>
               ))}
           </div>
         </div>

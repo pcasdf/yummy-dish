@@ -21,22 +21,22 @@
       flex-direction: column;
       justify-content: space-between;
 
-      @media (min-width: 480px) {
-        background-size: cover;
-        display: flex;
-        justify-content: flex-start;
-        height: 380px;
-      }
-
       .favorite {
         margin: 30px;
         align-self: flex-end;
         fill: white;
       }
 
-      .MuiSvgIcon-root {
-        width: 4vw !important;
-        height: 4vw !important;
+      @media (min-width: 480px) {
+        background-size: cover;
+        display: flex;
+        justify-content: flex-start;
+        height: 380px;
+
+        .MuiSvgIcon-root {
+          width: 4vw !important;
+          height: 4vw !important;
+        }
       }
     }
 
