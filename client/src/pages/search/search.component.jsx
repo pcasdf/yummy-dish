@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { Route, Switch, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import Button from '@material-ui/core/Button';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Popover from '@material-ui/core/Popover';
-import { withStyles } from '@material-ui/core/styles';
 
 import detailsJSON from '../../data/details-1.json';
 import TagsInput from './TagsInput';
@@ -16,9 +14,8 @@ import Pricing from './Pricing';
 import PrepTime from './PrepTime';
 import Skill from './Skill';
 
-
-import "./search.styles.scss"
-import Header from '../../components/header/header.component';
+import './search.styles.scss';
+import SearchHeader from './search.header.component';
 
 function Search(props) {
   const [tags, setTags] = useState([]);
@@ -108,76 +105,69 @@ function Search(props) {
 
   let location = useLocation();
   return (
-    <div className='Search'>
+    <>
       <div className='searchHeader'>
-        
-        <Header> </Header>
-        <div className="searchBarWithButton">
-        <TagsInput tags={tags} setTags={setTags}>
-          
-       
-      
-            </TagsInput>
-            
-           
-          <Button 
-            
-        aria-describedby={id}
-            variant='contained'
-            color='primary' 
-           
-        
-        onClick={handleClick}
-      >
-        Refine
-      </Button>
+        <SearchHeader>
+          <div className='searchBarWithButton'>
+            <TagsInput tags={tags} setTags={setTags}></TagsInput>
+
+            <button className='refineButton' onClick={handleClick}>
+              Refine ^
+            </button>
+          </div>
+        </SearchHeader>
       </div>
-      
 
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center'
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center'
-        }}
-      >
-       <PrepTime setPrepTime={setPrepTime} />
-        <Pricing setpriceInputValue={setpriceInputValue} />
-        <Skill setSkillLevel={setSkillLevel} />
+      <div className='all-Search-Results'>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center'
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'center'
+          }}
+          font-color='orange'
+        >
+          <PrepTime setPrepTime={setPrepTime} />
+          <Pricing setpriceInputValue={setpriceInputValue} />
+          <Skill setSkillLevel={setSkillLevel} />
 
-        <Box component='fieldset' mb={3} borderColor='transparent'>
-          <Typography component='legend'>Reviews</Typography>
-          <Rating
-            name='simple-controlled'
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-          />
+          <Box component='fieldset' mb={3} borderColor='transparent'>
+            <div className='slider'>
+              <Typography component='legend'>Rating</Typography>
+            </div>
+            <Rating
+              name='simple-controlled'
+              value={value}
+              onChange={(event, newValue) => {
+                setValue(newValue);
+              }}
+            />
           </Box>
-          
-            <button className="applyButton" onClick={handleApply}>Apply</button>
-            
-      </Popover>
+
+          <button className='applyButton' onClick={handleApply}>
+            Apply
+          </button>
+        </Popover>
+
+        {searchResults.map((item) => (
+          <>
+            <div className='searchResults'>
+              <div className='rectangle'>{item.title}</div>
+              <Link to={`/recipes/${item.id}`}>
+                <img className='searchImage' src={item.image} />
+              </Link>
+            </div>
+          </>
+        ))}
       </div>
-      {searchResults.map((item) => (
-        <>
-          
-          <div className="rectangle">{item.title}</div>
-          <Link to={`/recipes/${item.id}`}>
-            <img className="searchImage" src={item.image} />
-            </Link>
-        </>
-        
-      ))}
-    </div>
+    </>
   );
 }
 
