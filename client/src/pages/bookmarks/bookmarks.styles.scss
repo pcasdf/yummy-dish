@@ -1,14 +1,9 @@
 .bookmark-page {
-  position: relative;
-  top: 10vw;
+  padding-top: 14vh;
+  display: flex;
+  flex-direction: column;
   background-color: #fec368;
-  height: 100vh;
-  overflow: auto;
-
-  Footer {
-    bottom: 0;
-    position: relative;
-  }
+  min-height: 100vh;
 
   .title {
     position: absolute;
@@ -32,25 +27,34 @@
       height: 11vw !important;
     }
   }
+
+  .labels {
+    flex: auto;
+  }
+
+  .footer {
+    position: relative;
+    bottom: 0;
+  }
 }
 
 .search-bar {
   position: relative;
-  left: 22vw;
-  top: 10vw;
-  z-index: 1;
+  left: 30vw;
+  top: 7vw;
+  width: 58vw;
   background-color: #fec368;
 
   .search-wrapper {
     background-color: '#fff';
-    width: 62vw;
+    width: 58vw;
     display: flex;
     height: 5vh;
   }
 
   @media (max-width: 480px) {
-    left: 24vw;
-    top: 28vw;
+    left: 32vw;
+    top: 9vh;
 
     .search-wrapper {
       width: 50vw;

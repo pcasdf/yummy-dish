@@ -32,7 +32,7 @@
 
     .search-wrapper {
       margin: 0 auto;
-      width: 30%;
+      width: 40%;
       background-color: #fff;
 
       @media (max-width: 450px) {
@@ -136,6 +136,7 @@
 
 .snacksFlexbox {
   display: flex;
+  margin: 40px 0;
   width: 100vw;
   height: 60vh;
   flex-wrap: nowrap;

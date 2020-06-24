@@ -4,6 +4,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import './bookmark-modal.styles.scss';
 import { UserContext } from '../../contexts/user.context';
 import { updateUser } from '../../services/users';
+import { SnackbarContent } from '@material-ui/core';
 
 const BookmarkModal = ({ setModal, id }) => {
   const [category, setCategory] = useState('');
@@ -59,8 +60,12 @@ const BookmarkModal = ({ setModal, id }) => {
             open={open}
             autoHideDuration={3000}
             onClose={() => setOpen(!open)}
-            message='Added to recipe box!'
-          />
+          >
+            <SnackbarContent
+              style={{ backgroundColor: 'rgb(255, 159, 28)', color: 'white' }}
+              message='Added to recipe box!'
+            />
+          </Snackbar>
           <span>ADD TO MY RECIPE BOX</span>
           <form onSubmit={handleAddCategory}>
             <input
