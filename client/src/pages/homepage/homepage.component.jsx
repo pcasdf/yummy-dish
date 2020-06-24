@@ -16,9 +16,14 @@ function Homepage() {
     <div className='Background'>
       <div className='search-bar'>
         <Paper component='form' className='search-wrapper'>
-          <Search fontSize='small' />
+          <Search fontSize='small' 
+                        style={{
+                          color: '#CBF3F0',
+                          padding: '0.667vw 1.333vw',
+                          alignSelf: 'center'
+                        }}/>
           <InputBase
-            placeholder='Search in your recipes'
+            placeholder=''
             onClick={() => push('/search')}
           />
         </Paper>

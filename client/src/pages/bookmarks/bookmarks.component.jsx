@@ -40,14 +40,18 @@ const Bookmarks = () => {
 
   return (
     <div className='bookmark-page'>
-      <Header style={{ backgroundColor: '#fec368' }}>
+      <Header className='bookmarkHeader' style={{ backgroundColor: '#fec368' }}>
         <span className='title'>My Recipes</span>
         <div className='search-bar'>
-          <Paper component='form' className='search-wrapper'>
+          <Paper
+            component='form'
+            className='search-wrapper'
+            style={{ border: 'solid 1.3px #ff9f1c', borderRadius: '1.333vw' }}
+          >
             <Search
               style={{
                 color: '#ff9f1c',
-                padding: '5px 10px',
+                padding: '0.667vw 1.333vw',
                 alignSelf: 'center'
               }}
             />
@@ -64,11 +68,14 @@ const Bookmarks = () => {
           </Paper>
         </div>
       </Header>
-      <div className="backgroundDiv">{user &&
-        user.categories.map((category, index) => (
-          <Tabs index={index} bookmarks={localBookmarks}>{category}</Tabs>
-        ))}
-        </div>
+      <div className='backgroundDiv'>
+        {user &&
+          user.categories.map((category, index) => (
+            <Tabs index={index} bookmarks={localBookmarks}>
+              {category}
+            </Tabs>
+          ))}
+      </div>
       <Footer />
     </div>
   );
