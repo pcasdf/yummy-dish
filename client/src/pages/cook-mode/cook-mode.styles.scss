@@ -1,6 +1,7 @@
 .cookmode-container {
   font-family: Raleway;
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
 
   .header-image {
@@ -12,6 +13,9 @@
   }
 
   .body {
+    display: flex;
+    flex: 1 1 auto;
+
     .desktop-view {
       width: 100%;
       display: flex;
