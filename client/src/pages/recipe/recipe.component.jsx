@@ -24,6 +24,11 @@ const RecipeDetail = () => {
     setReviews(response);
   };
 
+  const fetchReviews = async (id) => {
+    const response = await getReviews(id);
+    console.log(response);
+  };
+
   useEffect(() => {
     if (window.innerWidth < 600) {
       setTab(1);
