@@ -42,33 +42,37 @@ const Bookmarks = () => {
     <div className='bookmark-page'>
       <Header style={{ backgroundColor: '#fec368' }}>
         <span className='title'>My Recipes</span>
-        <div className='search-bar'>
-          <Paper component='form' className='search-wrapper'>
-            <Search
-              style={{
-                color: '#ff9f1c',
-                padding: '5px 10px',
-                alignSelf: 'center'
-              }}
-            />
-            <InputBase
-              onChange={handleChange}
-              value={input}
-              placeholder='Search in your recipes'
-              style={{
-                width: '30%',
-                marginBottom: 0,
-                backgroundColor: '#fff'
-              }}
-            />
-          </Paper>
-        </div>
       </Header>
-      {user &&
-        user.categories.map((category) => (
-          <Tabs bookmarks={localBookmarks}>{category}</Tabs>
-        ))}
-      <Footer />
+      <div className='search-bar'>
+        <Paper component='form' className='search-wrapper'>
+          <Search
+            style={{
+              color: '#ff9f1c',
+              padding: '5px 10px',
+              alignSelf: 'center'
+            }}
+          />
+          <InputBase
+            onChange={handleChange}
+            value={input}
+            placeholder='Search in your recipes'
+            style={{
+              width: '30%',
+              marginBottom: 0,
+              backgroundColor: '#fff'
+            }}
+          />
+        </Paper>
+      </div>
+      <div className='labels'>
+        {user &&
+          user.categories.map((category) => (
+            <Tabs bookmarks={localBookmarks}>{category}</Tabs>
+          ))}
+      </div>
+      <div className='footer'>
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import Snackbar from '@material-ui/core/Snackbar';
+import { SnackbarContent } from '@material-ui/core';
 import {
   Search,
   Home,
@@ -60,8 +61,12 @@ const Header = ({ children }) => {
         open={loggedOut}
         autoHideDuration={3000}
         onClose={() => setLoggedOut(!loggedOut)}
-        message='Logged out!'
-      />
+      >
+        <SnackbarContent
+          style={{ backgroundColor: 'rgb(255, 159, 28)', color: 'white' }}
+          message='Logged out!'
+        />
+      </Snackbar>
       <Snackbar
         anchorOrigin={{
           vertical: 'bottom',
@@ -70,8 +75,12 @@ const Header = ({ children }) => {
         open={loggedIn}
         autoHideDuration={3000}
         onClose={() => setLoggedIn(!loggedIn)}
-        message='Logged in!'
-      />
+      >
+        <SnackbarContent
+          style={{ backgroundColor: 'rgb(255, 159, 28)', color: 'white' }}
+          message='Logged in!'
+        />
+      </Snackbar>
       <Snackbar
         anchorOrigin={{
           vertical: 'bottom',
@@ -80,8 +89,12 @@ const Header = ({ children }) => {
         open={signedUp}
         autoHideDuration={3000}
         onClose={() => setSignedUp(!signedUp)}
-        message='Registered!'
-      />
+      >
+        <SnackbarContent
+          style={{ backgroundColor: 'rgb(255, 159, 28)', color: 'white' }}
+          message='Registered!'
+        />
+      </Snackbar>
       <header className='header-wrapper'>
         <span className='left'>
           <Search className='SearchIcon' style={{ paddingRight: '1rem' }} />
@@ -92,8 +105,7 @@ const Header = ({ children }) => {
             <Home />
           </Link>
           <Link to='/bookmarks'>
-            {children[0].props &&
-            children[0].props.children === 'My Recipes' ? (
+            {children.props && children.props.children === 'My Recipes' ? (
               <Favorite style={{ color: '#fc8b56' }} />
             ) : (
               <FavoriteBorder />

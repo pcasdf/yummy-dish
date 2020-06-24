@@ -15,12 +15,13 @@ function Homepage() {
   return (
     <div className='Background'>
       <div className='search-bar'>
-        <Paper component='form' className='search-wrapper'>
+        <Paper
+          onClick={() => push('/search')}
+          component='form'
+          className='search-wrapper'
+        >
           <Search fontSize='small' />
-          <InputBase
-            placeholder='Search in your recipes'
-            onClick={() => push('/search')}
-          />
+          <InputBase placeholder='Search in your recipes' />
         </Paper>
       </div>
       <Header>Yummy Dish</Header>
