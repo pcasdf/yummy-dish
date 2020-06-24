@@ -20,8 +20,10 @@ sheader .sheader-wrapper {
 }
 
 .srectangle {
-  width: 22.667vw;
-  height: 2.133vw;
+  display: flex;
+  justify-content: flex-start;
+  width: 171px;
+  height: 1vw;
   border: solid 1px rgba(176, 174, 174, 0.28);
   background-color: rgba(245, 253, 252, 0.9);
   font-family: Raleway;
@@ -33,6 +35,7 @@ sheader .sheader-wrapper {
   letter-spacing: -0.3px;
   color: #131313;
   border-radius: 3px;
+  padding-bottom: 8px;
 }
 
 .srefine {
@@ -46,8 +49,8 @@ sheader .sheader-wrapper {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   background-color: #fc8b56;
   color: #ffffff;
-  margin-left: 40px;
-  margin-bottom: 20px;
+  margin: auto;
+  margin-bottom: 10px;
   border: 0px;
 }
 
@@ -73,6 +76,9 @@ sheader .sheader-wrapper {
 
 .sslider {
   color: #ff9f1c;
+  display:flex;
+  flex-direction: column;
+  
 }
 
 .slidercolor {
@@ -118,6 +124,7 @@ sheader .sheader-wrapper {
   justify-content: space-around;
   width: 90%;
   margin-left: 5vw;
+  padding-top: 10px;
 }
 
 .sheadersearchbar {
@@ -133,6 +140,19 @@ sheader .sheader-wrapper {
 .sicons-right {
   display: flex;
   justify-content: center;
+}
+
+
+.ssearchResults {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.popover{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 800px) {
@@ -154,6 +174,8 @@ sheader .sheader-wrapper {
   }
 
   .ssearchResults {
+    display: flex;
+    justify-content: flex-start;
     margin-bottom: 50px;
   }
 
@@ -162,7 +184,7 @@ sheader .sheader-wrapper {
     flex-wrap: wrap;
     justify-content: space-around;
     width: 90%;
-    padding-top: 60px;
+    padding-top: 10px;
   }
   .ssearchBarWithButton {
     display: flex;
@@ -195,5 +217,24 @@ sheader .sheader-wrapper {
     height: 10vw !important;
     padding-top: 1vw;
     padding-left: 1vw;
+  }
+
+  .srectangle {
+    display: flex;
+    justify-content: flex-start;
+    width: 203px;
+    height: 0.5vw;
+    border: solid 1px rgba(176, 174, 174, 0.28);
+    background-color: rgba(245, 253, 252, 0.9);
+    font-family: Raleway;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    color: #131313;
+    border-radius: 3px;
+    padding-bottom: 8px;
   }
 }

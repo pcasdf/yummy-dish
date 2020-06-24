@@ -16,6 +16,9 @@ import Skill from './Skill';
 
 import './search.styles.scss';
 import SearchHeader from './search.header.component';
+import Footer from '../../components/footer/footer.component';
+
+
 
 
 function Search(props) {
@@ -105,8 +108,12 @@ function Search(props) {
   }, [tags]);
 
   let location = useLocation();
+
+ 
+
   return (
-    <>
+    
+    <div classname="all">
       <div className='ssearchHeader'>
         <SearchHeader>
           <div className='ssearchBarWithButton'>
@@ -118,9 +125,11 @@ function Search(props) {
           </div>
         </SearchHeader>
       </div>
-
-      <div className='sall-Search-Results'>
+      
+        <div className='sall-Search-Results'>
+          
         <Popover
+          
           id={id}
           open={open}
           anchorEl={anchorEl}
@@ -135,15 +144,19 @@ function Search(props) {
           }}
           font-color='orange'
         >
+          <div className="popover">
           <PrepTime setPrepTime={setPrepTime} />
           <Pricing setpriceInputValue={setpriceInputValue} />
           <Skill setSkillLevel={setSkillLevel} />
 
-          <Box component='fieldset' mb={3} borderColor='transparent'>
-            <div className='sslider'>
+            <Box component='fieldset' mb={3} borderColor='transparent'>
+              
+              <div className='sslider'>
+                
               <Typography component='legend'>Rating</Typography>
-            </div>
-            <Rating
+              </div>
+              <Rating
+               
               name='simple-controlled'
               value={value}
               onChange={(event, newValue) => {
@@ -153,10 +166,11 @@ function Search(props) {
           </Box>
 
           <button className='sapplyButton' onClick={handleApply}>
-            Apply
+              Apply
           </button>
+          </div>
         </Popover>
-
+        
         {searchResults.map((item) => (
           <>
             <div className='ssearchResults'>
@@ -164,11 +178,21 @@ function Search(props) {
               <Link to={`/recipes/${item.id}`}>
                 <img className='ssearchImage' src={item.image} />
               </Link>
+              
             </div>
+           
           </>
+          
         ))}
-      </div>
-    </>
+        
+        
+        </div>
+        
+       
+      
+      
+   </div>
+    
   );
 }
 
