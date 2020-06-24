@@ -5,9 +5,11 @@
   .content-container {
     width: 80%;
     text-align: center;
-    margin: 5px auto;
-    h3 {
+    margin: 10px auto;
+    h2 {
       text-align: left;
+      margin: 20px 0 20px 26px;
+      font-weight: 600;
     }
     .ingredients {
       margin-top: 10px;
@@ -18,15 +20,8 @@
         display: flex;
         text-align: left;
 
-        .prep-steps-checkbox {
-          margin: 5px 15px 5px 0;
-        }
         .prep-steps-label {
           font-size: 22px;
-          .number {
-            font-size: 18px;
-            font-weight: 500;
-          }
         }
       }
     }

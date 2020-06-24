@@ -2,6 +2,7 @@ import React from 'react';
 import { ReactComponent as Edit } from '../../assets/edit.svg';
 import Data from '../../data/details-1.json';
 import './cook.styles.scss';
+import { FormControlLabel, Checkbox } from '@material-ui/core';
 
 const Cook = ({ id }) => {
   const recipe = Data.find((each) => each.id === +id);
@@ -17,12 +18,11 @@ const Cook = ({ id }) => {
           recipe.analyzedInstructions[0].steps.map((each) => (
             <div key={each.number} className='directions'>
               <div className='input-label'>
-                <input type='checkbox' className='cook-steps-checkbox' />
-                <label className='cook-steps-label'>
-                  <span>
-                    {each.number}. {each.step}
-                  </span>
-                </label>
+                <FormControlLabel
+                  control={<Checkbox color='primary' />}
+                  label={each.number + '.'}
+                />
+                <span className='cook-steps'>{each.step}</span>
               </div>
             </div>
           ))

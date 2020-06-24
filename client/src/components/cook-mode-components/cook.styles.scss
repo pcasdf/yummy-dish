@@ -7,11 +7,16 @@
   .content-container {
     width: 80%;
     text-align: center;
-    margin: 0 auto;
+    margin: 10px auto;
     h2 {
       text-align: left;
-      margin-top: 20px;
+      margin: 20px 0 20px 26px;
+      font-weight: 600;
     }
+    h3 {
+      font-weight: 700;
+    }
+
     .directions {
       display: flex;
       flex-flow: column wrap;
@@ -19,11 +24,10 @@
       .input-label {
         display: flex;
         text-align: left;
-        .cook-steps-checkbox {
-          margin: 5px 15px 5px 0;
-        }
-        span {
-          font-size: 22px;
+
+        .cook-steps {
+          font-size: 20px;
+          margin-top: 5px;
         }
       }
     }
