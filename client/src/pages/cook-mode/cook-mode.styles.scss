@@ -3,7 +3,6 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-
   .header-image {
     top: 0;
     width: 100%;
@@ -11,7 +10,6 @@
     background-size: cover;
     background-position: center;
   }
-
   .body {
     display: flex;
     flex: 1 1 auto;
@@ -35,7 +33,6 @@
       }
     }
   }
-
   .footer {
     color: #fff;
     position: relative;
@@ -53,17 +50,14 @@
     .left {
       margin: 12px 6px;
     }
-
     .previous {
       width: 28px;
       fill: #fff;
     }
-
     .right {
       margin: 12px 6px;
       text-align: right;
       position: relative;
-
       .next {
         color: #fff;
         width: 28px;

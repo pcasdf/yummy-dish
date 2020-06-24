@@ -4,7 +4,8 @@ const reviewsController = require('../controllers/reviews');
 const router = Router();
 
 router.get('/', reviewsController.getReviews);
+router.get('/:id', reviewsController.getReview);
 router.post('/', reviewsController.createReview);
-router.delete('/', reviewsController.deleteReview);
+router.delete('/:id', reviewsController.deleteReview);
 
 module.exports = router;

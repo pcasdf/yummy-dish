@@ -2,6 +2,7 @@ import React from 'react';
 import { ReactComponent as Edit } from '../../assets/edit.svg';
 import Data from '../../data/details-1.json';
 import './cook.styles.scss';
+import { FormControlLabel, Checkbox } from '@material-ui/core';
 
 const Cook = ({ id }) => {
   const recipe = Data.find((each) => each.id === +id);
@@ -15,23 +16,24 @@ const Cook = ({ id }) => {
         <h2>DIRECTIONS:</h2>
         {recipe.analyzedInstructions[0] ? (
           recipe.analyzedInstructions[0].steps.map((each) => (
-            <div className='directions'>
+            <div key={each.number} className='directions'>
               <div className='input-label'>
-                <input type='checkbox' className='cook-steps-checkbox' />
-                <label className='cook-steps-label'>
-                  <span>
-                    {each.number}. {each.step}
-                  </span>
-                </label>
+                <FormControlLabel
+                  control={<Checkbox color='primary' />}
+                  label={each.number + '.'}
+                />
+                <span className='cook-steps'>{each.step}</span>
               </div>
             </div>
           ))
         ) : (
-          <div className='input-label'>
-            <input type='checkbox' className='cook-steps-checkbox' />
-            <label className='cook-steps-label'>
-              Just Mix Everything Together.
-            </label>
+          <div className='directions'>
+            <div className='input-label'>
+              <input type='checkbox' className='cook-steps-checkbox' />
+              <label className='cook-steps-label'>
+                Just Mix Everything Together and Hope for the Best.
+              </label>
+            </div>
           </div>
         )}
       </div>

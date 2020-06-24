@@ -27,7 +27,7 @@ function Homepage() {
       <Header>Yummy Dish</Header>
       <div className='snacks'>
         <div className='paragraph'>
-          <p className='Welcome-to-Yummy-Dish-Your-place-to-find-Quick-S'>
+          <p>
             Welcome to Yummy Dish
             <br />
             Your place to find Quick & Simple Vege-Friendly Recipes.
