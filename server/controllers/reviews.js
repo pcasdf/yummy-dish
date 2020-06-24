@@ -13,9 +13,7 @@ const createReview = async (req, res) => {
 
 const getReviews = async (req, res) => {
   try {
-    const { id } = req.params;
-    console.log(id);
-    const reviews = await Review.find({ recipe: id });
+    const reviews = await Review.find();
     res.status(201).json(reviews);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -30,7 +28,7 @@ const getReview = async (req, res) => {
       review = await Review.findById(id);
       res.json(review);
     }
-    res.status(404).json({ message: 'Could not find recipe.' });
+    res.status(404).json({ message: 'Could not find user.' });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -43,7 +41,7 @@ const deleteReview = async (req, res) => {
     if (deleted) {
       return res.status(200).send('Review deleted!');
     }
-    res.status(404).json({ message: 'Could not find recipe.' });
+    res.status(404).json({ message: 'Could not find user.' });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
