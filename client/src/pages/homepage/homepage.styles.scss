@@ -26,11 +26,11 @@
     width: 100vw;
     margin: 2vw auto;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 4vw;
     left: 0;
     top: 0;
 
-    @media (max-width: 450px) {
+    @media (max-width: 60vw) {
       top: 8vw;
     }
 
@@ -39,7 +39,7 @@
       width: 40%;
       background-color: #fff;
 
-      @media (max-width: 450px) {
+      @media (max-width: 60vw) {
         width: 60%;
       }
     }
@@ -52,8 +52,8 @@
       left: 3px;
       top: 5px;
 
-      @media (max-width: 450px) {
-        top: 8px;
+      @media (max-width: 60vw) {
+        top: 1.067vw;
         width: 6vw !important;
         height: 6vw !important;
       }

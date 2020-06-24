@@ -16,6 +16,7 @@ import Skill from './Skill';
 
 import './search.styles.scss';
 import SearchHeader from './search.header.component';
+import Header from '../../components/header/header.component';
 
 function Search(props) {
   const [tags, setTags] = useState([]);

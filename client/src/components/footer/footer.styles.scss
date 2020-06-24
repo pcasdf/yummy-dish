@@ -8,7 +8,9 @@ footer {
   position: relative;
   bottom: 0;
   width: 100vw;
-  height: 10vw;
+  overflow: hidden;
+  height: 12vw;
+  box-shadow: -0.267vw -1.333vw 0.933vw -1.867vw rgba(0, 0, 0, 0.75);
 
   span:hover {
     cursor: pointer;

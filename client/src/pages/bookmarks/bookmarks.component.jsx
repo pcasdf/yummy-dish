@@ -40,7 +40,7 @@ const Bookmarks = () => {
 
   return (
     <div className='bookmark-page'>
-      <Header style={{ backgroundColor: '#fec368' }}>
+      <Header className='bookmarkHeader' style={{ backgroundColor: '#fec368' }}>
         <span className='title'>My Recipes</span>
       </Header>
       <div className='search-bar'>
