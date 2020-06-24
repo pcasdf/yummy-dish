@@ -1,4 +1,5 @@
 import React, { createRef } from 'react';
+import './search.styles.scss';
 
 class Skill extends React.Component {
   state = {
@@ -58,9 +59,10 @@ class Skill extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="slider">
         <span>Skill</span>
         <input
+          className="slidercolor"
           type='range'
           ref={this.slider}
           defaultValue={this.state.priceInputValue}
