@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Prep from '../../components/cook-mode-components/prep.component';
 import Cook from '../../components/cook-mode-components//cook.component';
 import Reviews from '../../components/cook-mode-components/reviews.component';
+import Header from '../../components/header/header.component';
 import './cook-mode.styles.scss';
 import Data from '../../data/details-1.json';
 import { useParams, Link } from 'react-router-dom';
 import { ReactComponent as Previous } from '../../assets/previous.svg';
 import { ReactComponent as Next } from '../../assets/next.svg';
-
 const CookModePage = () => {
   const { id } = useParams();
   const recipe = Data.find((each) => each.id === +id);
@@ -16,9 +16,8 @@ const CookModePage = () => {
     cook: true,
     review: true
   });
-
   useEffect(() => {
-    if (window.innerWidth < 650) {
+    if (window.innerWidth < 1024) {
       setSteps({
         prep: true,
         cook: false,
@@ -42,7 +41,6 @@ const CookModePage = () => {
       });
     }
   };
-
   const handleNextClick = (e) => {
     e.preventDefault();
     if (steps.prep) {
@@ -112,24 +110,26 @@ const CookModePage = () => {
     footerColor = '#2ec4b6';
   }
   return (
-    <div className='cookmode-container'>
-      <div
-        className='header-image'
-        style={{ backgroundImage: `url(${recipe.image})` }}
-      />
-      <div className='body'>{body}</div>
-      <div className='footer' style={{ backgroundColor: `${footerColor}` }}>
-        <div className='left' onClick={handlePreviousClick}>
-          <Previous className='previous' />
-          {previous}
-        </div>
-        <div className='right' onClick={handleNextClick}>
-          <Next className='next' />
-          {next}
+    <>
+      <Header>Cook Mode</Header>
+      <div className='cookmode-container'>
+        <div
+          className='header-image'
+          style={{ backgroundImage: `url(${recipe.image})` }}
+        />
+        <div className='body'>{body}</div>
+        <div className='footer' style={{ backgroundColor: `${footerColor}` }}>
+          <div className='left' onClick={handlePreviousClick}>
+            <Previous className='previous' />
+            {previous}
+          </div>
+          <div className='right' onClick={handleNextClick}>
+            <Next className='next' />
+            {next}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
-
 export default CookModePage;
