@@ -61,12 +61,12 @@ const Reviews = () => {
       <div className='content-container'>
         <h1>REVIEW</h1>
         <p>How did it go?</p>
-        <div rating-bar>
+        <div className='rating-bar'>
           <Rating
             size='medium'
             onChange={handleRatingChange}
             onChangeActive={handleHoverChange}
-            className={Rating}
+            className='Rating'
             name='half-rating'
             defaultValue={0}
             precision={0.5}

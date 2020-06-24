@@ -15,7 +15,7 @@ const Cook = ({ id }) => {
         <h2>DIRECTIONS:</h2>
         {recipe.analyzedInstructions[0] ? (
           recipe.analyzedInstructions[0].steps.map((each) => (
-            <div className='directions'>
+            <div key={each.number} className='directions'>
               <div className='input-label'>
                 <input type='checkbox' className='cook-steps-checkbox' />
                 <label className='cook-steps-label'>
@@ -27,11 +27,13 @@ const Cook = ({ id }) => {
             </div>
           ))
         ) : (
-          <div className='input-label'>
-            <input type='checkbox' className='cook-steps-checkbox' />
-            <label className='cook-steps-label'>
-              Just Mix Everything Together.
-            </label>
+          <div className='directions'>
+            <div className='input-label'>
+              <input type='checkbox' className='cook-steps-checkbox' />
+              <label className='cook-steps-label'>
+                Just Mix Everything Together and Hope for the Best.
+              </label>
+            </div>
           </div>
         )}
       </div>

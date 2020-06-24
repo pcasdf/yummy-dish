@@ -2,7 +2,6 @@ $breakpoint-ipad: 768px;
 $breakpoint-desktop: 1024px;
 
 .reviews-container {
-  height: 100%;
   width: 100%;
   background-color: #fec368;
   color: #fff;
@@ -49,7 +48,7 @@ $breakpoint-desktop: 1024px;
       height: 64px;
       font-family: Raleway;
       font-weight: 600;
-      font-size: 28px;
+      font-size: 26px;
     }
     .heart-icon {
       margin: 0 0 0 20px;
