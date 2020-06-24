@@ -3,10 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import { FavoriteBorder } from '@material-ui/icons';
 
 import './recipe.styles.scss';
-import Header from '../../components/header/header.component';
-import { ReactComponent as Icon } from '../../assets/star.svg';
 import details from '../../data/details-1.json';
+import { getReviews } from '../../services/reviews';
+import Header from '../../components/header/header.component';
 import BookmarkModal from '../../components/bookmark-modal/bookmark-modal.component';
+import { ReactComponent as Icon } from '../../assets/star.svg';
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -14,10 +15,16 @@ const RecipeDetail = () => {
   const [modal, setModal] = useState(false);
   const [reviews, setReviews] = useState([]);
 
+  const fetchReviews = async (id) => {
+    const response = await getReviews(id);
+    console.log(response);
+  };
+
   useEffect(() => {
     if (window.innerWidth < 600) {
       setTab(1);
     }
+    fetchReviews(id);
   }, []);
 
   let tab1, tab2, tab3;
