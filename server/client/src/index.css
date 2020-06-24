@@ -1,0 +1,14 @@
+html {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: 'Martel', serif;
+  background-color: #cbf3f0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}

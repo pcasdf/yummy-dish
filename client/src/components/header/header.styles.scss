@@ -1,7 +1,7 @@
 .header-wrapper {
   background-color: #fec368;
   color: #fff;
-  font-size: 5.7777777777777777vw;
+  font-size: 6vw;
   font-weight: 700;
   display: flex;
   flex-flow: row nowrap;
@@ -30,30 +30,8 @@
     right: 2%;
   }
 }
-.SearchIcon {
-  width: 8.8194444444444446vw;
-  height: 8.8194444444444446vw;
-}
 
 .MuiSvgIcon-root {
-  width: 8.8194444444444446vw !important;
-  height: 8.8194444444444446vw !important;
-}
-
-.SearchBarBox {
-  background-color: #fec368;
-  color: #fff;
-  font-weight: 700;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0;
-  position: relative;
-  min-width: 100vw;
-}
-
-div.Search {
-  margin: 0 auto;
-  display: inline-block;
+  width: 9vw !important;
+  height: 9vw !important;
 }

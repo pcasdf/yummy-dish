@@ -66,7 +66,7 @@ const BookmarkModal = ({ setModal, id }) => {
               message='Added to recipe box!'
             />
           </Snackbar>
-          <span>ADD TO MY RECIPE BOX</span>
+          <span>SAVE TO RECIPE BOX</span>
           <form onSubmit={handleAddCategory}>
             <input
               value={category}

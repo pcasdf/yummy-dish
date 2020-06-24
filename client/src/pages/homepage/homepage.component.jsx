@@ -13,7 +13,7 @@ import { InputBase, Paper } from '@material-ui/core/';
 function Homepage() {
   const { push } = useHistory();
   return (
-    <div className='Background'>
+    <div className='background'>
       <div className='search-bar'>
         <Paper
           onClick={() => push('/search')}
@@ -33,7 +33,7 @@ function Homepage() {
             Your place to find Quick & Simple Vege-Friendly Recipes.
           </p>
         </div>
-        <div className='Rectangle-110'>
+        <div className='infographic'>
           <Link to='/bookmarks'>
             <button type='button' className='See-My-Recipe-Button'>
               See My Recipe Box!
@@ -41,7 +41,7 @@ function Homepage() {
           </Link>
         </div>
       </div>
-      <div className='snacksFlexbox'>
+      <div className='scroller'>
         {recipes.map(
           (item, idx) =>
             idx < 24 && (

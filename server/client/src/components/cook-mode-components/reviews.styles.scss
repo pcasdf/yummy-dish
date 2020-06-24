@@ -1,0 +1,75 @@
+$breakpoint-ipad: 768px;
+$breakpoint-desktop: 1024px;
+
+.reviews-container {
+  width: 100%;
+  background-color: #fec368;
+  color: #fff;
+
+  .content-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 8px 0;
+    h1,
+    p {
+      margin: 4px auto;
+    }
+    .MuiRating-icon {
+      margin-top: 20px;
+    }
+    textarea {
+      background-color: #f8f5f5;
+      margin: 8px auto;
+      width: 85%;
+      height: 64px;
+      border-radius: 20px;
+      border: none;
+      padding: 10px;
+      font-family: Karma;
+      font-size: 18px;
+      &::placeholder {
+        padding: 15px;
+        color: rgba(0, 0, 0, 0.32);
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+
+    button {
+      width: 90%;
+      margin: 16px auto;
+      border: none;
+      border-radius: 20px;
+      background-color: #ff9f1c;
+      color: #fff;
+      height: 64px;
+      font-family: Raleway;
+      font-weight: 600;
+      font-size: 28px;
+    }
+    .heart-icon {
+      margin: 0 0 0 20px;
+      width: 24px;
+      fill: #fff;
+    }
+    @media (min-width: $breakpoint-ipad) {
+      textarea {
+        width: 46%;
+      }
+      button {
+        width: 50%;
+      }
+    }
+    @media (min-width: $breakpoint-desktop) {
+      textarea {
+        width: 38%;
+      }
+      button {
+        width: 40%;
+      }
+    }
+  }
+}

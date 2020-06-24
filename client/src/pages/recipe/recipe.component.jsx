@@ -15,7 +15,7 @@ const RecipeDetail = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    if (window.innerWidth < 500) {
+    if (window.innerWidth < 600) {
       setTab(1);
     }
   }, []);
@@ -133,23 +133,23 @@ const RecipeDetail = () => {
       {modal && <BookmarkModal setModal={setModal} id={id} />}
       <Header>Recipe</Header>
       <div className='recipe-detail'>
-        <div
-          className='header'
-          style={{ backgroundImage: `url(${image})` }}
-          onClick={() => setModal(!modal)}
-        >
-          <FavoriteBorder fontSize='large' className='favorite' />
-        </div>
-        <div className='tabs'>
-          <span style={{ backgroundColor: tab1 }} onClick={() => setTab(1)}>
-            RECIPE
-          </span>
-          <span style={{ backgroundColor: tab2 }} onClick={() => setTab(2)}>
-            STORY
-          </span>
-          <span style={{ backgroundColor: tab3 }} onClick={() => setTab(3)}>
-            REVIEW
-          </span>
+        <div className='header' style={{ backgroundImage: `url(${image})` }}>
+          <FavoriteBorder
+            onClick={() => setModal(!modal)}
+            fontSize='large'
+            className='favorite'
+          />
+          <div className='tabs'>
+            <span style={{ backgroundColor: tab1 }} onClick={() => setTab(1)}>
+              RECIPE
+            </span>
+            <span style={{ backgroundColor: tab2 }} onClick={() => setTab(2)}>
+              STORY
+            </span>
+            <span style={{ backgroundColor: tab3 }} onClick={() => setTab(3)}>
+              REVIEW
+            </span>
+          </div>
         </div>
         {body}
       </div>

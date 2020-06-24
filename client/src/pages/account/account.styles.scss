@@ -1,265 +1,91 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .mod-container {
   display: block;
   position: fixed;
   z-index: 1;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
+  top: 0;
+  padding-top: 20vh;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.6);
-}
 
-.forms {
-  margin: 100px auto;
-  width: 30vw;
-  height: auto;
-  padding: 3vw 3vw 6vw 3vw;
-  position: absolute;
-  border-radius: 4px;
-  z-index: 2;
-  background: #fec368;
-  top: 12.5vw;
-  left: 32.5vw;
-  opacity: 0.95;
-
-  input {
-    width: 75%;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 3px;
-    border: none;
-    margin: 10px auto;
-    font-size: 16px;
-
-    &:focus {
-      outline: none;
-    }
+  @media (max-width: 480px) {
+    padding-top: 10vh;
   }
 
-  button {
-    box-shadow: 0px 2px 2px 0px gray;
-    color: #fff;
-    font-weight: 600;
-    width: 80%;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 5px;
-    border: none;
-    background-color: #ff9f1c;
-    margin: 10px auto;
-    display: flex;
-    justify-content: center;
-    font-size: 18px;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  form {
-    margin: 30px 0;
-  }
-}
-
-.cancel {
-  background-color: #fec368;
-  border: solid #fec368;
-  border-radius: 0.3125em;
-  margin-left: 220px;
-  padding: 0 2px;
-}
-
-input {
-  margin: 0 auto;
-  display: flex;
-  margin-bottom: 5px;
-  border-radius: 0.3125em;
-  border: solid #cbf3f0;
-  padding: 5px;
-  position: relative;
-}
-
-.login {
-  display: flex;
-  align-items: center;
-  margin: 5px auto;
-  border-radius: 0.3125em;
-  border: solid #cbf3f0;
-}
-
-.signup-button {
-  margin: 5px auto;
-  display: flex;
-  align-items: center;
-  background-color: #cbf3f0;
-  border: solid #cbf3f0;
-  border-radius: 0.3125em;
-  color: black;
-}
-
-.no-account {
-  margin: 2px auto;
-  width: 80%;
-  margin-bottom: 30px;
-  font-weight: 600;
-  font-family: 'Nunito', sans-serif;
-  font-size: 24px;
-  color: white;
-}
-
-//iphone X
-
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
   .forms {
     margin: 100px auto;
-    width: 80%;
+    width: 40vh;
     height: auto;
-    position: absolute;
-    border-radius: 0.45em;
+    padding: 3vw 3vw 6vw 3vw;
+    position: relative;
+    border-radius: 4px;
     z-index: 2;
     background: #fec368;
-    top: 18px;
-    left: 8%;
-    opacity: 0.9;
-  }
+    opacity: 0.95;
 
-  .cancel {
-    background-color: #fec368;
-    border: solid #fec368;
-    border-radius: 0.3125em;
-    margin-left: 275px;
-    padding: 0 2px;
-  }
+    @media (max-width: 480px) {
+      width: 80vw;
+    }
 
-  input {
-    display: flex;
-    margin: 0 auto;
-    margin-bottom: 5px;
-    border-radius: 0.3125em;
-    border: solid #cbf3f0;
-  }
+    p {
+      color: white;
+      margin-left: 30px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+    }
 
-  .login {
-    display: flex;
-    align-items: center;
-    margin: 5px auto;
-    border-radius: 0.3125em;
-    border: solid #cbf3f0;
-  }
+    button {
+      box-shadow: 0px 2px 2px 0px gray;
+      color: #fff;
+      font-weight: 600;
+      width: 80%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: none;
+      background-color: #ff9f1c;
+      margin: 10px auto;
+      display: flex;
+      justify-content: center;
+      font-size: 18px;
 
-  .signup-button {
-    margin: 5px auto;
-    display: flex;
-    align-items: center;
-    background-color: #cbf3f0;
-    border: solid #cbf3f0;
-    border-radius: 0.3125em;
-    color: black;
-  }
+      &:hover {
+        cursor: pointer;
+      }
 
-  .no-account {
-    margin: 2px auto;
-    width: 50%;
-    margin-bottom: 30px;
-  }
-}
+      &:focus {
+        outline: none;
+      }
+    }
 
-//ipad Portrait
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-  .forms {
-    margin: 100px auto;
-    width: 35%;
-    height: 355px;
-    position: absolute;
-    border-radius: 0.45em;
-    z-index: 2;
-    background: #fec368;
-    top: 30vw;
-    left: 60vw;
-    opacity: 0.9;
-  }
+    form {
+      margin: 30px 0;
 
-  .cancel {
-    background-color: #fec368;
-    border: solid #fec368;
-    border-radius: 0.3125em;
-    margin-left: 245px;
-    padding: 0 2px;
-  }
+      input {
+        width: 75%;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 3px;
+        border: none;
+        margin: 10px auto;
+        font-size: 16px;
 
-  input {
-    display: flex;
-    margin: 0 auto;
-    margin-bottom: 5px;
-    border-radius: 0.3125em;
-    border: solid #cbf3f0;
-  }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
 
-  .login {
-    display: flex;
-    align-items: center;
-    margin: 5px auto;
-    border-radius: 0.3125em;
-    border: solid #cbf3f0;
-  }
-
-  .signup-button {
-    margin: 5px auto;
-    display: flex;
-    align-items: center;
-    background-color: #cbf3f0;
-    border: solid #cbf3f0;
-    border-radius: 0.3125em;
-    color: black;
-  }
-
-  .no-account {
-    margin: 2px auto;
-    width: 30%;
-  }
-}
-
-//ipad landscape
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-  .forms {
-    margin: 100px auto;
-    width: 25%;
-    height: auto;
-    position: absolute;
-    border-radius: 0.45em;
-    z-index: 2;
-    background: #fec368;
-    top: 20%;
-    left: 60%;
-    opacity: 0.9;
-  }
-
-  .cancel {
-    background-color: #fec368;
-    border: solid #fec368;
-    border-radius: 0.3125em;
-    margin-left: 235px;
-    padding: 0 2px;
-  }
-
-  .signing-grayout {
-    position: absolute;
-    z-index: 999;
-    height: 30%;
-    width: 80%;
-    margin: -3px 25px;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
+    input {
+      margin: 0 auto;
+      display: flex;
+      margin-bottom: 5px;
+      border-radius: 0.3125em;
+      border: solid #cbf3f0;
+      padding: 5px;
+      position: relative;
+    }
   }
 }

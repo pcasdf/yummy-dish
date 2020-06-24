@@ -3,7 +3,7 @@ import axios from 'axios';
 let apiUrl;
 
 const apiUrls = {
-  production: 'https://pacific-island-83852.herokuapp.com/api',
+  production: 'https://limitless-oasis-87308.herokuapp.com/api',
   development: 'http://localhost:5000/api'
 };
 
