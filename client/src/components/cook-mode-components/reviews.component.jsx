@@ -52,7 +52,8 @@ const Reviews = () => {
           recipe: +id,
           rating,
           user: user._id,
-          comment: review
+          comment: review,
+          fullName: user.fullName
         });
         setRating(0);
         setReview('');
