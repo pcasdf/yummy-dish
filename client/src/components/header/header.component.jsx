@@ -17,7 +17,7 @@ import { UserContext } from '../../contexts/user.context';
 import { signinUser } from '../../services/users';
 
 const Header = ({ children }) => {
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
   const [signedUp, setSignedUp] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -35,6 +35,11 @@ const Header = ({ children }) => {
       setUser(user);
     }
   };
+
+  useEffect(() => {
+    console.log('logged in');
+    console.log(user);
+  }, [loggedIn]);
 
   useEffect(() => {
     checkLoggedIn();

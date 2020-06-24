@@ -38,12 +38,12 @@ const RecipeDetail = () => {
     tab3 = '#deeaea';
   } else if (tab === 2) {
     tab1 = '#deeaea';
-    tab2 = '#effbfa';
+    tab2 = '#def6f4';
     tab3 = '#deeaea';
   } else {
     tab1 = '#deeaea';
     tab2 = '#deeaea';
-    tab3 = '#effbfa';
+    tab3 = '#def6f4';
   }
 
   const recipe = details.find((item) => item.id === +id);

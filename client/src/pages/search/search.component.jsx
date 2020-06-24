@@ -18,9 +18,6 @@ import './search.styles.scss';
 import SearchHeader from './search.header.component';
 import Footer from '../../components/footer/footer.component';
 
-
-
-
 function Search(props) {
   const [tags, setTags] = useState([]);
 
@@ -109,11 +106,8 @@ function Search(props) {
 
   let location = useLocation();
 
- 
-
   return (
-    
-    <div classname="all">
+    <div className='all'>
       <div className='ssearchHeader'>
         <SearchHeader>
           <div className='ssearchBarWithButton'>
@@ -125,11 +119,9 @@ function Search(props) {
           </div>
         </SearchHeader>
       </div>
-      
-        <div className='sall-Search-Results'>
-          
+
+      <div className='sall-Search-Results'>
         <Popover
-          
           id={id}
           open={open}
           anchorEl={anchorEl}
@@ -144,55 +136,45 @@ function Search(props) {
           }}
           font-color='orange'
         >
-          <div className="popover">
-          <PrepTime setPrepTime={setPrepTime} />
-          <Pricing setpriceInputValue={setpriceInputValue} />
-          <Skill setSkillLevel={setSkillLevel} />
+          <div className='popover'>
+            <PrepTime setPrepTime={setPrepTime} />
+            <Pricing setpriceInputValue={setpriceInputValue} />
+            <Skill setSkillLevel={setSkillLevel} />
 
             <Box component='fieldset' mb={3} borderColor='transparent'>
-              
               <div className='sslider'>
-                
-              <Typography component='legend'>Rating</Typography>
+                <Typography component='legend'>Rating</Typography>
               </div>
               <Rating
-               
-              name='simple-controlled'
-              value={value}
-              onChange={(event, newValue) => {
-                setValue(newValue);
-              }}
-            />
-          </Box>
+                name='simple-controlled'
+                value={value}
+                onChange={(event, newValue) => {
+                  setValue(newValue);
+                }}
+              />
+            </Box>
 
-          <button className='sapplyButton' onClick={handleApply}>
+            <button className='sapplyButton' onClick={handleApply}>
               Apply
-          </button>
+            </button>
           </div>
         </Popover>
-        
+
         {searchResults.map((item) => (
           <>
             <div className='ssearchResults'>
               <div className='srectangle'>{item.title}</div>
               <Link to={`/recipes/${item.id}`}>
-                <img className='ssearchImage' src={item.image} />
+                <div
+                  className='ssearchImage'
+                  style={{ backgroundImage: `url(${item.image})` }}
+                />
               </Link>
-              
             </div>
-           
           </>
-          
         ))}
-        
-        
-        </div>
-        
-       
-      
-      
-   </div>
-    
+      </div>
+    </div>
   );
 }
 

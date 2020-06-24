@@ -49,6 +49,10 @@
       display: none;
       margin: 0;
 
+      span {
+        box-shadow: 2px 0 3px 2px rgba(0, 0, 0, 0.3);
+      }
+
       @media (max-width: 480px) {
         display: flex;
         align-self: flex-start;
@@ -78,6 +82,7 @@
         background: #effbfa;
 
         .cook-mode {
+          box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.4);
           background: #2ec4b6;
           color: white;
           border-radius: 50%;
@@ -99,6 +104,10 @@
         .title {
           font-size: 48px;
           text-align: center;
+
+          @media (max-width: 480px) {
+            font-size: 34px;
+          }
         }
 
         .duration {
@@ -131,7 +140,12 @@
         .instructions {
           display: flex;
           overflow-wrap: anywhere;
-          padding: 10px;
+          padding: 15px;
+
+          ol,
+          ul {
+            padding-left: 20px;
+          }
 
           span {
             font-size: 24px;
@@ -142,7 +156,16 @@
             width: 50%;
             display: flex;
             flex-direction: column;
-            margin: 10px;
+            margin: 5px;
+          }
+
+          @media (max-width: 480px) {
+            flex-direction: column;
+
+            div {
+              padding: 0;
+              width: 100%;
+            }
           }
         }
       }
@@ -168,11 +191,11 @@
     .reviews {
       background: #d8f2f0;
       width: 100%;
+      min-height: 200px;
       height: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
 
       .label {
         font-size: 36px;

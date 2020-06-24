@@ -46,10 +46,9 @@ const Account = ({
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(newInput);
       const user = await createUser(newInput);
-      console.log(user);
       setSignedUp(true);
+      setLoggedIn(true);
       setShowModal(!showModal);
     } catch (error) {
       console.log(error);
@@ -60,7 +59,6 @@ const Account = ({
     e.preventDefault();
     try {
       const response = await signinUser(input);
-      console.log(response);
       setUser(response);
       setLoggedIn(true);
       setShowModal(!showModal);
