@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { FavoriteBorder } from '@material-ui/icons';
+import { FavoriteBorder, Timer, AttachMoney } from '@material-ui/icons';
 
 import './recipe.styles.scss';
 import { UserContext } from '../../contexts/user.context';
@@ -10,6 +10,7 @@ import BookmarkModal from '../../components/bookmark-modal/bookmark-modal.compon
 import Review from '../../components/review/review.component';
 import { getReviews } from '../../services/reviews';
 import { ReactComponent as Icon } from '../../assets/star.svg';
+import { ReactComponent as ChefIcon } from '../../assets/chef.svg';
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -54,8 +55,28 @@ const RecipeDetail = () => {
     summary,
     analyzedInstructions,
     image,
-    extendedIngredients
+    extendedIngredients,
+    readyInMinutes,
+    pricePerServing
   } = recipe;
+
+  let difficulty;
+  if (extendedIngredients.length > 10) {
+    difficulty = 'Hard';
+  } else if (extendedIngredients.length > 5) {
+    difficulty = 'Medium';
+  } else {
+    difficulty = 'Easy';
+  }
+
+  let cost;
+  if (pricePerServing > 300) {
+    cost = 3;
+  } else if (pricePerServing > 100) {
+    cost = 2;
+  } else {
+    cost = 1;
+  }
 
   const Recipe = () => (
     <div className='info'>
@@ -66,10 +87,22 @@ const RecipeDetail = () => {
       </div>
       <span className='title'>{title}</span>
       <div className='duration'>
-        <span>10 MIN</span>
-        <span>{extendedIngredients.length > 3}</span>
-        <Icon className='icon' />
-        <span>$$$</span>
+        <div className='length'>
+          <Timer />
+          <span>{readyInMinutes} minutes</span>
+        </div>
+        <div className='difficulty'>
+          <ChefIcon className='icon' />
+          <span>{difficulty}</span>
+        </div>
+        <div className='stars'>
+          <Icon className='icon' />
+        </div>
+        <div className='cost'>
+          {[...Array(cost)].map((each, idx) => (
+            <AttachMoney key={idx} />
+          ))}
+        </div>
       </div>
       <div className='instructions'>
         <div>

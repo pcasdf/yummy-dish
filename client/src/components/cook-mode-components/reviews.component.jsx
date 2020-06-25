@@ -103,6 +103,7 @@ const Reviews = () => {
           <Rating
             name='half-rating-read'
             value={rating}
+            precision={0.5}
             emptyIcon={<Star style={{ color: '#fff' }} />}
             readOnly
           />
