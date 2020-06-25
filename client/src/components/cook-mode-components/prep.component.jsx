@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Data from '../../data/details-1.json';
 import './prep.styles.scss';
 import { FormControlLabel, Checkbox } from '@material-ui/core';
+import axios from 'axios';
+
 const Prep = ({ id }) => {
   const recipe = Data.find((each) => each.id === +id);
+  const [substitution, setSubstitution] = useState('');
+
+  useEffect(() => {
+    const getSubstitutions = async () => {
+      const response = await axios(process.env.REACT_APP_API_KEY);
+    };
+    getSubstitutions();
+  }, []);
+
   return (
     <div className='prep-container'>
       <div className='content-container'>
@@ -20,6 +31,7 @@ const Prep = ({ id }) => {
                 <span className='prep-steps'>
                   {idx + 1 + '.'} {each.original}
                 </span>
+                <span className='substitution'>{substitution}</span>
               </label>
             </div>
           </div>

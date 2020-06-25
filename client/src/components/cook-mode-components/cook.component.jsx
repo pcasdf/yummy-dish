@@ -22,9 +22,10 @@ const Cook = ({ id }) => {
     }
   }, [user]);
   const customSteps = [
-    '1. Chop everything up.',
-    '2. Cook them however you want.',
-    '3. Hope for the best.'
+    'Chop everything up.',
+    'Cook them however you want.',
+    'Hope for the best.',
+    'Enjoy?'
   ];
   const handleEdit = async () => {
     if (!editing) {

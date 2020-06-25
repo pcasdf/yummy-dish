@@ -14,9 +14,15 @@ $breakpoint-desktop: 1024px;
     p {
       margin: 4px auto;
     }
-    .MuiRating-icon {
-      margin-top: 20px;
+    .rating-bar {
+      margin: 20px auto;
+
+      .MuiSvgIcon-root {
+        width: 18vw !important;
+        height: 18vw !important;
+      }
     }
+
     textarea {
       background-color: #f8f5f5;
       margin: 8px auto;
@@ -53,6 +59,20 @@ $breakpoint-desktop: 1024px;
       fill: #fff;
     }
     @media (min-width: $breakpoint-ipad) {
+      h1 {
+        font-size: 50px;
+      }
+      p {
+        font-size: 30px;
+      }
+      .rating-bar {
+        margin: 30px auto;
+
+        .MuiSvgIcon-root {
+          width: 10vw !important;
+          height: 10vw !important;
+        }
+      }
       textarea {
         width: 46%;
       }
@@ -66,6 +86,12 @@ $breakpoint-desktop: 1024px;
       }
       button {
         width: 40%;
+      }
+      .rating-bar {
+        .MuiSvgIcon-root {
+          width: 8vw !important;
+          height: 8vw !important;
+        }
       }
     }
   }
