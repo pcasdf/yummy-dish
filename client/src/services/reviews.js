@@ -1,8 +1,8 @@
 import api from './apiConfig';
 
-export const getReviews = async () => {
+export const getReviews = async (id) => {
   try {
-    const response = await api.get('/reviews');
+    const response = await api.get(`/reviews/recipe/${id}`);
     return response.data;
   } catch (error) {}
 };

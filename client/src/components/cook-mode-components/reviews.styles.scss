@@ -1,11 +1,9 @@
 $breakpoint-ipad: 768px;
 $breakpoint-desktop: 1024px;
-
 .reviews-container {
   width: 100%;
   background-color: #fec368;
   color: #fff;
-
   .content-container {
     height: 100%;
     display: flex;
@@ -37,7 +35,6 @@ $breakpoint-desktop: 1024px;
         font-weight: bold;
       }
     }
-
     button {
       width: 90%;
       margin: 16px auto;

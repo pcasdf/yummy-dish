@@ -14,9 +14,17 @@
     flex-direction: column;
     color: #8e8e8e;
 
+    @media (min-width: 480px) {
+      background-size: cover;
+      display: flex;
+      justify-content: flex-end;
+    }
+
     .header {
       height: 240px;
       display: flex;
+      background-size: cover;
+
       flex-direction: column;
       justify-content: space-between;
 
@@ -39,15 +47,13 @@
       }
     }
 
-    @media (min-width: 480px) {
-      background-size: cover;
-      display: flex;
-      justify-content: flex-end;
-    }
-
     .tabs {
       display: none;
       margin: 0;
+
+      span {
+        box-shadow: 2px 0 3px 2px rgba(0, 0, 0, 0.3);
+      }
 
       @media (max-width: 480px) {
         display: flex;
@@ -78,6 +84,7 @@
         background: #effbfa;
 
         .cook-mode {
+          box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.4);
           background: #2ec4b6;
           color: white;
           border-radius: 50%;
@@ -99,6 +106,10 @@
         .title {
           font-size: 48px;
           text-align: center;
+
+          @media (max-width: 480px) {
+            font-size: 34px;
+          }
         }
 
         .duration {
@@ -111,27 +122,41 @@
             height: 80px;
           }
 
-          span {
-            font-family: 'Nunito', sans-serif;
+          div {
             font-size: 16px;
-            font-weight: 400;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             width: 18%;
+
+            span {
+              font-family: 'Nunito', sans-serif;
+              font-weight: 400;
+            }
           }
 
           .icon {
-            width: 45px;
-            height: 45px;
-            fill: gold;
+            width: 30px;
+            height: 30px;
+            fill: #fec368;
+          }
+
+          .MuiSvgIcon-root {
+            fill: #fec368;
+            width: 30px !important;
+            height: 30px !important;
           }
         }
 
         .instructions {
           display: flex;
           overflow-wrap: anywhere;
-          padding: 10px;
+          padding: 15px;
+
+          ol,
+          ul {
+            padding-left: 20px;
+          }
 
           span {
             font-size: 24px;
@@ -142,7 +167,16 @@
             width: 50%;
             display: flex;
             flex-direction: column;
-            margin: 10px;
+            margin: 5px;
+          }
+
+          @media (max-width: 480px) {
+            flex-direction: column;
+
+            div {
+              padding: 0;
+              width: 100%;
+            }
           }
         }
       }
@@ -158,19 +192,43 @@
           font-size: 36px;
           margin: 10px auto;
         }
+
+        a {
+          color: #aeaeae;
+        }
+
+        @media (max-width: 480px) {
+          width: 100%;
+        }
       }
     }
 
     .reviews {
       background: #d8f2f0;
-      height: 300px;
+      width: 100%;
+      min-height: 200px;
+      height: auto;
       display: flex;
       flex-direction: column;
-      padding: 20px;
+      align-items: center;
 
       .label {
         font-size: 36px;
         margin: 0 auto;
+      }
+
+      .ratings {
+        margin: 0 auto;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      @media (max-width: 480px) {
+        .ratings {
+          flex-direction: column;
+        }
       }
     }
   }

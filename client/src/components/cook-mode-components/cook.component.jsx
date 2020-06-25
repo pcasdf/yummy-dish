@@ -3,9 +3,13 @@ import { ReactComponent as Edit } from '../../assets/edit.svg';
 import Data from '../../data/details-1.json';
 import './cook.styles.scss';
 import { FormControlLabel, Checkbox } from '@material-ui/core';
-
 const Cook = ({ id }) => {
   const recipe = Data.find((each) => each.id === +id);
+  const customSteps = [
+    '1. Chop everything up.',
+    '2. Cook them however you want.',
+    '3. Hope for the best.'
+  ];
   return (
     <div className='cook-container'>
       <div className='content-container'>
@@ -18,27 +22,40 @@ const Cook = ({ id }) => {
           recipe.analyzedInstructions[0].steps.map((each) => (
             <div key={each.number} className='directions'>
               <div className='input-label'>
-                <FormControlLabel
-                  control={<Checkbox color='primary' />}
-                  label={each.number + '.'}
-                />
-                <span className='cook-steps'>{each.step}</span>
+                <label className='cook-steps-label'>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        fontSize='small'
+                        color='primary'
+                        style={{ padding: 0 }}
+                      />
+                    }
+                  />
+                  <span className='cook-steps'>
+                    {each.number + '.'} {each.step}
+                  </span>
+                </label>
               </div>
             </div>
           ))
         ) : (
           <div className='directions'>
-            <div className='input-label'>
-              <input type='checkbox' className='cook-steps-checkbox' />
-              <label className='cook-steps-label'>
-                Just Mix Everything Together and Hope for the Best.
-              </label>
-            </div>
+            {customSteps.map((item, idx) => (
+              <div key={idx} className='directions'>
+                <div className='input-label'>
+                  <FormControlLabel
+                    control={<Checkbox color='primary' />}
+                    style={{ padding: 0 }}
+                  />
+                  <span className='cook-steps'>{item}</span>
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>
     </div>
   );
 };
-
 export default Cook;

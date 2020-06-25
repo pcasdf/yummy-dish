@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Account from '../account/account.component';
 import { UserContext } from '../../contexts/user.context';
 import { signinUser } from '../../services/users';
-import yummylogo from './yummylogo.png'
+import yummylogo from './yummylogo.png';
 
 const SearchHeader = ({ children }) => {
   const { setUser } = useContext(UserContext);
@@ -35,8 +35,7 @@ const SearchHeader = ({ children }) => {
       <div className='sheader-wrapper-search'>
         <div className='stopHeader'>
           <Link to='/'>
-           
-            <img src={yummylogo} className='simgleft' alt="Logo" />
+            <img src={yummylogo} className='simgleft' alt='Logo' />
           </Link>
 
           <div className='sicons-right'>
