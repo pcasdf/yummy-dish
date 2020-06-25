@@ -21,8 +21,9 @@ const RecipeDetail = () => {
 
   const fetchReviews = async (id) => {
     const response = await getReviews(id);
-    console.log(response);
-    setReviews(response);
+    if (response) {
+      setReviews(response);
+    }
   };
 
   useEffect(() => {
@@ -89,7 +90,7 @@ const RecipeDetail = () => {
       <div className='duration'>
         <div className='length'>
           <Timer />
-          <span>{readyInMinutes} minutes</span>
+          <span>{readyInMinutes} min.</span>
         </div>
         <div className='difficulty'>
           <ChefIcon className='icon' />
