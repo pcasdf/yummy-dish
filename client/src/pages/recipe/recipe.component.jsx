@@ -86,9 +86,9 @@ const RecipeDetail = () => {
           <p>COOK MODE</p>
         </Link>
       </div>
-      <div className='print-directions'>
-        <Link to='/'>
-          <p>PRINT</p>
+      <div className='print-directions' onClick={() => window.print()}>
+        <Link >
+          Print Directions
         </Link>
       </div>
       <span className='title'>{title}</span>

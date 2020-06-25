@@ -1,4 +1,6 @@
 import React, { createRef } from 'react';
+import { AttachMoney } from '@material-ui/icons';
+
 
 class Pricing extends React.Component {
   state = {
@@ -60,14 +62,20 @@ class Pricing extends React.Component {
     return (
       <div className='sslider'>
         <span>Price</span>
-        
+        <div className="slider-w-pics">
+          <div><AttachMoney/></div>
         <input className='sslidercolor'
           type='range'
           ref={this.slider}
           defaultValue={this.state.priceInputValue}
           onChange={this.handlePricingSlide}
-        />
-        
+          />
+          <div>
+            <AttachMoney/>
+            <AttachMoney/>
+            <AttachMoney/>
+            </div>
+        </div>
 
         <div ref={this.sliderValue}> </div>
         {this.getPricingData(this.state.priceInput)}
