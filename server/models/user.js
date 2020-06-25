@@ -10,6 +10,12 @@ const User = new Schema({
       recipe: { type: String, required: true },
       category: { type: String, required: true }
     }
+  ],
+  edits: [
+    {
+      recipeId: { type: String, required: true },
+      edit: { type: Object, required: true }
+    }
   ]
 });
 

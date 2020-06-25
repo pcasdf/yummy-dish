@@ -10,11 +10,14 @@ const Cook = ({ id }) => {
     '2. Cook them however you want.',
     '3. Hope for the best.'
   ];
+  const handleEdit = () => {
+    console.log('yes');
+  };
   return (
     <div className='cook-container'>
       <div className='content-container'>
         <h1>Cook</h1>
-        <h3>
+        <h3 onClick={handleEdit}>
           MAKE IT YOUR OWN! <Edit className='edit-icon' />
         </h3>
         <h2>DIRECTIONS:</h2>

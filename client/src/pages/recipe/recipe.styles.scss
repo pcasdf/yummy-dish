@@ -99,7 +99,7 @@
           text-align: center;
           justify-content: center;
           top: 56%;
-          right: 10%;
+          right: 7%;
 
           span {
             font-family: Nunito, sans-serif;
@@ -113,7 +113,19 @@
           display: flex;
           font-size: 12px;
           top: 67%;
-          right: 12%;
+          right: 8%;
+        }
+
+        @media (max-width: 480px) {
+          .cook-mode {
+            top: 76%;
+            right: 5%;
+          }
+
+          .print-directions {
+            top: 87%;
+            right: 7.5%;
+          }
         }
 
         .title {
@@ -166,6 +178,7 @@
           display: flex;
           overflow-wrap: anywhere;
           padding: 15px;
+          padding-bottom: 200px;
 
           ol,
           ul {
