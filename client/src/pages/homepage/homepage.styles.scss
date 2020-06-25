@@ -8,14 +8,14 @@
   padding-top: 2vw;
 
   Footer {
-    margin-top: 80px;
+    margin-top: 10.667vw;
   }
 
   @media (max-width: 480px) {
     padding-top: 10vw;
 
     Footer {
-      margin-top: 30px;
+      margin-top: 4vw;
       position: relative;
       bottom: 0;
     }
@@ -67,7 +67,7 @@
 
   .scroller {
     display: flex;
-    margin: 40px 0;
+    margin: 5.333vw 0;
     width: 100vw;
     flex-wrap: nowrap;
     overflow-y: hidden;
@@ -80,7 +80,7 @@
     margin-bottom: 2.2222222222222223vw;
 
     @media (max-width: 450px) {
-      height: 30vh;
+      height: 40vh;
     }
   }
 }
@@ -93,6 +93,8 @@
   flex-direction: column;
   padding-bottom: 4vw;
 
+
+
   p {
     padding-top: 0.7em;
     align-content: center;
@@ -102,7 +104,8 @@
     font-weight: 500;
 
     @media all and (max-width: 480px) {
-      font-size: 7.5vw;
+      font-size: 6.5vw;
+      
     }
   }
 
@@ -111,7 +114,7 @@
     width: 26vw;
     height: 5vw;
     border-radius: 5px;
-    padding-bottom: 25px;
+    padding-bottom: 3.333vw;
 
     @media all and (max-width: 480px) {
       height: 15vw;

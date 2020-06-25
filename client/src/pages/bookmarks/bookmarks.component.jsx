@@ -57,7 +57,7 @@ const Bookmarks = () => {
             value={input}
             placeholder='Search in your recipes'
             style={{
-              width: '30%',
+              width: '90%',
               marginBottom: 0,
               backgroundColor: '#fff'
             }}
