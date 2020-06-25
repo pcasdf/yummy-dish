@@ -22,12 +22,12 @@ sheader .sheader-wrapper {
 .srectangle {
   display: flex;
   justify-content: flex-start;
-  width: 171px;
-  height: 1vw;
+  width: 50%;
+  height: 10%;
   border: solid 1px rgba(176, 174, 174, 0.28);
   background-color: rgba(245, 253, 252, 0.9);
   font-family: Raleway;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
@@ -76,9 +76,8 @@ sheader .sheader-wrapper {
 
 .sslider {
   color: #ff9f1c;
-  display:flex;
+  display: flex;
   flex-direction: column;
-  
 }
 
 .slidercolor {
@@ -142,14 +141,13 @@ sheader .sheader-wrapper {
   justify-content: center;
 }
 
-
 .ssearchResults {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
 }
 
-.popover{
+.popover {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -222,12 +220,12 @@ sheader .sheader-wrapper {
   .srectangle {
     display: flex;
     justify-content: flex-start;
-    width: 203px;
-    height: 0.5vw;
+    width: 50%;
+    height: 10%;
     border: solid 1px rgba(176, 174, 174, 0.28);
     background-color: rgba(245, 253, 252, 0.9);
     font-family: Raleway;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
