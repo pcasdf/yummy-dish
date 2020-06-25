@@ -83,24 +83,37 @@
         flex-direction: column;
         background: #effbfa;
 
-        .cook-mode {
+        .cook-mode,
+        .print-directions {
+          font-family: 'Nunito', sans-serif;
+          font-size: 16px;
           box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.4);
           background: #2ec4b6;
           color: white;
           border-radius: 50%;
-          width: 70px;
+          width: 80px;
           position: fixed;
-          height: 70px;
+          height: 80px;
           display: flex;
           align-items: center;
           text-align: center;
-          top: 85%;
+          justify-content: center;
+          top: 56%;
           right: 10%;
 
           span {
             font-family: Nunito, sans-serif;
             color: white;
           }
+        }
+
+        .print-directions {
+          width: 60px;
+          height: 60px;
+          display: flex;
+          font-size: 12px;
+          top: 67%;
+          right: 12%;
         }
 
         .title {

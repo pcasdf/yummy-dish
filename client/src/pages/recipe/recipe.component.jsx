@@ -83,7 +83,12 @@ const RecipeDetail = () => {
     <div className='info'>
       <div className='cook-mode'>
         <Link to={`/cookmode/${id}`}>
-          <span>COOK MODE</span>
+          <p>COOK MODE</p>
+        </Link>
+      </div>
+      <div className='print-directions'>
+        <Link to='/'>
+          <p>PRINT</p>
         </Link>
       </div>
       <span className='title'>{title}</span>
