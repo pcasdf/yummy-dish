@@ -10,7 +10,7 @@ const Prep = ({ id }) => {
 
   useEffect(() => {
     const getSubstitutions = async () => {
-      const response = await axios(process.env.REACT_APP_API_KEY);
+      // const response = await axios(process.env.REACT_APP_API_KEY);
     };
     getSubstitutions();
   }, []);

@@ -30,9 +30,16 @@
       }
       input {
         flex: auto;
+        font-family: Markel;
         padding: 10px;
-        font-size: 14px;
+        font-size: 20px;
         margin: 5px 10px;
+        border: none;
+        border-radius: 3px;
+        background: #cde6c7;
+        &:focus {
+          outline: none;
+        }
       }
     }
     .edit-icon {

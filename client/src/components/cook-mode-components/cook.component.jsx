@@ -27,7 +27,8 @@ const Cook = ({ id }) => {
     'Hope for the best.',
     'Enjoy?'
   ];
-  const handleEdit = async () => {
+  const handleEdit = async (event) => {
+    event.preventDefault();
     if (!editing) {
       setIsEditing(true);
     } else {
@@ -57,32 +58,35 @@ const Cook = ({ id }) => {
           MAKE IT YOUR OWN! <Edit className='edit-icon' />
         </h3>
         <h2>DIRECTIONS:</h2>
-        {editing &&
-          instructions.map((each, idx) => (
-            <div key={idx} className='directions'>
-              <div className='input-label'>
-                <label className='cooks-steps-label'>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        fontSize='small'
-                        color='primary'
-                        style={{ padding: 0 }}
-                      />
-                    }
-                  />
-                  <span className='cook-steps'>
-                    {idx + 1 + '.'}
-                    <input
-                      key={idx}
-                      value={instructions[idx].step}
-                      onChange={(event) => handleChange(event, idx)}
+        {editing && (
+          <form onSubmit={handleEdit}>
+            {instructions.map((each, idx) => (
+              <div key={idx} className='directions'>
+                <div className='input-label'>
+                  <label className='cooks-steps-label'>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          fontSize='small'
+                          color='primary'
+                          style={{ padding: 0 }}
+                        />
+                      }
                     />
-                  </span>
-                </label>
+                    <span className='cook-steps'>
+                      {idx + 1 + '.'}
+                      <input
+                        key={idx}
+                        value={instructions[idx].step}
+                        onChange={(event) => handleChange(event, idx)}
+                      />
+                    </span>
+                  </label>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </form>
+        )}
         {!editing && instructions
           ? instructions.map((each) => (
               <div key={each.number} className='directions'>
