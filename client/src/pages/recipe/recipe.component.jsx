@@ -195,7 +195,8 @@ const RecipeDetail = () => {
       {modal && <BookmarkModal setModal={setModal} id={id} />}
       <Header>Recipe</Header>
       <div className='recipe-detail'>
-        <div className='header' style={{ backgroundImage: `url(${image})` }}>
+        <div className='header' style={{ backgroundImage: `url(${image})`,
+       }}>
           <FavoriteBorder
             onClick={toggleBookmarkModal}
             fontSize='large'
