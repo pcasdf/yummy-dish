@@ -30,8 +30,6 @@ const Cook = ({ id }) => {
     if (!editing) {
       setIsEditing(true);
     } else {
-      console.log('saving changes');
-      console.log(id);
       const response = await updateUser(user._id, {
         ...user,
         edits: [
@@ -39,7 +37,6 @@ const Cook = ({ id }) => {
           { recipeId: id, edit: instructions }
         ]
       });
-      console.log(response);
       setIsEditing(false);
     }
   };
@@ -50,7 +47,6 @@ const Cook = ({ id }) => {
       step: event.target.value
     });
     setInstructions(newSteps);
-    console.log(event.target.value);
   };
   return (
     <div className='cook-container'>
@@ -62,11 +58,29 @@ const Cook = ({ id }) => {
         <h2>DIRECTIONS:</h2>
         {editing &&
           instructions.map((each, idx) => (
-            <input
-              key={idx}
-              value={instructions[idx].step}
-              onChange={(event) => handleChange(event, idx)}
-            />
+            <div key={idx} className='directions'>
+              <div className='input-label'>
+                <label className='cooks-steps-label'>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        fontSize='small'
+                        color='primary'
+                        style={{ padding: 0 }}
+                      />
+                    }
+                  />
+                  <span className='cook-steps'>
+                    {idx + 1 + '.'}
+                    <input
+                      key={idx}
+                      value={instructions[idx].step}
+                      onChange={(event) => handleChange(event, idx)}
+                    />
+                  </span>
+                </label>
+              </div>
+            </div>
           ))}
         {!editing && instructions
           ? instructions.map((each) => (
