@@ -6,15 +6,20 @@ import { ThemeContext } from '../../contexts/theme.context';
 const Footer = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  const toggleTheme = () => {
-    if (theme.header === 'black') {
+  const toggleTheme = (number) => {
+    if (number === 1) {
       setTheme({
         header: '#fec368',
         background: '#cbf3f0'
       });
-    } else {
+    } else if (number === 2) {
       setTheme({
         header: 'black',
+        background: '#444'
+      });
+    } else {
+      setTheme({
+        header: 'green',
         background: '#444'
       });
     }
@@ -22,9 +27,9 @@ const Footer = () => {
 
   return (
     <footer>
-      <span onClick={toggleTheme}>About</span>
-      <span>Our Business</span>
-      <span>Discover</span>
+      <span onClick={() => toggleTheme(1)}>About</span>
+      <span onClick={() => toggleTheme(2)}>Our Business</span>
+      <span onClick={() => toggleTheme(3)}>Discover</span>
       <span>Languages</span>
     </footer>
   );
