@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
 import { Rating } from '@material-ui/lab/';
 import { Star } from '@material-ui/icons';
 import { Box, Snackbar, SnackbarContent } from '@material-ui/core';
@@ -6,7 +7,6 @@ import { ReactComponent as Heart } from '../../assets/heart.svg';
 import './reviews.styles.scss';
 import { createReview, deleteReview } from '../../services/reviews';
 import { UserContext } from '../../contexts/user.context';
-import { useParams } from 'react-router-dom';
 import BookmarkModal from '../../components/bookmark-modal/bookmark-modal.component';
 const Reviews = () => {
   const { id } = useParams();
@@ -16,11 +16,23 @@ const Reviews = () => {
   const [hover, setHover] = useState(-1);
   const [createdReview, setCreatedReview] = useState('');
   const [modal, setModal] = useState(false);
+  const [clipboardModal, setClipboardModal] = useState(false);
+  const url = `http://tan-wrench.surge.sh/recipes/${id}`;
+
+  let thisInput;
+  const handleShare = () => {
+    const input = thisInput;
+    input.select();
+    document.execCommand('copy');
+    setClipboardModal(true);
+  };
+
   const [snack, setSnack] = useState({
     open: false,
     vertical: 'top',
     horizontal: 'center'
   });
+
   const { open, vertical, horizontal } = snack;
   const labels = {
     0.5: '💩',
@@ -34,16 +46,20 @@ const Reviews = () => {
     4.5: '😋',
     5: '😍'
   };
+
   const handleInputChange = (e) => {
     const { value } = e.target;
     setReview(value);
   };
+
   const handleRatingChange = (e, newRating) => {
     setRating(newRating);
   };
+
   const handleHoverChange = (e, newHover) => {
     setHover(newHover);
   };
+
   const handleClick = async (e) => {
     e.preventDefault();
     if (user) {
@@ -70,6 +86,7 @@ const Reviews = () => {
       });
     }
   };
+
   const handleAddRecipeClick = () => {
     if (user) {
       setModal(!modal);
@@ -81,9 +98,11 @@ const Reviews = () => {
       });
     }
   };
+
   const handleSnackClose = () => {
     setSnack({ ...snack, open: false });
   };
+
   const handleReviewDelete = async (e) => {
     e.preventDefault();
     try {
@@ -93,6 +112,7 @@ const Reviews = () => {
       console.log(err);
     }
   };
+
   let body;
   if (createdReview) {
     const { comment, rating } = createdReview.data;
@@ -162,15 +182,35 @@ const Reviews = () => {
           />
         </Snackbar>
         <h2>OR</h2>
-        <button className='share-button'>SHARE</button>
+        <button onClick={handleShare} className='share-button'>
+          SHARE
+        </button>
+        <Snackbar
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+          open={clipboardModal}
+          onClose={() => setClipboardModal(false)}
+          autoHideDuration={3000}
+        >
+          <SnackbarContent
+            style={{ backgroundColor: '#effbfa', color: '#ff9f1c' }}
+            message='Copied to clipboard!'
+          />
+        </Snackbar>
       </div>
     );
   }
+
   return (
     <div className='reviews-container'>
+      <input
+        className='hidden-input'
+        ref={(input) => (thisInput = input)}
+        value={url}
+      />
       {modal && <BookmarkModal setModal={setModal} id={id} />}
       {body}
     </div>
   );
 };
+
 export default Reviews;

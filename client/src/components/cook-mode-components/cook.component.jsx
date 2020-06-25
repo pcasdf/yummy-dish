@@ -9,9 +9,12 @@ const Cook = ({ id }) => {
   const recipe = Data.find((each) => each.id === +id);
   const { user, setUser } = useContext(UserContext);
   const [editing, setIsEditing] = useState(false);
-  const [instructions, setInstructions] = useState(
-    recipe.analyzedInstructions[0].steps
-  );
+  const [instructions, setInstructions] = useState(null);
+  useEffect(() => {
+    if (recipe.analyzedInstructions[0]) {
+      setInstructions(recipe.analyzedInstructions[0].steps);
+    }
+  }, []);
   useEffect(() => {
     let userSteps;
     if (user) {

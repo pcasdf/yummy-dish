@@ -210,7 +210,7 @@ const RecipeDetail = () => {
               STORY
             </span>
             <span style={{ backgroundColor: tab3 }} onClick={() => setTab(3)}>
-              REVIEW
+              REVIEWS
             </span>
           </div>
         </div>

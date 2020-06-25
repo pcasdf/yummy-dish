@@ -14,10 +14,12 @@ import {
 import './header.styles.scss';
 import Account from '../../pages/account/account.component';
 import { UserContext } from '../../contexts/user.context';
+import { ThemeContext } from '../../contexts/theme.context';
 import { signinUser } from '../../services/users';
 
 const Header = ({ children }) => {
   const { user, setUser } = useContext(UserContext);
+  const { theme } = useContext(ThemeContext);
   const [showModal, setShowModal] = useState(false);
   const [signedUp, setSignedUp] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -100,7 +102,7 @@ const Header = ({ children }) => {
           message='Registered!'
         />
       </Snackbar>
-      <header className='header-wrapper'>
+      <header style={{ background: theme.header }} className='header-wrapper'>
         <span className='left'>
           <Search className='SearchIcon' style={{ paddingRight: '1rem' }} />
           <span className='PageTitle'>{children}</span>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
@@ -9,11 +9,13 @@ import Highlight from '../../components/highlight/highlight.component';
 import './homepage.styles.scss';
 import { Search } from '@material-ui/icons';
 import { InputBase, Paper } from '@material-ui/core/';
+import { ThemeContext } from '../../contexts/theme.context';
 
 function Homepage() {
   const { push } = useHistory();
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className='background'>
+    <div style={{ background: theme.background }} className='background'>
       <div className='search-bar'>
         <Paper
           onClick={() => push('/search')}
@@ -45,7 +47,12 @@ function Homepage() {
         {recipes.map(
           (item, idx) =>
             idx < 24 && (
-              <Highlight id={item.id} img={item.image} title={item.title} />
+              <Highlight
+                key={idx}
+                id={item.id}
+                img={item.image}
+                title={item.title}
+              />
             )
         )}
       </div>
