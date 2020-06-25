@@ -87,7 +87,7 @@ const RecipeDetail = () => {
         </Link>
       </div>
       <div className='print-directions' onClick={() => window.print()}>
-        <Link to='/'>
+        <Link >
           Print Directions
         </Link>
       </div>
