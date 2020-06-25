@@ -260,3 +260,18 @@
     }
   }
 }
+
+@media print {
+
+  .cook-mode, .print-directions, .header-wrapper, .header, .reviews, .story, .duration{
+    visibility: hidden;
+    height: 0px;
+    display: none !important;
+  }
+
+  .recipe-component{
+    top: 0px;
+  }
+  
+
+}
