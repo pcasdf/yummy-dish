@@ -5,15 +5,6 @@
   background-color: #fec368;
   min-height: 100vh;
 
-  .title {
-    position: absolute;
-    top: 2vw;
-
-    @media (max-width: 450px) {
-      top: 4vw;
-    }
-  }
-
   @media (max-width: 450px) {
     padding-top: 12vw;
   }
@@ -40,6 +31,7 @@
 
 .search-bar {
   position: relative;
+  z-index: 1;
   left: 30vw;
   top: 7vw;
   width: 58vw;
