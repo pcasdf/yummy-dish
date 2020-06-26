@@ -1,12 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react';
-import './search.styles.scss';
-
 import { AccountBox, FavoriteBorder, Favorite } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
-import Account from '../account/account.component';
-import { UserContext } from '../../contexts/user.context';
-import { signinUser } from '../../services/users';
-import yummylogo from './yummylogo.png';
+import Account from '../../account/account.component';
+import { UserContext } from '../../../contexts/user.context';
+import { signinUser } from '../../../services/users';
+import { ReactComponent as YummySVG } from '../../../assets/YummyDishLogo.svg';
+import './header.styles.scss';
 
 const SearchHeader = ({ children }) => {
   const { setUser } = useContext(UserContext);
@@ -30,12 +29,12 @@ const SearchHeader = ({ children }) => {
   console.log(children);
 
   return (
-    <div>
+    <div className='search-header'>
       {showModal && <Account {...{ setShowModal, showModal }} />}
       <div className='sheader-wrapper-search'>
         <div className='stopHeader'>
           <Link to='/'>
-            <img src={yummylogo} className='simgleft' alt='Logo' />
+            <YummySVG className='yummy-logo' />
           </Link>
 
           <div className='sicons-right'>

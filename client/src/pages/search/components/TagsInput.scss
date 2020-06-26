@@ -10,14 +10,18 @@
     flex: 1;
     border: none;
     width: 284px;
-    height: 30px;
+    height: 40px;
     font-size: 14px;
     padding: 4px 0 0 0;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
     border: solid 1px #dcdcdc;
     border-radius: 5px;
+    padding-left: 5px;
     &:focus {
       outline: transparent;
+    }
+    &::placeholder {
+      padding-left: 5px;
     }
   }
 }

@@ -1,22 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-
-import { Link } from 'react-router-dom';
-
+import { useLocation, Link } from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Popover from '@material-ui/core/Popover';
 
 import detailsJSON from '../../data/details-1.json';
-import TagsInput from './TagsInput';
-import Pricing from './Pricing';
-import PrepTime from './PrepTime';
-import Skill from './Skill';
-
+import TagsInput from './components/TagsInput';
+import Pricing from './components/Pricing';
+import PrepTime from './components/PrepTime';
+import Skill from './components/Skill';
+import SearchHeader from './components/header.component';
 import './search.styles.scss';
-import SearchHeader from './search.header.component';
-import Footer from '../../components/footer/footer.component';
 
 function Search(props) {
   const [tags, setTags] = useState([]);

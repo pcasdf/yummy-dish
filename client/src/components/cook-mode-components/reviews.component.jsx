@@ -34,16 +34,20 @@ const Reviews = () => {
     4.5: '😋',
     5: '😍'
   };
+
   const handleInputChange = (e) => {
     const { value } = e.target;
     setReview(value);
   };
+
   const handleRatingChange = (e, newRating) => {
     setRating(newRating);
   };
+
   const handleHoverChange = (e, newHover) => {
     setHover(newHover);
   };
+
   const handleClick = async (e) => {
     e.preventDefault();
     if (user) {
@@ -70,6 +74,7 @@ const Reviews = () => {
       });
     }
   };
+
   const handleAddRecipeClick = () => {
     if (user) {
       setModal(!modal);
@@ -81,9 +86,11 @@ const Reviews = () => {
       });
     }
   };
+
   const handleSnackClose = () => {
     setSnack({ ...snack, open: false });
   };
+
   const handleReviewDelete = async (e) => {
     e.preventDefault();
     try {
@@ -93,6 +100,7 @@ const Reviews = () => {
       console.log(err);
     }
   };
+
   let body;
   if (createdReview) {
     const { comment, rating } = createdReview.data;

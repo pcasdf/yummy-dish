@@ -1,5 +1,5 @@
 import React, { createRef } from 'react';
-import './search.styles.scss';
+import './skill.styles.scss';
 
 class Skill extends React.Component {
   state = {
@@ -69,9 +69,8 @@ class Skill extends React.Component {
           onChange={this.handlePricingSlide}
         />
 
-        <div ref={this.sliderValue} ></div>
-          {this.getPricingData(this.state.priceInput)}
-        
+        <div ref={this.sliderValue}></div>
+        {this.getPricingData(this.state.priceInput)}
 
         {this.getPricingData(this.state.priceOutput.plan1, 0)}
 
