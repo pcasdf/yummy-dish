@@ -13,10 +13,8 @@
     }
     .srefineButton {
       display: flex;
-
       width: 90px;
       height: 40px;
-
       border: #ffffff;
       background-color: #ff891c;
       color: white;
@@ -133,29 +131,24 @@
 @media screen and (min-width: 800px) {
   .all {
     background-color: #fec368;
-  }
-
-  .ssearchResults {
-    width: 100%;
-    width: 440px;
-    margin: 50px auto;
-    .ssearchImage {
-      width: 443.5px;
-      height: 177.1px;
-      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    }
-    .srectangle {
+    .ssearchResults {
+      width: 100%;
+      margin: 50px auto;
       display: flex;
-      justify-content: flex-start;
-      border: solid 1px rgba(176, 174, 174, 0.28);
-      background-color: rgba(245, 253, 252, 0.9);
-      font-family: Raleway;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: -0.3px;
-      color: #131313;
-      border-radius: 3px;
-      padding-bottom: 8px;
+      .ssearchImage {
+        width: 35%;
+        height: 35%;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      }
+      .srectangle {
+        display: flex;
+        justify-content: flex-start;
+        font-family: Raleway;
+        font-weight: 500;
+        letter-spacing: -0.3px;
+        border-radius: 3px;
+        padding-bottom: 8px;
+      }
     }
   }
 
@@ -164,17 +157,12 @@
     justify-content: center;
   }
 
-  .sheadersearchbar {
-    display: flex;
-    justify-content: center;
-  }
-
   .sright {
     padding-bottom: 165px;
     padding-left: 30px;
   }
 
-  .sMuiSvgIcon-root {
+  .MuiSvgIcon-root {
     width: 10vw !important;
     height: 10vw !important;
   }
