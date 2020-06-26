@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Popover from '@material-ui/core/Popover';
+import { ThemeContext } from '../../contexts/theme.context';
 
 import detailsJSON from '../../data/details-1.json';
 import TagsInput from './components/TagsInput';
@@ -100,9 +101,10 @@ function Search(props) {
   }, [tags]);
 
   let location = useLocation();
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <div className='all'>
+    <div style={{ background: theme.background }} className='all'>
       <div className='ssearchHeader'>
         <SearchHeader>
           <div className='ssearchBarWithButton'>
@@ -157,7 +159,7 @@ function Search(props) {
         {searchResults.map((item) => (
           <>
             <div className='ssearchResults'>
-              <div className='srectangle'>{item.title}</div>
+              <div style={{ color: theme.text }} className='srectangle'>{item.title}</div>
               <Link to={`/recipes/${item.id}`}>
                 <div
                   className='ssearchImage'
