@@ -225,9 +225,6 @@ const RecipeDetail = () => {
           </div>
         </div>
         {body}
-        <div className='footer'>
-          <Footer />
-        </div>
       </div>
       <Footer></Footer>
     </div>
