@@ -11,6 +11,7 @@ import Review from '../../components/review/review.component';
 import { getReviews } from '../../services/reviews';
 import { ReactComponent as Icon } from '../../assets/star.svg';
 import { ReactComponent as ChefIcon } from '../../assets/chef.svg';
+import Footer from '../../components/footer/footer.component';
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -87,9 +88,7 @@ const RecipeDetail = () => {
         </Link>
       </div>
       <div className='print-directions' onClick={() => window.print()}>
-        <Link >
-          Print Directions
-        </Link>
+        <Link>Print Directions</Link>
       </div>
       <span className='title'>{title}</span>
       <div className='duration'>
@@ -214,6 +213,9 @@ const RecipeDetail = () => {
           </div>
         </div>
         {body}
+        <div className='footer'>
+          <Footer />
+        </div>
       </div>
     </div>
   );
