@@ -1,8 +1,5 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import './tabs.styles.scss';
-import Data from '../../data/details-1.json';
-import { UserContext } from '../../contexts/user.context';
 
 import {
   ExpansionPanel,
@@ -10,17 +7,22 @@ import {
   ExpansionPanelDetails
 } from '@material-ui/core/';
 
-const Tabs = ({ children, bookmarks, index }) => {
+import './tabs.styles.scss';
+import Data from '../../data/details-1.json';
+import { UserContext } from '../../contexts/user.context';
+
+const Tabs = ({ children, data, index }) => {
   const { user } = useContext(UserContext);
-  const stuff = [];
-  if (bookmarks) {
-    bookmarks.forEach((bookmark) => {
-      const filtered = user.bookmarks.filter(
-        (each) => each.category === children
-      );
-      filtered.forEach((item) => {
-        if (+item.recipe === bookmark.id) stuff.push(bookmark);
-      });
+
+  let stuff = [];
+  if (data) {
+    let filtered = user.bookmarks.filter((each) => each.category === children);
+
+    filtered = filtered.filter((each) => data.includes(+each.recipe));
+
+    filtered.forEach((each) => {
+      const data = Data.find((item) => item.id === +each.recipe);
+      stuff.push(data);
     });
   }
 

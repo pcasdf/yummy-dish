@@ -24,28 +24,39 @@ const BookmarkModal = ({ setModal, id }) => {
   const handleAddCategory = async (event) => {
     event.preventDefault();
     if (category.length > 3) {
-      const updated = { ...user, categories: [...user.categories, category] };
-      await updateUser(user._id, updated);
-      setUser(updated);
-      setCategory('');
+      if (!user.categories.includes(category)) {
+        const updated = { ...user, categories: [...user.categories, category] };
+        await updateUser(user._id, updated);
+        setUser(updated);
+        setCategory('');
+      }
     }
   };
 
   const handleSave = async (each) => {
-    const updated = {
-      ...user,
-      bookmarks: [
-        ...user.bookmarks,
-        {
-          recipe: id,
-          category: each
-        }
-      ]
-    };
-    const response = await updateUser(user._id, updated);
-    setUser(updated);
-    setOpen(true);
-    console.log(response);
+    console.log(user.bookmarks);
+    const prevRecipe = user.bookmarks.filter((item) => item.recipe === id);
+    console.log(prevRecipe);
+    const existingBookmark = prevRecipe.find((item) => item.category === each);
+    if (!existingBookmark) {
+      const updated = {
+        ...user,
+        bookmarks: [
+          ...user.bookmarks,
+          {
+            recipe: id,
+            category: each
+          }
+        ]
+      };
+      const response = await updateUser(user._id, updated);
+      setUser(updated);
+      setOpen(true);
+      console.log('success');
+    }
+    if (existingBookmark) {
+      console.log('already there');
+    }
   };
 
   return (
@@ -67,14 +78,16 @@ const BookmarkModal = ({ setModal, id }) => {
             />
           </Snackbar>
           <span>My Recipe Box</span>
-          <form onSubmit={handleAddCategory}>
-            <input
-              value={category}
-              placeholder='...category'
-              onChange={handleChange}
-            />
-            <button>ADD CATEGORY</button>
-          </form>
+          {user.categories.length < 10 && (
+            <form onSubmit={handleAddCategory}>
+              <input
+                value={category}
+                placeholder='...category'
+                onChange={handleChange}
+              />
+              <button>ADD CATEGORY</button>
+            </form>
+          )}
           <div className='categories'>
             {user &&
               user.categories.map((each) => (

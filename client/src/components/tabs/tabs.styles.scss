@@ -1,19 +1,18 @@
 .outerContainer {
   color: #fff;
+
   .scroll-panel {
     display: flex;
     overflow: scroll;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    padding: 10vw 5vw;
-
-    .image-container {
-      flex: auto;
-    }
+    padding: 6vh 4vw;
   }
+
   .category {
     font-size: 3vw;
     padding: 2vw;
   }
+
   .image {
     height: 30vh;
     width: 30vh;

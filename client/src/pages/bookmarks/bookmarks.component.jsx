@@ -9,44 +9,62 @@ import { UserContext } from '../../contexts/user.context';
 import Data from '../../data/details-1.json';
 import { ThemeContext } from '../../contexts/theme.context';
 
-
 const Bookmarks = () => {
   const { user } = useContext(UserContext);
-  const [localBookmarks, setLocalBookmarks] = useState([]);
   const [input, setInput] = useState('');
+  const [bookmarks, setBookmarks] = useState({});
+  const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
-    const stuff = [];
+    const stuff = {};
+    const filteredKeys = [];
+
     if (user) {
       user.bookmarks.forEach((item) => {
-        const data = Data.find((recipe) => recipe.id === +item.recipe);
-        stuff.push(data);
+        const recipe = Data.find((each) => each.id === +item.recipe);
+        stuff[item.recipe] = recipe;
+        filteredKeys.push(+item.recipe);
       });
-      setLocalBookmarks(stuff);
     }
-  }, [user]);
+
+    setFiltered(filteredKeys);
+    setBookmarks(stuff);
+  }, []);
 
   const handleChange = (e) => {
     const { value } = e.target;
-    setInput(value);
-    const stuff = [];
-    user.bookmarks.forEach((item) => stuff.push(+item.recipe));
-    const filteredData = Data.filter((data) => stuff.includes(data.id));
-    setLocalBookmarks(
-      filteredData.filter((data) => data.title.toLowerCase().includes(value))
+    setInput(value.toLowerCase());
+
+    let filteredValues = [];
+    let filteredKeys = [];
+
+    for (let key in bookmarks) {
+      filteredValues.push(bookmarks[key]);
+    }
+
+    filteredValues = filteredValues.filter((item) =>
+      item.title.toLowerCase().includes(value)
     );
-    console.log(
-      filteredData.filter((data) => data.title.toLowerCase().includes(value))
-    );
+
+    filteredValues.forEach((item) => filteredKeys.push(item.id));
+
+    setFiltered(filteredKeys);
   };
+
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div style={{ background: theme.bookmarkBackground }} className='bookmark-page'>
+    <div
+      style={{ background: theme.bookmarkBackground }}
+      className='bookmark-page'
+    >
       <Header className='bookmarkHeader' style={{ backgroundColor: '#fec368' }}>
         <span className='title'>My Recipes</span>
       </Header>
-      <div style={{ background: theme.bookmarkBackground }}  className='search-bar'>
+      <div
+        style={{ background: theme.bookmarkBackground }}
+        className='search-bar'
+      >
         <Paper component='form' className='search-wrapper'>
           <Search
             style={{
@@ -70,7 +88,9 @@ const Bookmarks = () => {
       <div className='labels'>
         {user &&
           user.categories.map((category, index) => (
-            <Tabs index={index} bookmarks={localBookmarks}>{category}</Tabs>
+            <Tabs index={index} data={filtered}>
+              {category}
+            </Tabs>
           ))}
       </div>
       <div className='footer'>

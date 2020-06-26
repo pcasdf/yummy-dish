@@ -1,10 +1,9 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import './account.styles.scss';
 import { createUser, signinUser } from '../../services/users';
 import { UserContext } from '../../contexts/user.context';
-import { Link } from 'react-router-dom';
-import AllReviews from '../reviews/allReviews.component';
 import { ThemeContext } from '../../contexts/theme.context';
 
 const Account = ({
@@ -16,6 +15,7 @@ const Account = ({
 }) => {
   const { user, setUser } = useContext(UserContext);
   const [signingUp, setSigningUp] = useState(false);
+  const { push } = useHistory();
 
   const [input, setInput] = useState({
     email: '',
@@ -174,10 +174,12 @@ const Account = ({
           >
             LOGOUT
           </button>
-          <Link to='/reviews'>
-            <p>MY REVIEWS</p>
-            {/* <AllReviews/> */}
-          </Link>
+          <button
+            onClick={() => push('/reviews')}
+            style={{ background: theme.loginBtn }}
+          >
+            MY REVIEWS
+          </button>
         </div>
       )}
     </div>
