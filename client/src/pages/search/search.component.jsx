@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -70,7 +70,8 @@ function Search(props) {
     data.forEach((item) => {
       if (
         tags.reduce(
-          (acc, curr) => acc && item.title.toLowerCase().includes(curr),
+          (acc, curr) =>
+            acc && item.title.toLowerCase().includes(curr.toLowerCase()),
           true
         )
       ) {
@@ -86,7 +87,8 @@ function Search(props) {
       searchResults.forEach((item) => {
         if (
           tags.reduce(
-            (acc, curr) => acc && item.title.toLowerCase().includes(curr),
+            (acc, curr) =>
+              acc && item.title.toLowerCase().includes(curr.toLowerCase()),
             true
           )
         ) {
@@ -97,9 +99,8 @@ function Search(props) {
     } else {
       setSearchResults(details);
     }
+    // eslint-disable-next-line
   }, [tags]);
-
-  let location = useLocation();
 
   return (
     <div className='all'>
@@ -141,6 +142,7 @@ function Search(props) {
                 <Typography component='legend'>Rating</Typography>
               </div>
               <Rating
+                className='ratings'
                 name='simple-controlled'
                 value={value}
                 onChange={(event, newValue) => {
@@ -154,8 +156,8 @@ function Search(props) {
             </button>
           </div>
         </Popover>
-        {searchResults.map((item) => (
-          <>
+        {searchResults.map((item, index) => (
+          <React.Fragment key={index}>
             <div className='ssearchResults'>
               <div className='srectangle'>{item.title}</div>
               <Link to={`/recipes/${item.id}`}>
@@ -165,7 +167,7 @@ function Search(props) {
                 />
               </Link>
             </div>
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>

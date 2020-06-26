@@ -52,6 +52,7 @@ const Prep = ({ id }) => {
       subs[item.name] = await handleSubstitution(item.name);
     });
     setSubstitutes(subs);
+    // eslint-disable-next-line
   }, []);
   const { theme } = useContext(ThemeContext);
 

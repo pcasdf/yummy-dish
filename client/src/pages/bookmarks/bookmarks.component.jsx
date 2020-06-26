@@ -29,6 +29,7 @@ const Bookmarks = () => {
 
     setFiltered(filteredKeys);
     setBookmarks(stuff);
+    // eslint-disable-next-line
   }, []);
 
   const handleChange = (e) => {
@@ -88,7 +89,7 @@ const Bookmarks = () => {
       <div className='labels'>
         {user &&
           user.categories.map((category, index) => (
-            <Tabs index={index} data={filtered}>
+            <Tabs key={index} index={index} data={filtered}>
               {category}
             </Tabs>
           ))}

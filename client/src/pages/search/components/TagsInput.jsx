@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './TagsInput.scss';
 
 const TagsInput = ({ tags, setTags }) => {
@@ -23,7 +23,7 @@ const TagsInput = ({ tags, setTags }) => {
           <li key={index} className='tag'>
             <span className='tag-title'>{tag}</span>
             <span className='tag-close-icon' onClick={() => removeTags(index)}>
-              x
+              X
             </span>
           </li>
         ))}

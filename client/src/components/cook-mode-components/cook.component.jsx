@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect} from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { FormControlLabel, Checkbox } from '@material-ui/core';
 
 import Data from '../../data/details-1.json';
@@ -11,7 +11,7 @@ import { ThemeContext } from '../../contexts/theme.context';
 
 const Cook = ({ id }) => {
   const recipe = Data.find((each) => each.id === +id);
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [editing, setIsEditing] = useState(false);
   const [instructions, setInstructions] = useState(null);
 
@@ -19,6 +19,7 @@ const Cook = ({ id }) => {
     if (recipe.analyzedInstructions[0]) {
       setInstructions(recipe.analyzedInstructions[0].steps);
     }
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const Cook = ({ id }) => {
     if (userSteps) {
       setInstructions(userSteps.edit);
     }
+    // eslint-disable-next-line
   }, [user]);
 
   const customSteps = [
@@ -43,7 +45,7 @@ const Cook = ({ id }) => {
     if (!editing) {
       setIsEditing(true);
     } else {
-      const response = await updateUser(user._id, {
+      await updateUser(user._id, {
         ...user,
         edits: [
           ...user.edits.filter((item) => item.recipeId !== id),

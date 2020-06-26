@@ -18,7 +18,6 @@ import {
 const AllReviews = () => {
   const { user, setUser } = useContext(UserContext);
   const [reviews, setReviews] = useState([]);
-  const [bookmarks, setBookmarks] = useState([]);
   const [edit, setEdit] = useState(false);
   const [input, setInput] = useState('');
   const [editReview, setEditReview] = useState(null);
@@ -31,7 +30,6 @@ const AllReviews = () => {
     try {
       const allRev = await getUserReviews(user._id);
       setReviews(allRev);
-      setBookmarks(user.bookmarks);
     } catch (error) {
       console.log(error);
     }
@@ -41,6 +39,7 @@ const AllReviews = () => {
     if (user) {
       checkReviews();
     }
+    // eslint-disable-next-line
   }, []);
 
   const handleDelete = async (id) => {

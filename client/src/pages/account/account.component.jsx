@@ -49,7 +49,7 @@ const Account = ({
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = await createUser(newInput);
+      await createUser(newInput);
       setSignedUp(true);
       setLoggedIn(true);
       setShowModal(!showModal);
@@ -74,10 +74,6 @@ const Account = ({
     if (e.target.className === 'mod-container') {
       setShowModal(false);
     }
-  };
-
-  const close = () => {
-    setShowModal(false);
   };
 
   const handleLogout = () => {

@@ -34,6 +34,7 @@ const RecipeDetail = () => {
       setTab(1);
     }
     fetchReviews(id);
+    // eslint-disable-next-line
   }, []);
 
   let tab1, tab2, tab3;
