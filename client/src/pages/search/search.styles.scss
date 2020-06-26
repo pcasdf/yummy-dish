@@ -39,14 +39,8 @@
     }
     .srefineButton {
       display: flex;
-
       width: 90px;
       height: 40px;
-
-      font-size: 18px;
-      align-items: center;
-      font-family: Nunito, sans-serif;
-      font-weight: 400;
       border: #ffffff;
       background-color: #ff891c;
       color: white;
@@ -151,4 +145,50 @@
 .baby-slider-icon {
   height: 18px;
   color: orange;
+}
+
+.rating {
+  .MuiRating-root {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .all {
+    background-color: #fec368;
+    .ssearchResults {
+      width: 100%;
+      margin: 50px auto;
+      display: flex;
+      .ssearchImage {
+        width: 35%;
+        height: 35%;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      }
+      .srectangle {
+        display: flex;
+        justify-content: flex-start;
+        font-family: Raleway;
+        font-weight: 500;
+        letter-spacing: -0.3px;
+        border-radius: 3px;
+        padding-bottom: 8px;
+      }
+    }
+  }
+
+  .ssearchBarWithButton {
+    position: relative;
+    justify-content: center;
+  }
+
+  .sright {
+    padding-bottom: 165px;
+    padding-left: 30px;
+  }
+
+  .MuiSvgIcon-root {
+    width: 10vw !important;
+    height: 10vw !important;
+  }
 }

@@ -6,6 +6,10 @@
     @media (max-width: 480px) {
       height: 160px;
     }
+
+    @media (min-width: 768px) {
+      height: 328px;
+    }
     .stopHeader {
       display: flex;
       justify-content: space-between;
@@ -15,9 +19,6 @@
         width: 10vw !important;
         height: 10vw !important;
         padding: 1vw;
-
-        // padding-top: 1vw;
-        // padding-left: 1vw;
       }
 
       .sicons-right {

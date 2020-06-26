@@ -39,11 +39,23 @@ some link goes here
 
 ### MVP
 
-aMDB will offer search functionality to find details about the requested movie or TV series. The focus of this app is on the interactivity of the interface, allowing for a pleasant user experience. It should be responsive, with most components offering dynamic interaction.
+- Yummy Dish allows user to browse recipes and search recipes
+- Users will have the ability to register accounts and sign in to their account
+- Users can save recipes and leave comments after signing in
+- Users can browse saved recipes in my-recieps-page
+- Users can view recipe details and print in recipe-details-page
+- Users can go from recipe-details-page to cook-mode-page
+- Prep steps and directions are broken down in code-mode page, users can check off steps as they go.
+- Users can create/view/delete a review in cook-mode-page
+- Users can read/update/delete reviews in my-reviews-page
 
 <br>
 
 #### Goals
+
+- have fully functioning app
+- seamless user experience
+- everything you see works the way they are expected to
 
 <br>
 
@@ -54,6 +66,8 @@ aMDB will offer search functionality to find details about the requested movie o
 | React Router | _Allow for routing to different pages of the app without page reload_ |
 | Material UI  | _Nice UI component library for more stremalined interface_            |
 |    Axios     | _Nice library for making HTTP requests_                               |
+|   mongoose   | _library to make backend easier_                                      |
+| jsonwebtoken | _library for user authentication_                                     |
 
 <br>
 
@@ -86,6 +100,7 @@ src
             |__ homepage
             |__ recipe
             |__ search
+                  |__search-components
       |__ services/
             |__ apiConfig
             |__ users
@@ -123,8 +138,7 @@ src
 
 ### Post-MVP
 
-- _Add user account and auth capabilities._
-- _Add a watch list._
+- _more styling_
 
 <br>
 
@@ -134,26 +148,144 @@ src
 
 ### Code Showcase
 
-This is an event handler function that I had previously written with 4x the amount of code, but Mike helped me refactor it down to the much simpler and more efficient version that's shown here.
+For Estevan
 
 ```
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-    const target = event.target.innerText;
-    if (lastChecked === '') {
-      setChecked({
-        ...checked,
-        [target]: true
+  const handleApply = () => {
+    const filtered = filterSearch(details);
+    const filteredResults = filtered
+      .filter(
+        (detail) =>
+          parseInt(priceInputValue) * 100 < detail.pricePerServing &&
+          detail.pricePerServing < (parseInt(priceInputValue) + 1) * 100
+      )
+      .filter(
+        (detail) =>
+          (parseInt(prepTime) + 1) * 30 >
+          parseInt(detail.preparationMinutes) + parseInt(detail.cookingMinutes)
+      )
+      .filter(
+        (detail) =>
+          (parseInt(skillLevel) + 1) * 10 > detail.extendedIngredients.length
+      )
+      .filter(
+        (detail) =>
+          detail.spoonacularScore <= value * 20 + 10 &&
+          detail.spoonacularScore >= value * 19
+      );
+    setSearchResults(filteredResults);
+  };
+```
+
+For Peter
+
+```
+ const filterSearch = (data) => {
+    let next = [];
+    data.forEach((item) => {
+      if (
+        tags.reduce(
+          (acc, curr) =>
+            acc && item.title.toLowerCase().includes(curr.toLowerCase()),
+          true
+        )
+      ) {
+        next.push(item);
+      }
+    });
+    return next;
+  };
+```
+
+For Kate
+
+```
+  const labels = {
+    0.5: '💩',
+    1: '🤮',
+    1.5: '🤢',
+    2: '🤬',
+    2.5: '👎',
+    3: '😐',
+    3.5: '👌',
+    4: '👍',
+    4.5: '😋',
+    5: '😍'
+  };
+```
+
+For Olu
+
+```
+const toggleTheme = (number) => {
+    if (number === 1) {
+      setTheme({
+        header: ‘#FEC368’,
+        background: ‘#CBF3F0’,
+        bookmarkBackground: ‘#FEC368’,
+        snacks: ‘#EFFBFA’,
+        text: ‘black’,
+        recipeBoxShadow: ‘-1px 1px 14px -4px rgba(0,0,0,0.75)‘,
+        seeMyRecipeBtn: ‘#FEC368’,
+        loginBtn: ‘#F89A1C’,
+        recipeText: ‘#8E8E8E’,
+        cookModeFooter: ‘`${footerColor}`‘,
+        prepBG: ‘#CBF3F0’,
+        cookBG: ‘ADD6B7’
+      });
+    } else if (number === 2) {
+      setTheme({
+        header: ‘#424242’,
+        background: ‘#212121’,
+        bookmarkBackground: ‘#212121’,
+        snacks: ‘#444’,
+        text: ‘#F5F5F5’,
+        recipeBoxShadow: ‘-1px 1px 14px -4px rgba(255,255,255,1)‘,
+        seeMyRecipeBtn: ‘#FEC368’,
+        loginBtn: ‘#F89A1C’,
+        recipeText: ‘#F7F7F7’,
+        cookModeFooter: ‘#424242’,
+        prepBG: ‘#212121’,
+        cookBG: ‘#B1B1B1’
       });
     } else {
-      setChecked({
-        ...checked,
-        [lastChecked]: false,
-        [target]: true
+      setTheme({
+        header: ‘#00665C’,
+        background: ‘#515151’,
+        bookmarkBackground: ‘#515151’,
+        snacks: ‘#444’,
+        text: ‘#F5F5F5’,
+        recipeBoxShadow: ‘-1px 1px 14px -4px rgba(255,255,255,1)‘,
+        seeMyRecipeBtn: ‘#FC8B56’,
+        loginBtn: ‘#FC8B56’,
+        recipeText: ‘#CFCFCF’,
+        cookModeFooter: ‘#00665C’,
+        prepBG: ‘#515151’,
+        cookBG: ‘#B1B1B1’
       });
     }
-    setLastChecked(target);
   };
+```
+
+For Wannamaker
+
+```
+const checkReviews = async () => {
+    if (user) {
+      try {
+        const allRev = await getUserReviews(
+        user._id)
+        console.log(allRev)
+        setReviews(allRev)
+         console.log(reviews)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+  useEffect(() => {
+    checkReviews()
+  }, [])
 ```
 
 ### Code Issues & Resolutions
