@@ -289,5 +289,3 @@ const checkReviews = async () => {
 ```
 
 ### Code Issues & Resolutions
-
-This project was a tremendous learning experience in using Material UI, setting up dynamic routes, and properly structuring my component hierarchy to take advantage of the routes that I had set up. I didn't stumble across any major issues during development, but I had to read a lot of documentation to learn how to use some of the libraries that I ended up using for transition effects.

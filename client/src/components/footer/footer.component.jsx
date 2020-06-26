@@ -18,7 +18,7 @@ const Footer = () => {
         seeMyRecipeBtn: '#FEC368',
         loginBtn: '#F89A1C',
         recipeText: '#8E8E8E',
-        cookModeFooter: '`${footerColor}`',
+        cookModeFooter: 'footerColor',
         prepBG: '#cbf3f0',
         cookBG: 'ADD6B7'
       });
@@ -36,7 +36,6 @@ const Footer = () => {
         cookModeFooter: '#424242',
         prepBG: '#212121',
         cookBG: '#B1B1B1'
-
       });
     } else {
       setTheme({
@@ -52,7 +51,6 @@ const Footer = () => {
         cookModeFooter: '#00665C',
         prepBG: '#515151',
         cookBG: '#B1B1B1'
-
       });
     }
   };

@@ -11,6 +11,27 @@
     margin-top: 10.667vw;
   }
 
+  @media (max-width: 800px) and (min-width: 500px) and (min-height: 900px) {
+    height: 100%;
+
+    Footer {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .snacks {
+      height: 20vh;
+    }
+
+    .scroller {
+      height: 40vh;
+      div {
+        height: 30vh;
+        width: 40vh;
+      }
+    }
+  }
+
   @media (max-width: 480px) {
     padding-top: 10vw;
 

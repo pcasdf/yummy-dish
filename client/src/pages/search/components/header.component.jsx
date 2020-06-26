@@ -25,6 +25,7 @@ const SearchHeader = ({ children }) => {
 
   useEffect(() => {
     checkLoggedIn();
+    // eslint-disable-next-line
   }, []);
 
   return (

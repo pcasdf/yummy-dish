@@ -1,20 +1,51 @@
-.all {
-  width: 100vw;
+.sapplyButton {
+  width: 95px;
+  height: 29px;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background-color: #fc8b56;
+  color: #ffffff;
+  margin: 10px;
+  border: 0px;
+}
 
+.ratings {
+  .MuiSvgIcon-root {
+    height: 50px !important;
+    width: 50px !important;
+  }
+}
+
+.all {
+  width: 100%;
   .ssearchHeader {
     background-color: #fec368;
     width: 100%;
     .ssearchBarWithButton {
       display: flex;
-      margin: 4vh auto;
       width: 90%;
+      margin: 4vh auto;
       justify-content: center;
       align-items: center;
+
+      @media (min-width: 1000px) {
+        position: relative;
+        bottom: 4vw;
+      }
+
+      @media (max-width: 1000px) {
+        bottom: 2vw;
+      }
     }
     .srefineButton {
       display: flex;
       width: 90px;
       height: 40px;
+
+      font-size: 18px;
+      align-items: center;
+      font-family: Nunito, sans-serif;
+      font-weight: 400;
       border: #ffffff;
       background-color: #ff891c;
       color: white;
@@ -31,48 +62,52 @@
 
     .popover {
       display: flex;
-      justify-content: center;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
       .sslider {
         color: #ff9f1c;
         display: flex;
         flex-direction: column;
-      }
-      .sapplyButton {
-        width: 95px;
-        height: 29px;
-        border-radius: 5px;
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-        background-color: #fc8b56;
-        color: #ffffff;
-        margin: auto;
-        margin-bottom: 10px;
-        border: none;
       }
     }
 
     .ssearchResults {
       display: flex;
       width: 100%;
-      flex-direction: column;
-      margin: 2vw;
+      flex-flow: row wrap;
+
       .srectangle {
         display: flex;
         justify-content: flex-start;
         font-family: Raleway;
-        font-size: 5vw;
+        font-size: 4vw;
         font-weight: 500;
         color: #888888;
         border-radius: 3px;
-        padding-bottom: 8px;
+        padding-bottom: 5px;
       }
       .ssearchImage {
         width: 90vw;
-        height: 60vw;
+        height: 45vw;
         background-size: cover;
         background-position: center;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-        margin-bottom: 3.3vw;
+        margin-bottom: 7vw;
+      }
+
+      @media (min-width: 480px) {
+        width: 40%;
+        align-items: flex-end;
+
+        .srectangle {
+          font-size: 1.7vw;
+        }
+
+        .ssearchImage {
+          width: 36vw;
+          height: 18vw;
+        }
       }
     }
   }
@@ -95,22 +130,17 @@
   background-color: white;
 }
 
-.sMuiSvgIcon-root {
-  width: 15vw !important;
-  height: 15vw !important;
-}
-
 .slider-w-pics {
   display: flex;
   .MuiSvgIcon-root {
     color: #fc8b56;
-    height: 5vw !important;
-    width: 5vw !important;
+    height: 40px !important;
+    width: 40px !important;
   }
 
   .icon {
-    height: 5vw !important;
-    width: 5vw !important;
+    height: 40px !important;
+    width: 40px !important;
     fill: #fc8b56;
     padding-right: 1px;
     padding-left: 1px;
@@ -120,50 +150,4 @@
 .baby-slider-icon {
   height: 18px;
   color: orange;
-}
-
-.rating {
-  .MuiRating-root {
-    width: 50%;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  .all {
-    background-color: #fec368;
-    .ssearchResults {
-      width: 100%;
-      margin: 50px auto;
-      display: flex;
-      .ssearchImage {
-        width: 35%;
-        height: 35%;
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-      }
-      .srectangle {
-        display: flex;
-        justify-content: flex-start;
-        font-family: Raleway;
-        font-weight: 500;
-        letter-spacing: -0.3px;
-        border-radius: 3px;
-        padding-bottom: 8px;
-      }
-    }
-  }
-
-  .ssearchBarWithButton {
-    position: relative;
-    justify-content: center;
-  }
-
-  .sright {
-    padding-bottom: 165px;
-    padding-left: 30px;
-  }
-
-  .MuiSvgIcon-root {
-    width: 10vw !important;
-    height: 10vw !important;
-  }
 }

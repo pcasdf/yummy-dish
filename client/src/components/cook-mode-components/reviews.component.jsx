@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import { Rating } from '@material-ui/lab/';
 import { Star } from '@material-ui/icons';
 import { Box, Snackbar, SnackbarContent } from '@material-ui/core';

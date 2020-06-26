@@ -48,7 +48,7 @@ const BookmarkModal = ({ setModal, id }) => {
           }
         ]
       };
-      const response = await updateUser(user._id, updated);
+      await updateUser(user._id, updated);
       setUser(updated);
       setOpen(true);
     }

@@ -28,7 +28,7 @@ const CookModePage = () => {
         review: false
       });
     }
-  }, [window.innerWidth]);
+  }, []);
   const handlePreviousClick = (e) => {
     e.preventDefault();
     if (steps.cook) {
@@ -69,6 +69,7 @@ const CookModePage = () => {
   let body;
   let previous;
   let next;
+  // eslint-disable-next-line
   let footerColor;
   if (steps.review && steps.prep && steps.cook) {
     body = (
@@ -116,7 +117,6 @@ const CookModePage = () => {
       </p>
     );
     next = <p>Skip to Cook</p>;
-    footerColor = '#2ec4b6';
   }
   const { theme } = useContext(ThemeContext);
 

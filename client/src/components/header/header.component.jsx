@@ -18,7 +18,7 @@ import { ThemeContext } from '../../contexts/theme.context';
 import { signinUser } from '../../services/users';
 
 const Header = ({ children }) => {
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const { theme } = useContext(ThemeContext);
   const [showModal, setShowModal] = useState(false);
   const [signedUp, setSignedUp] = useState(false);
@@ -40,6 +40,7 @@ const Header = ({ children }) => {
 
   useEffect(() => {
     checkLoggedIn();
+    // eslint-disable-next-line
   }, []);
 
   return (
