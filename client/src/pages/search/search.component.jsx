@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
@@ -13,6 +13,7 @@ import TagsInput from './TagsInput';
 import Pricing from './Pricing';
 import PrepTime from './PrepTime';
 import Skill from './Skill';
+import { ThemeContext } from '../../contexts/theme.context';
 
 import './search.styles.scss';
 import SearchHeader from './search.header.component';
@@ -105,15 +106,16 @@ function Search(props) {
   }, [tags]);
 
   let location = useLocation();
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <div className='all'>
+    <div style={{ background: theme.background }} className='all'>
       <div className='ssearchHeader'>
         <SearchHeader>
           <div className='ssearchBarWithButton'>
             <TagsInput tags={tags} setTags={setTags}></TagsInput>
 
-            <button className='srefineButton' onClick={handleClick}>
+            <button style={{ background: theme.header }} className='srefineButton' onClick={handleClick}>
               Refine ^
             </button>
           </div>
@@ -165,7 +167,7 @@ function Search(props) {
         {searchResults.map((item) => (
           <>
             <div className='ssearchResults'>
-              <div className='srectangle'>{item.title}</div>
+              <div style={{ background: theme.background, color: theme.text }} className='srectangle'>{item.title}</div>
               <Link to={`/recipes/${item.id}`}>
                 <div
                   className='ssearchImage'

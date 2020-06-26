@@ -8,6 +8,7 @@
     height: 24vw;
     margin: 3vw 3vw 1vw;
     overflow: hidden;
+    box-shadow: -1px 1px 14px -4px rgba(0,0,0,0.75);
 
     .bgImage {
       width: 100%;
@@ -20,6 +21,7 @@
         transform: scale(1.05);
         transition: transform 3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
         overflow: hidden;
+        
       }
     }
 

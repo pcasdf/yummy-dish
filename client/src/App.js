@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Homepage from './pages/homepage/homepage.component';
@@ -8,10 +8,13 @@ import RecipeDetail from './pages/recipe/recipe.component';
 import CookModePage from './pages/cook-mode/cook-mode.component';
 import Search from './pages/search/search.component';
 import AllReviews from './pages/reviews/allReviews.component';
+import { ThemeContext } from './contexts/theme.context';
 
 function App() {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className='App'>
+    <div style={{ background: theme.background }} className='App'>
       <Switch>
         <Route exact path='/' component={Homepage} />
         <Route path='/bookmarks' component={Bookmarks} />
