@@ -1,5 +1,7 @@
 import React, { createRef } from 'react';
 
+import { Timer } from '@material-ui/icons';
+
 class PrepTime extends React.Component {
   state = {
     priceInputValue: '1',
@@ -60,14 +62,20 @@ class PrepTime extends React.Component {
     return (
       <div className='sslider'>
         <span>Time</span>
-        
-        <input 
-          className='sslidercolor'
+        <div className="slider-w-pics">
+          <div ><Timer/></div>
+        <input className='sslidercolor'
           type='range'
           ref={this.slider}
           defaultValue={this.state.priceInputValue}
           onChange={this.handlePricingSlide}
-        />
+          />
+          <div >
+            <Timer />
+            <Timer />
+            <Timer/>
+            </div>
+        </div>
 
         <div ref={this.sliderValue} className='spricing-slider-value'></div>
         {this.getPricingData(this.state.priceInput)}

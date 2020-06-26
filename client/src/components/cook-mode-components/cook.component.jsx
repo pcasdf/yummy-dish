@@ -1,10 +1,12 @@
 import React, { useState, useContext, useEffect} from 'react';
 import { FormControlLabel, Checkbox } from '@material-ui/core';
+
 import Data from '../../data/details-1.json';
 import './cook.styles.scss';
+
+import { ReactComponent as Edit } from '../../assets/edit.svg';
 import { updateUser } from '../../services/users';
 import { UserContext } from '../../contexts/user.context';
-import { ReactComponent as Edit } from '../../assets/edit.svg';
 import { ThemeContext } from '../../contexts/theme.context';
 
 const Cook = ({ id }) => {
@@ -12,11 +14,13 @@ const Cook = ({ id }) => {
   const { user, setUser } = useContext(UserContext);
   const [editing, setIsEditing] = useState(false);
   const [instructions, setInstructions] = useState(null);
+
   useEffect(() => {
     if (recipe.analyzedInstructions[0]) {
       setInstructions(recipe.analyzedInstructions[0].steps);
     }
   }, []);
+
   useEffect(() => {
     let userSteps;
     if (user) {
@@ -26,12 +30,14 @@ const Cook = ({ id }) => {
       setInstructions(userSteps.edit);
     }
   }, [user]);
+
   const customSteps = [
     'Chop everything up.',
     'Cook them however you want.',
     'Hope for the best.',
     'Enjoy?'
   ];
+
   const handleEdit = async (event) => {
     event.preventDefault();
     if (!editing) {
@@ -47,6 +53,7 @@ const Cook = ({ id }) => {
       setIsEditing(false);
     }
   };
+
   const handleChange = (event, idx) => {
     const newSteps = [...instructions];
     newSteps.splice(idx, 1, {
@@ -115,23 +122,23 @@ const Cook = ({ id }) => {
                 </div>
               </div>
             ))
-          : !editing && (
-              <div className='directions'>
-                {customSteps.map((item, idx) => (
-                  <div key={idx} className='directions'>
-                    <div className='input-label'>
-                      <FormControlLabel
-                        control={<Checkbox color='primary' />}
-                        style={{ padding: 0 }}
-                      />
-                      <span className='cook-steps'>{item}</span>
-                    </div>
-                  </div>
-                ))}
+          : !editing &&
+            customSteps.map((item, idx) => (
+              <div key={idx} className='directions'>
+                <div className='input-label'>
+                  <label className='cook-steps-label'>
+                    <FormControlLabel
+                      control={<Checkbox color='primary' />}
+                      style={{ padding: 0 }}
+                    />
+                    <span className='cook-steps'>{item}</span>
+                  </label>
+                </div>
               </div>
-            )}
+            ))}
       </div>
     </div>
   );
 };
+
 export default Cook;

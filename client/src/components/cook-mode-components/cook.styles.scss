@@ -3,10 +3,15 @@
   background-color: #add6b7;
   padding: 8px 0;
   flex: 1 1 auto;
+  h1 {
+    margin: 5px 0;
+  }
   .content-container {
     width: 80%;
     text-align: center;
     margin: 10px auto;
+    display: flex;
+    flex-direction: column;
     h2 {
       text-align: left;
       margin: 20px 0 20px 26px;
@@ -16,20 +21,24 @@
       font-weight: 700;
     }
     .directions {
-      display: flex;
-      flex-flow: column wrap;
+      margin: 10px 0;
       font-family: Karma;
       .input-label {
         display: flex;
         text-align: left;
-        text-indent: -3rem;
-        margin-left: 2.5rem;
-        .cook-steps {
-          font-size: 20px;
+
+        .cook-steps-label {
+          display: flex;
+          align-items: flex-start;
+          .cook-steps {
+            font-size: 20px;
+            margin: auto;
+          }
         }
       }
       input {
         flex: auto;
+        width: 50vw;
         font-family: Markel;
         padding: 10px;
         font-size: 20px;

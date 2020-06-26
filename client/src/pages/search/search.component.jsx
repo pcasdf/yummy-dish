@@ -147,13 +147,15 @@ function Search(props) {
               <div className='sslider'>
                 <Typography component='legend'>Rating</Typography>
               </div>
+              <div className="rating">
               <Rating
                 name='simple-controlled'
                 value={value}
                 onChange={(event, newValue) => {
                   setValue(newValue);
                 }}
-              />
+                />
+                </div>
             </Box>
 
             <button className='sapplyButton' onClick={handleApply}>
