@@ -13,7 +13,6 @@ import Review from '../../components/review/review.component';
 import { getReviews } from '../../services/reviews';
 import { ReactComponent as Icon } from '../../assets/star.svg';
 import { ReactComponent as ChefIcon } from '../../assets/chef.svg';
-import Footer from '../../components/footer/footer.component';
 import { ThemeContext } from '../../contexts/theme.context';
 
 const RecipeDetail = () => {
