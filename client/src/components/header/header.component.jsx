@@ -39,11 +39,6 @@ const Header = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log('logged in');
-    console.log(user);
-  }, [loggedIn]);
-
-  useEffect(() => {
     checkLoggedIn();
   }, []);
 

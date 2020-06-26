@@ -26,7 +26,6 @@ const SearchHeader = ({ children }) => {
   useEffect(() => {
     checkLoggedIn();
   }, []);
-  console.log(children);
 
   return (
     <div className='search-header'>

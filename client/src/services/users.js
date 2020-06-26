@@ -30,8 +30,6 @@ export const signinUser = async (user, prevToken) => {
         }
       });
 
-      console.log(response);
-
       return response.data;
     } else {
       const response = await api.get(`/auth`, {
@@ -51,7 +49,6 @@ export const createUser = async (user) => {
   try {
     await api.post('/users', user);
     const response = await signinUser(user);
-    console.log(response);
     return response;
   } catch (error) {
     throw error;

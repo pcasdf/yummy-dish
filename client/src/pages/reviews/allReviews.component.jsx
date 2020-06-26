@@ -32,7 +32,6 @@ const AllReviews = () => {
       const allRev = await getUserReviews(user._id);
       setReviews(allRev);
       setBookmarks(user.bookmarks);
-      console.log(bookmarks);
     } catch (error) {
       console.log(error);
     }
@@ -70,7 +69,6 @@ const AllReviews = () => {
   };
 
   const handleRatingChange = (e) => {
-    console.log(e.target.value);
     setValue(e.target.value);
   };
 
