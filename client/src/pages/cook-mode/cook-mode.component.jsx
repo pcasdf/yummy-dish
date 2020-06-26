@@ -5,13 +5,15 @@ import Reviews from '../../components/cook-mode-components/reviews.component';
 import Header from '../../components/header/header.component';
 import './cook-mode.styles.scss';
 import Data from '../../data/details-1.json';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { ReactComponent as Previous } from '../../assets/previous.svg';
 import { ReactComponent as Next } from '../../assets/next.svg';
 import { ThemeContext } from '../../contexts/theme.context';
 
 const CookModePage = () => {
   const { id } = useParams();
+  const { push } = useHistory();
+
   const recipe = Data.find((each) => each.id === +id);
   const [steps, setSteps] = useState({
     prep: true,
@@ -41,8 +43,11 @@ const CookModePage = () => {
         cook: true,
         review: false
       });
+    } else if (steps.prep) {
+      push(`/recipes/${id}`);
     }
   };
+
   const handleNextClick = (e) => {
     e.preventDefault();
     if (steps.prep) {
@@ -57,6 +62,8 @@ const CookModePage = () => {
         cook: false,
         review: true
       });
+    } else if (steps.review) {
+      push('/');
     }
   };
   let body;
@@ -116,13 +123,16 @@ const CookModePage = () => {
   return (
     <>
       <Header>Cook Mode</Header>
-      <div  className='cookmode-container'>
+      <div className='cookmode-container'>
         <div
           className='header-image'
           style={{ backgroundImage: `url(${recipe.image})` }}
         />
         <div className='body'>{body}</div>
-        <div className='footer' style={{ backgroundColor: theme.cookModeFooter }}>
+        <div
+          className='footer'
+          style={{ backgroundColor: theme.cookModeFooter }}
+        >
           <div className='left' onClick={handlePreviousClick}>
             <Previous className='previous' />
             {previous}

@@ -1,6 +1,6 @@
 import React, { createRef } from 'react';
-import './search.styles.scss';
-import { ReactComponent as ChefIcon } from '../../assets/chef.svg';
+import { ReactComponent as ChefIcon } from '../../../assets/chef.svg';
+import './skill.styles.scss';
 
 class Skill extends React.Component {
   state = {
@@ -62,24 +62,26 @@ class Skill extends React.Component {
     return (
       <div className='sslider'>
         <span>Skill</span>
-        <div className="slider-w-pics">
-          <div><ChefIcon className="icon"/></div>
-        <input className='sslidercolor'
-          type='range'
-          ref={this.slider}
-          defaultValue={this.state.priceInputValue}
-          onChange={this.handlePricingSlide}
+        <div className='slider-w-pics'>
+          <div>
+            <ChefIcon className='icon' />
+          </div>
+          <input
+            className='sslidercolor'
+            type='range'
+            ref={this.slider}
+            defaultValue={this.state.priceInputValue}
+            onChange={this.handlePricingSlide}
           />
           <div>
-            <ChefIcon className="icon"/>
-            <ChefIcon className="icon"/>
-            <ChefIcon className="icon"/>
-            </div>
+            <ChefIcon className='icon' />
+            <ChefIcon className='icon' />
+            <ChefIcon className='icon' />
+          </div>
         </div>
 
-        <div ref={this.sliderValue} ></div>
-          {this.getPricingData(this.state.priceInput)}
-        
+        <div ref={this.sliderValue}></div>
+        {this.getPricingData(this.state.priceInput)}
 
         {this.getPricingData(this.state.priceOutput.plan1, 0)}
 

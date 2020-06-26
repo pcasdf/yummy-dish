@@ -2,30 +2,30 @@
   height: 100%;
   width: 100%;
   background-color: #cbf3f0;
+
+  .modal {
+    display: block;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    .modal-content {
+      margin: 40% auto;
+      padding: 20px;
+      background: #2ec4b6;
+      color: white;
+      border-radius: 10px;
+      width: 40%;
+      height: 50%;
+    }
+  }
   .content-container {
     width: 80%;
     text-align: center;
     margin: 10px auto;
-
-    .modal {
-      display: block;
-      position: fixed;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.4);
-
-      .modal-content {
-        margin: 15% auto;
-        padding: 20px;
-        background: #fec368;
-        color: white;
-        border-radius: 10px;
-        width: 40%;
-        height: 50%;
-      }
-    }
 
     h2 {
       text-align: left;

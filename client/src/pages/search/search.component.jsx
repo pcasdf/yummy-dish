@@ -1,23 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useLocation } from 'react-router-dom';
-
-import { Link } from 'react-router-dom';
-
+import { useLocation, Link } from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Popover from '@material-ui/core/Popover';
 
 import detailsJSON from '../../data/details-1.json';
-import TagsInput from './TagsInput';
-import Pricing from './Pricing';
-import PrepTime from './PrepTime';
-import Skill from './Skill';
+import TagsInput from './components/TagsInput';
+import Pricing from './components/Pricing';
+import PrepTime from './components/PrepTime';
+import Skill from './components/Skill';
 import { ThemeContext } from '../../contexts/theme.context';
-
+import SearchHeader from './components/header.component';
 import './search.styles.scss';
-import SearchHeader from './search.header.component';
-import Footer from '../../components/footer/footer.component';
 
 function Search(props) {
   const [tags, setTags] = useState([]);
@@ -115,7 +110,11 @@ function Search(props) {
           <div className='ssearchBarWithButton'>
             <TagsInput tags={tags} setTags={setTags}></TagsInput>
 
-            <button style={{ background: theme.header }} className='srefineButton' onClick={handleClick}>
+            <button
+              style={{ background: theme.header }}
+              className='srefineButton'
+              onClick={handleClick}
+            >
               Refine ^
             </button>
           </div>
@@ -147,15 +146,15 @@ function Search(props) {
               <div className='sslider'>
                 <Typography component='legend'>Rating</Typography>
               </div>
-              <div className="rating">
-              <Rating
-                name='simple-controlled'
-                value={value}
-                onChange={(event, newValue) => {
-                  setValue(newValue);
-                }}
+              <div className='rating'>
+                <Rating
+                  name='simple-controlled'
+                  value={value}
+                  onChange={(event, newValue) => {
+                    setValue(newValue);
+                  }}
                 />
-                </div>
+              </div>
             </Box>
 
             <button className='sapplyButton' onClick={handleApply}>
@@ -167,7 +166,12 @@ function Search(props) {
         {searchResults.map((item) => (
           <>
             <div className='ssearchResults'>
-              <div style={{ background: theme.background, color: theme.text }} className='srectangle'>{item.title}</div>
+              <div
+                style={{ background: theme.background, color: theme.text }}
+                className='srectangle'
+              >
+                {item.title}
+              </div>
               <Link to={`/recipes/${item.id}`}>
                 <div
                   className='ssearchImage'

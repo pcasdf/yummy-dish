@@ -1,0 +1,31 @@
+.search-header {
+  .sheader-wrapper-search {
+    background-image: url(https://images.unsplash.com/photo-1560131324-71022d71ee4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+    height: 238px;
+
+    @media (max-width: 480px) {
+      height: 160px;
+    }
+    .stopHeader {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1vw;
+      .yummy-logo {
+        width: 10vw !important;
+        height: 10vw !important;
+        // padding-top: 1vw;
+        // padding-left: 1vw;
+      }
+
+      .sicons-right {
+        display: flex;
+        justify-content: center;
+      }
+      .sheadersearchbar {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}

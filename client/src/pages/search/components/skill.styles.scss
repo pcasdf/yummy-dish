@@ -1,0 +1,11 @@
+.sslider {
+  color: #ff9f1c;
+  display: flex;
+  flex-direction: column;
+  .slidercolor {
+    width: 76px;
+    height: 2px;
+    border-radius: 9px;
+    background-color: #a3a3a3;
+  }
+}
