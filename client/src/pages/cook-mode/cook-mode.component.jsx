@@ -117,7 +117,6 @@ const CookModePage = () => {
       </p>
     );
     next = <p>Skip to Cook</p>;
-    footerColor = '#2ec4b6';
   }
   const { theme } = useContext(ThemeContext);
 

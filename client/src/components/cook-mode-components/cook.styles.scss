@@ -26,10 +26,14 @@
       .input-label {
         display: flex;
         text-align: left;
-
-        .cook-steps-label {
-          display: flex;
-          align-items: flex-start;
+      }
+      .cook-steps-label {
+        display: flex;
+        align-items: flex-start;
+        .MuiSvgIcon-root {
+          color: #888888;
+          margin: 0;
+          padding: 0;
           .cook-steps {
             font-size: 20px;
             margin: auto;
@@ -55,6 +59,13 @@
       width: 18px;
       height: 18px;
       color: #000;
+    }
+    @media only screen and (min-width: 1024px) {
+      .directions {
+        .cook-steps-label {
+          font-size: 30px;
+        }
+      }
     }
   }
 }
