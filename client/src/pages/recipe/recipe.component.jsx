@@ -52,7 +52,6 @@ const RecipeDetail = () => {
   }
 
   const recipe = details.find((item) => item.id === +id);
-  console.log(recipe);
 
   const {
     title,
@@ -195,8 +194,6 @@ const RecipeDetail = () => {
   const toggleBookmarkModal = () => {
     if (user) {
       setModal(!modal);
-    } else {
-      console.log('log in');
     }
   };
   const { theme } = useContext(ThemeContext);

@@ -8,7 +8,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error: '));
 
 const authenticateUser = async (req, res) => {
   try {
-    console.log('authenticating');
     const user = await User.findById(req.user.id);
     res.json(user);
   } catch (err) {

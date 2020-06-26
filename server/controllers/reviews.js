@@ -15,7 +15,6 @@ const createReview = async (req, res) => {
 const getReviews = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id);
     const reviews = await Review.find({ recipe: id });
     res.status(201).json(reviews);
   } catch (error) {
@@ -26,7 +25,6 @@ const getReviews = async (req, res) => {
 const getUserReviews = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id);
     const reviews = await Review.find({ user: id });
     res.status(201).json(reviews);
   } catch (error) {
@@ -62,17 +60,22 @@ const deleteReview = async (req, res) => {
 };
 
 const updateReview = async (req, res) => {
-  const { id } = req.params
-  await Review.findByIdAndUpdate(id, req.body, { new: true }, (error, review) => {
-    if (error) {
-      return res.status(500).json({ error: error.message });
+  const { id } = req.params;
+  await Review.findByIdAndUpdate(
+    id,
+    req.body,
+    { new: true },
+    (error, review) => {
+      if (error) {
+        return res.status(500).json({ error: error.message });
+      }
+      if (!review) {
+        return res.status(404).json({ message: 'Review not found' });
+      }
+      res.status(200).json(review);
     }
-    if (!review) {
-      return res.status(404).json({ message: 'Review not found' });
-    }
-    res.status(200).json(review);
-  });
-}
+  );
+};
 
 module.exports = {
   createReview,

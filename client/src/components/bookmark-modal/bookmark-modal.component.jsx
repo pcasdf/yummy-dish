@@ -34,10 +34,9 @@ const BookmarkModal = ({ setModal, id }) => {
   };
 
   const handleSave = async (each) => {
-    console.log(user.bookmarks);
     const prevRecipe = user.bookmarks.filter((item) => item.recipe === id);
-    console.log(prevRecipe);
     const existingBookmark = prevRecipe.find((item) => item.category === each);
+
     if (!existingBookmark) {
       const updated = {
         ...user,
@@ -52,10 +51,6 @@ const BookmarkModal = ({ setModal, id }) => {
       const response = await updateUser(user._id, updated);
       setUser(updated);
       setOpen(true);
-      console.log('success');
-    }
-    if (existingBookmark) {
-      console.log('already there');
     }
   };
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 let apiUrl;
 
 const apiUrls = {
-  production: 'https://limitless-oasis-87308.herokuapp.com/api',
+  production: 'https://frozen-tor-57426.herokuapp.com/api',
   development: 'http://localhost:5000/api'
 };
 
