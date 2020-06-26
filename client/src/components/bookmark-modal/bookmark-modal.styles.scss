@@ -17,11 +17,12 @@
 
     .modal-content {
       margin: 15% auto;
-      padding: 20px;
-      background: #fec368;
+      padding: 30px;
+      background: rgba(222, 246, 244, 0.85);
+      text-align: center;
       color: white;
       border-radius: 10px;
-      width: 40%;
+      width: 35%;
       height: 50%;
 
       @media (max-width: 480px) {
@@ -33,9 +34,13 @@
         bottom: 10%;
       }
 
+      span {
+        font-weight: 500;
+        font-family: Markel;
+      }
+
       form {
         display: flex;
-        flex-direction: column;
         justify-content: center;
       }
 
@@ -43,7 +48,6 @@
       button {
         padding: 10px;
         font-size: 16px;
-        width: 80%;
         margin: 10px auto;
         border-radius: 4px;
         border: none;
@@ -53,23 +57,31 @@
         }
       }
 
+      input {
+        flex: 3;
+      }
+
       button {
-        background-color: rgb(255, 159, 28);
-        width: 80%;
+        flex: 1;
+      }
+
+      button {
+        background-color: #fec368;
         color: white;
       }
 
       .categories {
-        padding: 20px 10px;
+        padding: 20px 0px;
         display: flex;
         flex-flow: row wrap;
 
         .category {
+          color: white;
           font-size: 12px;
           border-radius: 3px;
           padding: 12px;
           margin: 10px;
-          background-color: rgb(255, 159, 28);
+          background-color: #fec368;
 
           &:hover {
             cursor: pointer;

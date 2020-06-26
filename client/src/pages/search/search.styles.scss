@@ -151,6 +151,34 @@
   flex-direction: column;
 }
 
+.slider-w-pics {
+  display: flex;
+  .MuiSvgIcon-root {
+    color: #fc8b56;
+    height: 5vw !important;
+    width: 5vw !important;
+  }
+
+  .icon {
+    height: 5vw !important;
+    width: 5vw !important;
+    fill: #fc8b56;
+    padding-right: 1px;
+    padding-left: 1px;
+  }
+}
+
+.baby-slider-icon {
+  height: 18px;
+  color: orange;
+}
+
+.rating {
+  .MuiRating-root {
+    width: 50%;
+  }
+}
+
 @media screen and (min-width: 800px) {
   .all {
     background-color: #fec368;
