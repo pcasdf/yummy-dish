@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Data from '../../data/details-1.json';
 import './prep.styles.scss';
 import { FormControlLabel, Checkbox } from '@material-ui/core';
 import axios from 'axios';
+import { ThemeContext } from '../../contexts/theme.context';
+
 
 const Prep = ({ id }) => {
   const recipe = Data.find((each) => each.id === +id);
@@ -14,10 +16,11 @@ const Prep = ({ id }) => {
     };
     getSubstitutions();
   }, []);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <div className='prep-container'>
-      <div className='content-container'>
+    <div style={{ background: theme.prepBG }} className='prep-container'>
+      <div style={{ color: theme.recipeText }} className='content-container'>
         <h1>Prep</h1>
         <h2>INGREDIENTS:</h2>
         {recipe.extendedIngredients.map((each, idx) => (

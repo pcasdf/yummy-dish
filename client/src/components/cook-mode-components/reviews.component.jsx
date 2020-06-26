@@ -7,8 +7,12 @@ import { ReactComponent as Heart } from '../../assets/heart.svg';
 import './reviews.styles.scss';
 import { createReview, deleteReview } from '../../services/reviews';
 import { UserContext } from '../../contexts/user.context';
-import BookmarkModal from '../../components/bookmark-modal/bookmark-modal.component';
+import BookmarkModal from '../../components/bookmark-modal/bookmark-modal.component'
+import { ThemeContext } from '../../contexts/theme.context';
+
 const Reviews = () => {
+  const { theme } = useContext(ThemeContext);
+
   const { id } = useParams();
   const { user } = useContext(UserContext);
   const [review, setReview] = useState('');
@@ -162,10 +166,10 @@ const Reviews = () => {
           placeholder='Write A Review...'
           rows='2'
         />
-        <button onClick={handleClick} className='add-review-button'>
+        <button style={{ background: theme.loginBtn }} onClick={handleClick} className='add-review-button'>
           SUBMIT REVIEW
         </button>
-        <button className='add-recipe-button' onClick={handleAddRecipeClick}>
+        <button style={{ background: theme.loginBtn }} className='add-recipe-button' onClick={handleAddRecipeClick}>
           ADD TO MY RECIPES
           <Heart className='heart-icon' />
         </button>
@@ -182,7 +186,7 @@ const Reviews = () => {
           />
         </Snackbar>
         <h2>OR</h2>
-        <button onClick={handleShare} className='share-button'>
+        <button style={{ background: theme.loginBtn }} onClick={handleShare} className='share-button'>
           SHARE
         </button>
         <Snackbar
@@ -201,7 +205,7 @@ const Reviews = () => {
   }
 
   return (
-    <div className='reviews-container'>
+    <div style={{ background: theme.snacks }}className='reviews-container'>
       <input
         className='hidden-input'
         ref={(input) => (thisInput = input)}

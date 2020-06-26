@@ -7,6 +7,8 @@ import { Search } from '@material-ui/icons';
 import { InputBase, Paper } from '@material-ui/core/';
 import { UserContext } from '../../contexts/user.context';
 import Data from '../../data/details-1.json';
+import { ThemeContext } from '../../contexts/theme.context';
+
 
 const Bookmarks = () => {
   const { user } = useContext(UserContext);
@@ -37,13 +39,14 @@ const Bookmarks = () => {
       filteredData.filter((data) => data.title.toLowerCase().includes(value))
     );
   };
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <div className='bookmark-page'>
+    <div style={{ background: theme.bookmarkBackground }} className='bookmark-page'>
       <Header className='bookmarkHeader' style={{ backgroundColor: '#fec368' }}>
         <span className='title'>My Recipes</span>
       </Header>
-      <div className='search-bar'>
+      <div style={{ background: theme.bookmarkBackground }}  className='search-bar'>
         <Paper component='form' className='search-wrapper'>
           <Search
             style={{

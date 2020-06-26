@@ -6,11 +6,15 @@ import './recipe.styles.scss';
 import { UserContext } from '../../contexts/user.context';
 import details from '../../data/details-1.json';
 import Header from '../../components/header/header.component';
+import Footer from '../../components/footer/footer.component';
+
 import BookmarkModal from '../../components/bookmark-modal/bookmark-modal.component';
 import Review from '../../components/review/review.component';
 import { getReviews } from '../../services/reviews';
 import { ReactComponent as Icon } from '../../assets/star.svg';
 import { ReactComponent as ChefIcon } from '../../assets/chef.svg';
+import { ThemeContext } from '../../contexts/theme.context';
+
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -80,7 +84,7 @@ const RecipeDetail = () => {
   }
 
   const Recipe = () => (
-    <div className='info'>
+    <div style={{ background: theme.background }} className='info'>
       <div className='cook-mode'>
         <Link to={`/cookmode/${id}`}>
           <p>COOK MODE</p>
@@ -91,15 +95,15 @@ const RecipeDetail = () => {
           <p>PRINT</p>
         </Link>
       </div>
-      <span className='title'>{title}</span>
+      <span style={{color: theme.recipeText }} className='title'>{title}</span>
       <div className='duration'>
         <div className='length'>
           <Timer />
-          <span>{readyInMinutes} min.</span>
+          <span style={{color: theme.recipeText }} >{readyInMinutes} min.</span>
         </div>
         <div className='difficulty'>
           <ChefIcon className='icon' />
-          <span>{difficulty}</span>
+          <span style={{color: theme.recipeText }}>{difficulty}</span>
         </div>
         <div className='stars'>
           <Icon className='icon' />
@@ -112,7 +116,7 @@ const RecipeDetail = () => {
       </div>
       <div className='instructions'>
         <div>
-          <span>YOU WILL NEED:</span>
+          <span style={{color: theme.recipeText }} >YOU WILL NEED:</span>
           <ul className='ingredient-list'>
             {extendedIngredients.map(({ original }, idx) => (
               <li key={idx}>{original}</li>
@@ -120,7 +124,7 @@ const RecipeDetail = () => {
           </ul>
         </div>
         <div>
-          <span>DIRECTIONS:</span>
+          <span style={{color: theme.recipeText }}>DIRECTIONS:</span>
           <ol>
             {analyzedInstructions[0] &&
               analyzedInstructions[0].steps &&
@@ -134,15 +138,15 @@ const RecipeDetail = () => {
   );
 
   const Story = () => (
-    <div className='story'>
-      <span className='label'>STORY</span>
+    <div style={{ background: theme.background }} className='story'>
+      <span style={{color: theme.recipeText }} className='label'>STORY</span>
       <div className='summary' dangerouslySetInnerHTML={{ __html: summary }} />
     </div>
   );
 
   const Reviews = () => (
-    <div className='reviews'>
-      <span className='label'>REVIEWS</span>
+    <div  style={{ background: theme.background, color: theme.recipeText }} className='reviews'>
+      <span style={{color: theme.recipeText }} className='label'>REVIEWS</span>
       <div className='ratings'>
         {reviews.map((each, idx) => (
           <Review key={idx} {...each} />
@@ -189,13 +193,14 @@ const RecipeDetail = () => {
       console.log('log in');
     }
   };
+  const { theme } = useContext(ThemeContext);
 
   return (
     <div className='recipe-component'>
       {modal && <BookmarkModal setModal={setModal} id={id} />}
       <Header>Recipe</Header>
-      <div className='recipe-detail'>
-        <div className='header' style={{ backgroundImage: `url(${image})`,
+      <div  style={{ color: theme.recipeText }}className='recipe-detail'>
+        <div  className='header' style={{ backgroundImage: `url(${image})`,
        }}>
           <FavoriteBorder
             onClick={toggleBookmarkModal}
@@ -203,7 +208,7 @@ const RecipeDetail = () => {
             className='favorite'
           />
           <div className='tabs'>
-            <span style={{ backgroundColor: tab1 }} onClick={() => setTab(1)}>
+            <span  style={{ backgroundColor: tab1 }} onClick={() => setTab(1)}>
               RECIPE
             </span>
             <span style={{ backgroundColor: tab2 }} onClick={() => setTab(2)}>
@@ -216,6 +221,8 @@ const RecipeDetail = () => {
         </div>
         {body}
       </div>
+      <Footer></Footer>
+
     </div>
   );
 };

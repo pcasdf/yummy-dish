@@ -16,7 +16,7 @@ function Homepage() {
   const { theme } = useContext(ThemeContext);
   return (
     <div style={{ background: theme.background }} className='background'>
-      <div className='search-bar'>
+      <div style={{ background: theme.background }} className='search-bar'>
         <Paper
           onClick={() => push('/search')}
           component='form'
@@ -27,8 +27,8 @@ function Homepage() {
         </Paper>
       </div>
       <Header>Yummy Dish</Header>
-      <div className='snacks'>
-        <div className='paragraph'>
+      <div style={{ background: theme.snacks }} className='snacks'>
+        <div style={{ color: theme.text }} className='paragraph'>
           <p>
             Welcome to Yummy Dish
             <br />
@@ -37,13 +37,13 @@ function Homepage() {
         </div>
         <div className='infographic'>
           <Link to='/bookmarks'>
-            <button type='button' className='See-My-Recipe-Button'>
+            <button style={{ background: theme.seeMyRecipeBtn }} type='button' className='See-My-Recipe-Button'>
               See My Recipe Box!
             </button>
           </Link>
         </div>
       </div>
-      <div className='scroller'>
+      <div style={{ background: theme.snacks }} className='scroller'>
         {recipes.map(
           (item, idx) =>
             idx < 24 && (

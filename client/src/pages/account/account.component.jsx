@@ -3,6 +3,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import './account.styles.scss';
 import { createUser, signinUser } from '../../services/users';
 import { UserContext } from '../../contexts/user.context';
+import { ThemeContext } from '../../contexts/theme.context';
+
 
 const Account = ({
   setShowModal,
@@ -83,16 +85,17 @@ const Account = ({
     setLoggedOut(true);
     setShowModal(!showModal);
   };
+  const { theme } = useContext(ThemeContext);
 
   return (
     <div className='mod-container' onClick={closeModal}>
       {!user && (
         <>
-          <div className='forms'>
+          <div style={{ background: theme.snacks }} className='forms'>
             <div className='no-account'>
               <p>No account?</p>
             </div>
-            <button onClick={handleSignup} className='signup-button'>
+            <button style={{ background: theme.loginBtn }} onClick={handleSignup} className='signup-button'>
               SIGNUP
             </button>
 
@@ -119,7 +122,7 @@ const Account = ({
                   value={newInput.password}
                   onChange={handleNewChange}
                 />
-                <button className='login'>REGISTER</button>
+                <button style={{ background: theme.loginBtn }} className='login'>REGISTER</button>
               </form>
             )}
 
@@ -141,7 +144,7 @@ const Account = ({
                 onChange={handleChange}
               />
 
-              <button disabled={signingUp} className='login'>
+              <button style={{ background: theme.loginBtn }} disabled={signingUp} className='login'>
                 LOGIN
               </button>
             </form>
@@ -149,8 +152,8 @@ const Account = ({
         </>
       )}
       {user && (
-        <div className='forms'>
-          <button className='logout' onClick={handleLogout}>
+        <div style={{ background: theme.background }} className='forms'>
+          <button  style={{ background: theme.loginBtn }} className='logout' onClick={handleLogout}>
             LOGOUT
           </button>
         </div>

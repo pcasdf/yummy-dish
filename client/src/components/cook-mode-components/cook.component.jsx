@@ -1,10 +1,12 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect} from 'react';
 import { FormControlLabel, Checkbox } from '@material-ui/core';
 import Data from '../../data/details-1.json';
 import './cook.styles.scss';
 import { updateUser } from '../../services/users';
 import { UserContext } from '../../contexts/user.context';
 import { ReactComponent as Edit } from '../../assets/edit.svg';
+import { ThemeContext } from '../../contexts/theme.context';
+
 const Cook = ({ id }) => {
   const recipe = Data.find((each) => each.id === +id);
   const { user, setUser } = useContext(UserContext);
@@ -53,8 +55,10 @@ const Cook = ({ id }) => {
     });
     setInstructions(newSteps);
   };
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className='cook-container'>
+    <div style={{ background: theme.cookBG }} className='cook-container'>
       <div className='content-container'>
         <h1>Cook</h1>
         <h3 onClick={handleEdit}>
