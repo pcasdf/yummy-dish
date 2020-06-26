@@ -1,5 +1,5 @@
 .cookmode-container {
-  padding-top: 8vh;
+  padding-top: 6vh;
   font-family: Raleway;
   display: flex;
   min-height: 100vh;
@@ -27,10 +27,9 @@
       width: 100%;
       display: flex;
       flex-flow: row wrap;
-      
+
       .desktop-prep {
         width: 35%;
-        
       }
       .desktop-cook {
         display: flex;
@@ -38,7 +37,6 @@
       }
       .desktop-review {
         width: 100%;
-
       }
     }
   }
@@ -51,7 +49,7 @@
     background-color: #ff9f1c;
     display: flex;
     justify-content: space-between;
-    box-shadow: -1px 1px 14px -8px rgba(0,0,0,0.75);
+    box-shadow: -1px 1px 14px -8px rgba(0, 0, 0, 0.75);
 
     @media (max-width: 480px) {
       height: 10vh;
