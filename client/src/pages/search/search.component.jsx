@@ -4,7 +4,6 @@ import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Popover from '@material-ui/core/Popover';
-
 import detailsJSON from '../../data/details-1.json';
 import TagsInput from './components/TagsInput';
 import Pricing from './components/Pricing';

@@ -99,7 +99,9 @@ const Header = ({ children }) => {
       </Snackbar>
       <header style={{ background: theme.header }} className='header-wrapper'>
         <span className='left'>
-          <Search className='SearchIcon' style={{ paddingRight: '1rem' }} />
+          <Link to='/search'>
+            <Search className='SearchIcon' style={{ paddingRight: '1rem' }} />
+          </Link>
           <span className='PageTitle'>{children}</span>
         </span>
         <span className='right'>
