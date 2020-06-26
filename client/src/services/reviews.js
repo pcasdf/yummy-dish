@@ -7,6 +7,13 @@ export const getReviews = async (id) => {
   } catch (error) {}
 };
 
+export const getUserReviews = async (id) => {
+  try {
+    const response = await api.get(`/reviews/users/${id}`);
+    return response.data;
+  } catch (error) {}
+};
+
 export const getReview = async (id) => {
   try {
     const response = await api.get(`/reviews/${id}`);

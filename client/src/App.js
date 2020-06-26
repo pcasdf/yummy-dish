@@ -7,6 +7,7 @@ import Account from './pages/account/account.component';
 import RecipeDetail from './pages/recipe/recipe.component';
 import CookModePage from './pages/cook-mode/cook-mode.component';
 import Search from './pages/search/search.component';
+import AllReviews from './pages/reviews/allReviews.component';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/cookmode/:id' component={CookModePage} />
         <Route path='/search' component={Search} />
         <Route path='/recipes/:id' component={RecipeDetail} />
+        <Route exact path='/reviews' component={AllReviews} />
       </Switch>
     </div>
   );

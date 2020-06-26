@@ -3,6 +3,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import './account.styles.scss';
 import { createUser, signinUser } from '../../services/users';
 import { UserContext } from '../../contexts/user.context';
+import { Link } from 'react-router-dom'
+import AllReviews from '../reviews/allReviews.component';
 
 const Account = ({
   setShowModal,
@@ -153,6 +155,10 @@ const Account = ({
           <button className='logout' onClick={handleLogout}>
             LOGOUT
           </button>
+           <Link to="/reviews">
+            <p>MY REVIEWS</p>
+            {/* <AllReviews/> */}
+            </Link>
         </div>
       )}
     </div>
