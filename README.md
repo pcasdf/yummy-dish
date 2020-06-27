@@ -19,7 +19,7 @@
 ### Overview
 
 **Yummy Dish**<br>
-some link goes here
+[Yummy Dish](http://tan-wrench.surge.sh/)
 
 **Yummy Dish** is a recipe app.
 
@@ -67,7 +67,9 @@ some link goes here
 | Material UI  | _Nice UI component library for more stremalined interface_            |
 |    Axios     | _Nice library for making HTTP requests_                               |
 |   mongoose   | _library to make backend easier_                                      |
-| jsonwebtoken | _library for user authentication_                                     |
+|    morgan    | _logger for express server_                                           |
+| jsonwebtoken | _library for creating auth tokens_                                    |
+|    bcrypt    | _library for hashing of passwords_                                    |
 
 <br>
 
@@ -289,3 +291,5 @@ const checkReviews = async () => {
 ```
 
 ### Code Issues & Resolutions
+
+The project as a whole was never too difficult or complicated to tackle at any point, but the filter functions and sorting algorithms required some thought. The team as a whole can agree that we all learned a lot about Sass/CSS/Flexbox during development.
