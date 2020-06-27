@@ -27,11 +27,11 @@
 
 ### Wireframes
 
-![Main](src/assets/mockups/main.jpg)
+![Main](main.jpg)
 
 - Main
 
-![Detail](src/assets/mockups/detail.jpg)
+![Detail](detail.jpg)
 
 - Detail
 
