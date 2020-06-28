@@ -1,3 +1,13 @@
+.search-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    @media (max-width: 480px) {
+        padding-top: 60px;
+    }
+}
+
 .sapplyButton {
   width: 95px;
   height: 29px;
@@ -22,8 +32,6 @@
     background-color: #fec368;
     width: 100%;
     .ssearchBarWithButton {
-      display: flex;
-      width: 90%;
       margin: 4vh auto;
       justify-content: center;
       align-items: center;
@@ -35,6 +43,15 @@
 
       @media (max-width: 1000px) {
         bottom: 2vw;
+      }
+
+      @media (min-width: 480px) {
+          display: flex;
+      }
+
+      @media (max-width: 480px) {
+          position: relative;
+          bottom: 30px;
       }
     }
     .srefineButton {
@@ -49,6 +66,13 @@
       border: #ffffff;
       background-color: #ff891c;
       color: white;
+
+      @media (max-width: 480px) {
+          position: relative;
+          left: 67vw;
+          bottom: 67px;
+          border-radius: 3px;
+      }
     }
   }
 
@@ -76,6 +100,7 @@
       display: flex;
       width: 100%;
       flex-flow: row wrap;
+      margin: 0;
 
       .srectangle {
         display: flex;
@@ -87,6 +112,7 @@
         border-radius: 3px;
         padding-bottom: 5px;
       }
+      
       .ssearchImage {
         width: 90vw;
         height: 45vw;
@@ -94,6 +120,10 @@
         background-position: center;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
         margin-bottom: 7vw;
+      }
+
+      a {
+          margin: 0;
       }
 
       @media (min-width: 480px) {

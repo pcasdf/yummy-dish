@@ -4,7 +4,7 @@
   .modal {
     display: block;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     width: 100vw;
     height: 100%;
     overflow: auto;
@@ -84,6 +84,7 @@
           padding: 12px;
           margin: 10px;
           background-color: #fec368;
+          overflow-wrap: anywhere;
 
           &:hover {
             cursor: pointer;

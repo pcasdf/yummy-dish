@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -12,8 +12,10 @@ import Skill from './components/Skill';
 import SearchHeader from './components/header.component';
 import './search.styles.scss';
 
-function Search(props) {
+function Search() {
   const [tags, setTags] = useState([]);
+  const { push } = useHistory();
+  const { pathname } = useLocation();
 
   const [searchResults, setSearchResults] = useState([]);
   const [priceInputValue, setpriceInputValue] = useState(1);
@@ -81,6 +83,11 @@ function Search(props) {
   };
 
   useEffect(() => {
+    console.log(pathname);
+    if (pathname !== '/search') {
+      push('/search');
+    }
+
     if (tags.length) {
       let next = [];
       searchResults.forEach((item) => {
@@ -155,19 +162,21 @@ function Search(props) {
             </button>
           </div>
         </Popover>
-        {searchResults.map((item, index) => (
-          <React.Fragment key={index}>
-            <div className='ssearchResults'>
-              <div className='srectangle'>{item.title}</div>
-              <Link to={`/recipes/${item.id}`}>
-                <div
-                  className='ssearchImage'
-                  style={{ backgroundImage: `url(${item.image})` }}
-                />
-              </Link>
-            </div>
-          </React.Fragment>
-        ))}
+        <div className='search-body'>
+          {searchResults.map((item, index) => (
+            <React.Fragment key={index}>
+              <div className='ssearchResults'>
+                <div className='srectangle'>{item.title}</div>
+                <Link to={`/recipes/${item.id}`}>
+                  <div
+                    className='ssearchImage'
+                    style={{ backgroundImage: `url(${item.image})` }}
+                  />
+                </Link>
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     </div>
   );

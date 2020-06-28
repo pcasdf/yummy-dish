@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 import '../search/search.styles.scss';
@@ -12,16 +11,11 @@ import { InputBase, Paper } from '@material-ui/core/';
 import { ThemeContext } from '../../contexts/theme.context';
 
 function Homepage() {
-  const { push } = useHistory();
   const { theme } = useContext(ThemeContext);
   return (
     <div style={{ background: theme.background }} className='background'>
       <div style={{ background: theme.background }} className='search-bar'>
-        <Paper
-          onClick={() => push('/search')}
-          component='form'
-          className='search-wrapper'
-        >
+        <Paper component='form' className='search-wrapper'>
           <Search fontSize='small' />
           <InputBase placeholder='Search in your recipes' />
         </Paper>
@@ -37,7 +31,11 @@ function Homepage() {
         </div>
         <div className='infographic'>
           <Link to='/bookmarks'>
-            <button style={{ background: theme.seeMyRecipeBtn }} type='button' className='See-My-Recipe-Button'>
+            <button
+              style={{ background: theme.seeMyRecipeBtn }}
+              type='button'
+              className='See-My-Recipe-Button'
+            >
               See My Recipe Box!
             </button>
           </Link>
