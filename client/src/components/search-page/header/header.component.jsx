@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { AccountBox, FavoriteBorder, Favorite } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
-import Account from '../../account/account.component';
+import Account from '../../../pages/account/account.component';
 import { UserContext } from '../../../contexts/user.context';
 import { signinUser } from '../../../services/users';
 import { ReactComponent as YummySVG } from '../../../assets/YummyDishLogo.svg';

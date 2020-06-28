@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './bookmarks.styles.scss';
-import Tabs from '../../components/tabs/tabs.component';
+import BookmarkTabs from '../../components/boomark-tabs/bookmark-tabs.component';
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 import { Search } from '@material-ui/icons';
@@ -89,9 +89,9 @@ const Bookmarks = () => {
       <div className='labels'>
         {user &&
           user.categories.map((category, index) => (
-            <Tabs key={index} index={index} data={filtered}>
+            <BookmarkTabs key={index} index={index} data={filtered}>
               {category}
-            </Tabs>
+            </BookmarkTabs>
           ))}
       </div>
       <div className='footer'>

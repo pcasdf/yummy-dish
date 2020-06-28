@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Popover from '@material-ui/core/Popover';
 import detailsJSON from '../../data/details-1.json';
-import TagsInput from './components/TagsInput';
-import Pricing from './components/Pricing';
-import PrepTime from './components/PrepTime';
-import Skill from './components/Skill';
-import SearchHeader from './components/header.component';
+import TagsInput from '../../components/search-page/tags-input/tags-input.component';
+import Pricing from '../../components/search-page/pricing/pricing.component';
+import PrepTime from '../../components/search-page/prep-time/prep-time.component';
+import Skill from '../../components/search-page/skills/skills.component';
+import SearchHeader from '../../components/search-page/header/header.component';
 import './search.styles.scss';
+import { UserContext } from '../../contexts/user.context';
 
 function Search() {
-  const [tags, setTags] = useState([]);
+  const { tags, setTags } = useContext(UserContext);
   const { push } = useHistory();
   const { pathname } = useLocation();
 

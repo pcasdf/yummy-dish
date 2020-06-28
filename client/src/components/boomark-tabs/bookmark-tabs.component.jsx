@@ -7,11 +7,11 @@ import {
   ExpansionPanelDetails
 } from '@material-ui/core/';
 
-import './tabs.styles.scss';
+import './bookmark-tabs.styles.scss';
 import Data from '../../data/details-1.json';
 import { UserContext } from '../../contexts/user.context';
 
-const Tabs = ({ children, data, index }) => {
+const BookmarkTabs = ({ children, data, index }) => {
   const { user } = useContext(UserContext);
 
   let stuff = [];
@@ -89,4 +89,4 @@ const Tabs = ({ children, data, index }) => {
   );
 };
 
-export default Tabs;
+export default BookmarkTabs;
